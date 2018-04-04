@@ -9,5 +9,18 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <header>
+        <div id="header_text">
+            HEADER
+        </div>    
+    </header>
     <div id = "container">
+        <div class="menu">
+            <a href="#">Start</a>
+            <a href="#">Console</a>
+            <a href="#">Games</a>
+            <a href="#">accessories</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
         <div id = "content">

@@ -1,3 +1,45 @@
 #container{
-    max-width:1280px;
+    max-width:1360px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 160px 1200px ;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header"
+    "menu main"
+    "menu footer";
 }
+header { grid-area: header; 
+    background-color: blue;
+    height:100px;
+}
+#header_text{
+    width:1360px;
+    height:100%;
+    margin:auto;
+    text-align: center;
+    border:1px solid black;
+}
+.menu { grid-area: menu; 
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height:200px;
+}
+#content { grid-area: main; 
+    background-color: green;
+    height: 100px;
+}
+footer { grid-area: footer; 
+    background-color: yellow;
+    height:100px;
+}
+#footer_text{
+    width:1360px;
+    height:100%;
+    margin:auto;
+    text-align: center;
+    border:1px solid black;
+}
+
+
