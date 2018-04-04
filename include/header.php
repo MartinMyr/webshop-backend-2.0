@@ -26,7 +26,7 @@
                 <a href="#">Console</a>
             </div>     
             <div class="linkDiv">
-                <a href="#">Games</a>
+                <a href="games.php">Games</a>
             </div>
             <div class="linkDiv">
                 <a href="#">Accessories</a>

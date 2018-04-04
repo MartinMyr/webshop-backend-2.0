@@ -2,7 +2,6 @@ body{
     padding:0px;
     margin:0px;
     background-color: black;
-    font-size: 30px;
 }
 #container{
     max-width:1360px;
@@ -61,6 +60,24 @@ footer { grid-area: footer;
     min-height: 700px;
     text-align: center;
 }
-
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    background-color: lightblue;
+    width: 400px;
+    height:400px;
+    margin:20px;
+}
+.cardName{
+    font-size: 30px;
+}
+.gameImg{
+    width:230px;
+    height:140px;
+}
 
 
