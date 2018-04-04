@@ -24,16 +24,6 @@ header { grid-area: header;
     text-align: center;
     border:1px solid black;
 }
-.menu { grid-area: meny; 
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-    height:400px;
-}
-#content { grid-area: main; 
-    background-color: green;
-    min-height: 1000px;
-}
 footer { grid-area: footer; 
     background-color: yellow;
     height:100px;
@@ -45,5 +35,16 @@ footer { grid-area: footer;
     text-align: center;
     border:1px solid black;
 }
+.menu { grid-area: meny; 
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height:400px;
+}
+#content { grid-area: main; 
+    background-color: green;
+    min-height: 1000px;
+}
+
 
 
