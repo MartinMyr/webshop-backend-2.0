@@ -19,7 +19,7 @@
     <div id = "container">
         <div class="menu">
             <div class="linkDiv">
-                <a href="#">Start</a>
+                <a href="index.php">Start</a>
             </div> 
             <div class="linkDiv">  
                 <a href="#">Console</a>
