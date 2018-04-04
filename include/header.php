@@ -16,11 +16,23 @@
     </header>
     <div id = "container">
         <div class="menu">
-            <a href="#">Start</a>
-            <a href="#">Console</a>
-            <a href="#">Games</a>
-            <a href="#">accessories</a>
-            <a href="#">Contact</a>
-            <a href="#">Login</a>
+            <div class="linkDiv">
+                <a href="#">Start</a>
+            </div> 
+            <div class="linkDiv">  
+                <a href="#">Console</a>
+            </div>     
+            <div class="linkDiv">
+                <a href="#">Games</a>
+            </div>
+            <div class="linkDiv">
+                <a href="#">accessories</a>
+            </div>    
+            <div class="linkDiv">
+                <a href="#">Contact</a>
+            </div>
+            <div class="linkDiv">
+                <a href="#">Login</a>
+            </div>    
         </div>
         <div id = "content">
