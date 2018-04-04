@@ -40,13 +40,23 @@ footer { grid-area: footer;
 .menu { grid-area: meny; 
     display: flex;
     flex-direction: column;
-    background-color: red;
-    font-size: 35px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: lightcoral;
+    font-size: 17px;
     height:400px;
+}
+.linkDiv{
+    margin-top:35px;
+    margin-bottom:10px;
+    text-align: center;
+}
+.linkDiv a{
+    text-decoration: None;
 }
 #content { grid-area: main; 
     background-color: green;
     min-height: 1000px;
+    text-align: center;
 }
 
 

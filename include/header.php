@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
     <script src="main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
                 <a href="#">Games</a>
             </div>
             <div class="linkDiv">
-                <a href="#">accessories</a>
+                <a href="#">Accessories</a>
             </div>    
             <div class="linkDiv">
                 <a href="#">Contact</a>
