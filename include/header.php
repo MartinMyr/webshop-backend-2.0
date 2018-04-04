@@ -9,6 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
     <header>
         <div id="header_text">
             HEADER
@@ -24,3 +25,7 @@
             <a href="#">Login</a>
         </div>
         <div id = "content">
+=======
+    <div id="container">
+        <div id="content">
+>>>>>>> 9e15619e3ec87e5be3ef34d4f8e4e6f1a7d6e7c6
