@@ -42,11 +42,12 @@ footer { grid-area: footer;
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
     background-color: lightcoral;
-    font-size: 17px;
+    font-size: 22px;
+    font-weight: 900;
     height:400px;
 }
 .linkDiv{
-    margin-top:35px;
+    margin-top:32px;
     margin-bottom:10px;
     text-align: center;
 }
@@ -54,7 +55,6 @@ footer { grid-area: footer;
     text-decoration: None;
 }
 #content { grid-area: main; 
-    background-color: green;
     min-height: 700px;
     text-align: center;
 }

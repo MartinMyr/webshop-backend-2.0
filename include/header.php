@@ -19,22 +19,22 @@
     <div id = "container">
         <div class="menu">
             <div class="linkDiv">
-                <a href="#">Start</a>
+                <a href="index.php">Start</a>
             </div> 
             <div class="linkDiv">  
-                <a href="#">Console</a>
+                <a href="console.php">Console</a>
             </div>     
             <div class="linkDiv">
                 <a href="games.php">Games</a>
             </div>
             <div class="linkDiv">
-                <a href="#">Accessories</a>
+                <a href="accessories.php">Accessories</a>
             </div>    
             <div class="linkDiv">
-                <a href="#">Contact</a>
+                <a href="contact.php">Contact</a>
             </div>
             <div class="linkDiv">
-                <a href="#">Login</a>
+                <a href="login.php">Login</a>
             </div>    
         </div>
         <div id = "content">
