@@ -26,7 +26,6 @@ header { grid-area: header;
     height:100%;
     margin:auto;
     text-align: center;
-    border:1px solid black;
 }
 footer { grid-area: footer; 
     background-color: yellow;
@@ -37,7 +36,6 @@ footer { grid-area: footer;
     height:100%;
     margin:auto;
     text-align: center;
-    border:1px solid black;
 }
 .menu { grid-area: meny; 
     display: flex;
@@ -79,5 +77,10 @@ footer { grid-area: footer;
     width:230px;
     height:140px;
 }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
 
