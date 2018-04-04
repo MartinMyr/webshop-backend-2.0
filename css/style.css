@@ -28,11 +28,11 @@ header { grid-area: header;
     display: flex;
     flex-direction: column;
     background-color: red;
-    height:200px;
+    height:400px;
 }
 #content { grid-area: main; 
     background-color: green;
-    height: 100%;
+    min-height: 1000px;
 }
 footer { grid-area: footer; 
     background-color: yellow;
