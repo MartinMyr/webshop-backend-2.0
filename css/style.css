@@ -78,8 +78,10 @@ footer { grid-area: footer;
     height:140px;
 }
 .sticky {
+    width:260px;
     position: fixed;
     top: 0;
+
   }
 
 
