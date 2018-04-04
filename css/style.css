@@ -6,8 +6,8 @@
     grid-template-rows: auto;
     grid-template-areas: 
     "header header"
-    "menu main"
-    "menu footer";
+    "meny main"
+    "meny footer";
 }
 header { grid-area: header; 
     background-color: blue;
@@ -20,7 +20,7 @@ header { grid-area: header;
     text-align: center;
     border:1px solid black;
 }
-.menu { grid-area: menu; 
+.menu { grid-area: meny; 
     display: flex;
     flex-direction: column;
     background-color: red;
@@ -28,7 +28,7 @@ header { grid-area: header;
 }
 #content { grid-area: main; 
     background-color: green;
-    height: 100px;
+    height: 100%;
 }
 footer { grid-area: footer; 
     background-color: yellow;
