@@ -12,7 +12,9 @@
 <body>
     <header>
         <div id="header_text">
-            HEADER
+            <div>
+                <img id="logo" src="img/logo.png">
+            </div>
         </div>    
     </header>
     <div id = "container">
