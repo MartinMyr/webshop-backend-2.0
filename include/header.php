@@ -9,5 +9,5 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id = "container">
-        <div id = "content">
+    <div id="container">
+        <div id="content">
