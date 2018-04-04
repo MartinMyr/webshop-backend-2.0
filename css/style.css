@@ -6,7 +6,7 @@ body{
     max-width:1360px;
     margin: auto;
     display: grid;
-    grid-template-columns: 160px 1200px ;
+    grid-template-columns: 200px 1160px ;
     grid-template-rows: auto;
     grid-template-areas: 
     "header header"
