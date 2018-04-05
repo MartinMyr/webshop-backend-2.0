@@ -66,7 +66,8 @@ footer { grid-area: footer;
 .linkDiv a:link{
     text-decoration: None;  
 }
-#content { grid-area: main; 
+#content{
+    grid-area: main; 
     min-height: 700px;
     text-align: center;
 }
@@ -164,11 +165,16 @@ footer { grid-area: footer;
 #loginform{
     margin-left:32vw;
     margin-top:10vh;
-    max-width:200px;
+    max-width:250px;
     text-align: center;
+    background-color:lightblue;
+    border-radius:10%;
+    padding:20px;
+    border:3px solid black;
 }
 .userField{
     display:flex;
+    padding-bottom:15px;
 }
 .userField>input, .passwordField>input{
     height:20px;
