@@ -26,7 +26,6 @@ header { grid-area: header;
     width:1360px;
     height:100%;
     margin:auto;
-    text-align: center;
 }
 footer { grid-area: footer; 
     background-color: yellow;
@@ -106,7 +105,8 @@ footer { grid-area: footer;
 #productButtons{
     display: flex;
     justify-content: space-evenly;
-    margin-top:20px;
+    margin-top:10px;
+    margin-bottom:30px;
 }
 #console, #games ,#accessories{
     width:190px;
