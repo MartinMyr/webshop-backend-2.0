@@ -21,7 +21,7 @@
 
     <div id="newsletter">
         <h2>Sign up for our newsletter NOW!!!</h2>
-        <img src="../img/newsletter.jpg">
+        <img src="./img/newsletter.jpg">
         <form method="post">
             <input type="mail" name="mail" placeholder="Email">
             <input type="checkbox" name="isNewsletterTrue">
