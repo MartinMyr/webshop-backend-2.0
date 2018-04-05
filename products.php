@@ -1,6 +1,11 @@
 <?php
     include 'include/header.php';
 ?>
+<div id="productButtons">
+    <button id="console">Console</button>
+    <button id="games">Games</button>
+    <button id="accessories">Accessories</button>
+</div>
 <div class="cards">
     <div class="card">
         <div class="cardName">
@@ -15,15 +20,13 @@
         <div class="cardPrice">
         199:-
         </div>
-        <div id="number_in_stock">
-            10
+        <div id="numberInStock">
+            Number in stock: 10
         </div>
-        <div class="amount_submit">
-            <form action="games.php" method="post">
-                <input type="number">
-                <input type="submit" value="add to basket">
-            </form>
-        </div>
+        <form action="games.php" method="post">
+            <input type="number" class="amount">
+            <input type="submit" value="add to basket">
+        </form>
     </div>
     <div class="card">
         <div class="cardName">
