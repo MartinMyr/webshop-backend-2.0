@@ -6,7 +6,6 @@
     <button id="games">Games</button>
     <button id="accessories">Accessories</button>
 </div>
-<hr>
 <div class="cards">
     <div class="card">
         <div class="cardName">
