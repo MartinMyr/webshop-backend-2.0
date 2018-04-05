@@ -59,3 +59,10 @@ if(isset($_POST['email'])){
     </form>
 </div> 
 
+
+
+
+<?php
+    include 'include/footer.php'
+?>
+
