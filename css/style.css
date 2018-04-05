@@ -80,11 +80,7 @@ footer { grid-area: footer;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-<<<<<<< HEAD
-    justify-content: space-between;
-=======
     justify-content: center;
->>>>>>> d1c33e657889db0c0b4bc00fc8d7506400063a59
 }
 .card{
     background-color: lightblue;
