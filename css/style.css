@@ -29,8 +29,8 @@ header { grid-area: header;
     margin:auto;
 }
 footer { grid-area: footer; 
-    background-color: yellow;
-    height:100px;
+    background-color: lightblue;
+    height:50px;
 }
 #footer_text{
     width:1360px;

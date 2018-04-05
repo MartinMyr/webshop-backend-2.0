@@ -4,7 +4,7 @@
             
             <footer>
                 <div id="footer_text">
-                    FOOTER
+                &copy; Lazy Boyz
                 </div>
         </footer>
     <script src="script/main.js"></script>
