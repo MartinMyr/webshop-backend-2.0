@@ -15,6 +15,9 @@
         <div class="cardPrice">
         199:-
         </div>
+        <div id="number_in_stock">
+            10
+        </div>
         <div class="amount_submit">
             <form action="games.php" method="post">
                 <input type="number">
