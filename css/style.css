@@ -150,10 +150,27 @@ footer { grid-area: footer;
     background-color: lightcoral;
 }
 
+/*Login page*/
 #loginform{
-    margin-left:30vw;
+    margin-left:32vw;
+    margin-top:10vh;
     max-width:200px;
     text-align: center;
+}
+.userField{
+    display:flex;
+}
+.userField>input, .passwordField>input{
+    height:20px;
+}
+.passwordField{
+    display:flex;
+}
+#login{
+    margin-top:10px;
+}
+.loginIcon{
+    margin-right:10px;
 }
 
 
