@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Super Nintendo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
+    
     <header>
         <div id="header_text">
             <div>
@@ -16,7 +18,23 @@
             </div>
         </div>    
     </header>
-    <div id = "container">
+
+    <div id="newsletter">
+        <h2>Sign up for our newsletter NOW!!!</h2>
+        <img src="../img/newsletter.jpg">
+        <form method="post">
+            <input type="mail" name="mail" placeholder="Email">
+            <input type="checkbox" name="isNewsletterTrue">
+            <button type="submit" class="hideNewsletter">Yes plz</button>
+        </form>
+
+        <button class="hideNewsletter">I Dont want no bloody newsletter</button>
+    </div>
+
+
+
+    <div id="container">
+        
         <div class="menu">
             <div class="linkDiv">
                 <a href="index.php">Start</a>

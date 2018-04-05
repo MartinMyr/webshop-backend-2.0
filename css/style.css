@@ -90,5 +90,17 @@ footer { grid-area: footer;
     height:140px;
 }
 
+/*PopUp Window*/
+#newsletter{
+    margin:auto;
+    margin-left:40vw;
+    width:400px;
+    height:400px;
+    background-color:red;
+    z-index: 99 !important;
+    position: absolute;
+    text-align: center;
+    background-color: lightcoral;
+}
 
 
