@@ -31,11 +31,14 @@ header { grid-area: header;
 footer { grid-area: footer; 
     background-color: lightblue;
     height:50px;
+    border-top:3px solid black;
+    padding-top:10px;
 }
 #footer_text{
     width:1360px;
     height:100%;
     margin:auto;
+    font-size: 20px;
     text-align: center;
 }
 .menu { grid-area: meny; 
@@ -178,5 +181,5 @@ footer { grid-area: footer;
 .loginIcon{
     margin-right:10px;
 }
-
+/*login page*/
 
