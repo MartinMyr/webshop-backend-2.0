@@ -110,7 +110,7 @@ footer { grid-area: footer;
     justify-content: space-evenly;
     margin-top:25px;
     top:0px;
-    left:440px;
+    left:34vw;
 }
 #console, #games ,#accessories{
     width:190px;
@@ -120,6 +120,7 @@ footer { grid-area: footer;
     border:3px solid black;
     margin-left:20px;
     margin-right:20px;
+    background-color: lightgrey;
 } 
 /* PRODUKTKNAPPAR SLUT */
 
