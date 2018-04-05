@@ -57,8 +57,14 @@ footer { grid-area: footer;
     margin-bottom:10px;
     text-align: center;
 }
-.linkDiv a{
+.linkDiv a:hover{
+    color:rgb(141, 4, 4);
+}
+
+.linkDiv a:link{
     text-decoration: None;
+  
+   
 }
 #content { grid-area: main; 
     min-height: 700px;
