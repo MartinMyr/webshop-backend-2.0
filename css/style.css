@@ -1,7 +1,7 @@
 body{
     padding:0px;
     margin:0px;
-    background: url(img/background.jpg);
+    background: url("../img/background.jpg");
 }
 #container{
     max-width:1360px;
