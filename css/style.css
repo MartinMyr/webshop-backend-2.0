@@ -1,4 +1,6 @@
 body{
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding:0px;
     margin:0px;
     background: url("../img/background.jpg");
@@ -14,7 +16,8 @@ body{
     "meny main"
     "meny footer";
 }
-header { grid-area: header; 
+header{ 
+    grid-area: header; 
     height:100px;
     width:100%;
     border-bottom: 3px solid black;
@@ -66,7 +69,9 @@ footer { grid-area: footer;
 .linkDiv a:link{
     text-decoration: None;  
 }
-#content { grid-area: main; 
+#content{
+    
+    grid-area: main; 
     min-height: 700px;
     text-align: center;
 }
@@ -75,7 +80,11 @@ footer { grid-area: footer;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+<<<<<<< HEAD
     justify-content: space-between;
+=======
+    justify-content: center;
+>>>>>>> d1c33e657889db0c0b4bc00fc8d7506400063a59
 }
 .card{
     background-color: lightblue;
@@ -164,11 +173,16 @@ footer { grid-area: footer;
 #loginform{
     margin-left:32vw;
     margin-top:10vh;
-    max-width:200px;
+    max-width:250px;
     text-align: center;
+    background-color:lightblue;
+    border-radius:10%;
+    padding:20px;
+    border:3px solid black;
 }
 .userField{
     display:flex;
+    padding-bottom:15px;
 }
 .userField>input, .passwordField>input{
     height:20px;

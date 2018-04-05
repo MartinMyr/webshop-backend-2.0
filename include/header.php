@@ -13,9 +13,9 @@
     
     <header>
         <div id="header_text">
-            <div>
+            
                 <img id="logo" src="img/logo.png">
-            </div>
+            
         </div>    
     </header>
 
