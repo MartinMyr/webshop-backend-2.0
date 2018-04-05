@@ -72,7 +72,6 @@ footer { grid-area: footer;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
 }
 .card{
     background-color: lightblue;
