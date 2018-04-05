@@ -28,12 +28,12 @@
         while($row = $result->fetch_assoc()){
             echo "<div class='card'>";
             echo "<div class='cardName'>" . $row["productName"] . "</div>";
-            echo "<div class='cardImage'><img src='" . $row["pic"] . "'</div>";
+            echo "<div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>";
             echo "<div class='cardInfo'>" . $row["info"] . "</div>";
             echo "<div class='cardPrice'>Price: " . $row["price"] . ":-</div>";
             echo "<div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>";
             echo "<div class='amount_submit'>";
-            echo "<form action='games.php' method='post'>";
+            echo "<form action='products.php' method='post'>";
             echo "<input type='number' class='amount'>";
             echo "<input type='submit' value='add to basket'>";
             echo "</form>";
@@ -43,7 +43,7 @@
         
 
     } else {
-        echo "Inga gäster inlagda!";
+        echo "error";
     }
     
     ?>
