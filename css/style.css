@@ -7,7 +7,7 @@ body{
     max-width:1360px;
     margin: auto;
     display: grid;
-    grid-template-columns: 260px 1100px ;
+    grid-template-columns: 200px 1160px ;
     grid-template-rows: auto;
     grid-template-areas: 
     "header header"
@@ -17,6 +17,7 @@ body{
 header { grid-area: header; 
     background-color: blue;
     height:100px;
+    width:100%;
 }
 #logo{
     height:90px;
@@ -42,9 +43,14 @@ footer { grid-area: footer;
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
     background-color: lightcoral;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 900;
     height:400px;
+}
+.sticky {
+    width:200px;
+    position: fixed;
+    top: 0;
 }
 .linkDiv{
     margin-top:32px;
@@ -66,9 +72,9 @@ footer { grid-area: footer;
 }
 .card{
     background-color: lightblue;
-    width: 400px;
-    height:400px;
-    margin:20px;
+    width: 350px;
+    height:350px;
+    margin:30px;
 }
 .cardName{
     font-size: 30px;
@@ -77,11 +83,6 @@ footer { grid-area: footer;
     width:230px;
     height:140px;
 }
-.sticky {
-    width:260px;
-    position: fixed;
-    top: 0;
 
-  }
 
 
