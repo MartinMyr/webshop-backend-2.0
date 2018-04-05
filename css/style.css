@@ -15,9 +15,10 @@ body{
     "meny footer";
 }
 header { grid-area: header; 
-    background-color: blue;
     height:100px;
     width:100%;
+    border-bottom: 3px solid black;
+    background-color: lightblue;
 }
 #logo{
     height:90px;
@@ -26,11 +27,10 @@ header { grid-area: header;
     width:1360px;
     height:100%;
     margin:auto;
-    text-align: center;
 }
 footer { grid-area: footer; 
-    background-color: yellow;
-    height:100px;
+    background-color: lightblue;
+    height:50px;
 }
 #footer_text{
     width:1360px;
@@ -42,10 +42,10 @@ footer { grid-area: footer;
     display: flex;
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
-    background-color: lightcoral;
-    font-size: 16px;
+    background-color: lightblue;
+    font-size: 18px;
     font-weight: 900;
-    height:400px;
+    height:300px;
 }
 .sticky {
     width:200px;
@@ -81,6 +81,7 @@ footer { grid-area: footer;
     margin:30px;
     padding:10px;
     border-radius:10%;
+    border:3px solid black;
 }
 .cardName{
     font-size: 30px;
@@ -104,9 +105,12 @@ footer { grid-area: footer;
 
 /* PRODUKTKNAPPAR START */
 #productButtons{
+    position: absolute;
     display: flex;
     justify-content: space-evenly;
-    margin-top:20px;
+    margin-top:25px;
+    top:0px;
+    left:34vw;
 }
 #console, #games ,#accessories{
     width:190px;
@@ -114,6 +118,9 @@ footer { grid-area: footer;
     font-size: 15px;
     font-family: 'Press Start 2P', cursive;
     border:3px solid black;
+    margin-left:20px;
+    margin-right:20px;
+    background-color: lightgrey;
 } 
 /* PRODUKTKNAPPAR SLUT */
 
