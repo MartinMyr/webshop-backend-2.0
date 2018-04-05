@@ -22,14 +22,8 @@
                 <a href="index.php">Start</a>
             </div> 
             <div class="linkDiv">  
-                <a href="console.php">Console</a>
-            </div>     
-            <div class="linkDiv">
-                <a href="games.php">Games</a>
-            </div>
-            <div class="linkDiv">
-                <a href="accessories.php">Accessories</a>
-            </div>    
+                <a href="products.php">Products</a>
+            </div> 
             <div class="linkDiv">
                 <a href="contact.php">Contact</a>
             </div>
