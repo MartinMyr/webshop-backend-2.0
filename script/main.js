@@ -16,11 +16,9 @@ function myFunction() {
 //Slide in newsletter
 if(sessionStorage.getItem('newsletter') == 'true'){
   $("#newsletter").hide();
-  console.log("asd")
 }else{
   $("#newsletter").hide();
   $("#newsletter").slideDown(400);
-  console.log("nono");
 }
 
 $(".hideNewsletter").click(function(){
