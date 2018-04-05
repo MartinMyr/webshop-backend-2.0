@@ -44,6 +44,9 @@ footer { grid-area: footer;
     font-size: 20px;
     text-align: center;
 }
+
+/* MENY START */
+
 .menu { grid-area: meny; 
     display: flex;
     flex-direction: column;
@@ -52,6 +55,7 @@ footer { grid-area: footer;
     font-size: 18px;
     font-weight: 900;
     height:300px;
+    border-bottom-right-radius: 10%;
 }
 .sticky {
     width:200px;
@@ -69,6 +73,9 @@ footer { grid-area: footer;
 .linkDiv a:link{
     text-decoration: None;  
 }
+
+/* MENY SLUT */
+
 #content{
     
     grid-area: main; 
