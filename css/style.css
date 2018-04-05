@@ -29,8 +29,8 @@ header { grid-area: header;
     margin:auto;
 }
 footer { grid-area: footer; 
-    background-color: yellow;
-    height:100px;
+    background-color: lightblue;
+    height:50px;
 }
 #footer_text{
     width:1360px;
@@ -110,7 +110,7 @@ footer { grid-area: footer;
     justify-content: space-evenly;
     margin-top:25px;
     top:0px;
-    left:440px;
+    left:34vw;
 }
 #console, #games ,#accessories{
     width:190px;
@@ -120,6 +120,7 @@ footer { grid-area: footer;
     border:3px solid black;
     margin-left:20px;
     margin-right:20px;
+    background-color: lightgrey;
 } 
 /* PRODUKTKNAPPAR SLUT */
 
@@ -156,10 +157,27 @@ footer { grid-area: footer;
     background-color: lightcoral;
 }
 
+/*Login page*/
 #loginform{
-    margin-left:30vw;
+    margin-left:32vw;
+    margin-top:10vh;
     max-width:200px;
     text-align: center;
+}
+.userField{
+    display:flex;
+}
+.userField>input, .passwordField>input{
+    height:20px;
+}
+.passwordField{
+    display:flex;
+}
+#login{
+    margin-top:10px;
+}
+.loginIcon{
+    margin-right:10px;
 }
 
 
