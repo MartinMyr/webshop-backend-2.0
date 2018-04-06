@@ -46,8 +46,8 @@ function AllProducts(){
 
     /*Insert*/
     function insert(){
-        $sql = "INSERT INTO Citys (landid, stadid)
-        Value('2', 'Jockiboiland')";
+        $sql = "INSERT INTO Citys (landid, stadid, stadname)
+        Value('2', '1', 'Jockiboiland')";
         $this->conn->exec($sql);
     }
     insert();
