@@ -1,5 +1,5 @@
 <?php
-include '.include/classes.php';
+include './include/classes.php';
 
 function connection(){
 
@@ -79,13 +79,14 @@ function allProducts(){
         }
     } 
 
-    function insert(){
-        $sql = "INSERT INTO Citys (stadid, stadnamn, landid)
-        VALUES ('2', 'Jockiboiland', '2')";
+    function insert($namn, $email){
+        $sql = "INSERT INTO Subscribers (namn, email)
+        VALUES ('$namn', '$email')";
         mysqli_query(connection(), $sql);
     }
-    insert();
 
-
-
+    if(isset($_POST["name"]) && isset($_POST["email"]))
+    {
+        insert($_POST["name"],$_POST["email"]);
+    }
 
