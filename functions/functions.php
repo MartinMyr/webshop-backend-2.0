@@ -1,8 +1,6 @@
 <?php
 function connection(){
-    
-}
-function selectedProduct(){
+
     $servername = "localhost";
     $username = "joakimedwardh";
     $password = "x@ZeIbKiSPIr";
@@ -13,6 +11,12 @@ function selectedProduct(){
     if($conn->connect_error){
         die("FEL: " . $conn->connect_error);
     }
+
+    return $conn;
+
+}
+function selectedProduct(){
+    $conn = connection();
 
     $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
     $result = $conn->query($sql);
@@ -42,16 +46,7 @@ function selectedProduct(){
 }
 
 function allProducts(){ 
-    $servername = "localhost";
-    $username = "joakimedwardh";
-    $password = "x@ZeIbKiSPIr";
-    $dbname = "joakimedwardh";
-
-    $conn = new mysqli($servername,$username,$password,$dbname);
-
-    if($conn->connect_error){
-        die("FEL: " . $conn->connect_error);
-    }
+    $conn = connection();
 
     $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products";
     $result = $conn->query($sql);
