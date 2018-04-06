@@ -14,7 +14,7 @@
     <?php
         if (empty($_GET["category"])){
             AllProducts();
-        };
+        }
 
 
     ?>
