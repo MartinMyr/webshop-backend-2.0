@@ -6,7 +6,7 @@
 <div id="productButtons">
     <button id="console">Console</button>
     <button id="games">Games</button>
-    <button id="accessories">Accessories</button>
+    <button id="accessories">Hand controls</button>
 </div>
 <div class="cards">
     <?php
