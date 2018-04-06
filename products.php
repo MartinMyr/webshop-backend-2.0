@@ -13,9 +13,11 @@
 <div class="cards">
     <?php
         if (empty($_GET["category"])){
-            AllProducts();
+            allProducts();
+        }
+        else{
+            selectedProduct();
         };
-
 
     ?>
 </div>
