@@ -8,6 +8,11 @@
         function __construct($name){
             $this->name = $name;
         }    
-    }     
+    }  
+    class Console extends Products{
+        
+    }   
 
 ?>
+
+Klass till databasen (abstrakt)
