@@ -77,3 +77,10 @@ function allProducts(){
             echo "error";
         }
     } 
+
+    function insert(){
+        $sql = "INSERT INTO Citys (stadid, stadnamn, landid)
+        VALUES ('2', 'Jockiboiland', '2')";
+        mysqli_query(connection(), $sql);
+    }
+    insert();
