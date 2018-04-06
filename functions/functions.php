@@ -1,4 +1,6 @@
 <?php
+include './include/classes.php';
+
 function AllProducts(){ 
     $servername = "localhost";
     $username = "joakimedwardh";
@@ -37,4 +39,15 @@ function AllProducts(){
         } else {
             echo "error";
         }
-    } 
+} 
+
+
+
+
+    /*Insert*/
+    function insert(){
+        $sql = "INSERT INTO Citys (landid, stadid)
+        Value('2', 'Jockiboiland')";
+        $this->conn->exec($sql);
+    }
+    insert();
