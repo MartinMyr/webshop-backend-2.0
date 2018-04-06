@@ -172,6 +172,7 @@ footer { grid-area: footer;
     position: absolute;
     text-align: center;
     background-color: lightcoral;
+    display:none;
 }
 
 /*Login page*/
