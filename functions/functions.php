@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 include './include/classes.php';
+=======
+function connection(){
+>>>>>>> parent of ad00525... Update
 
 function AllProducts(){ 
     $servername = "localhost";
