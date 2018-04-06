@@ -19,8 +19,10 @@
 
 -Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
-        År 1992 var Super Nintendo Entertainment System (SNES) årets julklapp och den hetaste produkten på marknaden.
-        Vi har därför bestämt oss för att göra en webbshop i retrostil där det ska säljas SNES, spel till SNES och andra tillbehör till konsolen. 
+        År 1992 var Super Nintendo Entertainment System (SNES) årets julklapp 
+        och den hetaste produkten på marknaden.
+        Vi har därför bestämt oss för att göra en webbshop i retrostil där det ska säljas SNES,
+        spel till SNES och andra tillbehör till konsolen. 
 
 -All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 +    Lösning:
