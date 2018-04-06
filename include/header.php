@@ -19,7 +19,7 @@
         </div>    
     </header>
 
-    <div id="newsletter">
+    <div style="display:none" id="newsletter">
         <h2>Sign up for our newsletter NOW!!!</h2>
         <img src="./img/newsletter.jpg">
         <form method="post">

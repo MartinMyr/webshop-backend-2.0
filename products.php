@@ -4,14 +4,18 @@
 ?>
 
 <div id="productButtons">
-    <button id="console">Console</button>
-    <button id="games">Games</button>
-    <button id="accessories">Hand controls</button>
+    <form method="GET">
+    <button type="submit" name="category" value="console" id="console">Console</button>
+    <button type="submit" name="category" value="games" id="games">Games</button>
+    <button type="submit" name="category" value="accessories" id="games">Accessories</button>
+</form>
 </div>
 <div class="cards">
     <?php
-        
-        AllProducts();
+        if (empty($_GET["category"])){
+            AllProducts();
+        };
+
 
     ?>
 </div>
