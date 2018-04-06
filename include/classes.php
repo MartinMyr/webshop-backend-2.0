@@ -6,7 +6,7 @@
 
         function __construct()
         {
-            $this->conn = new mysqli(/*server, $user, $pass, $db*/);
+            $this->conn = new mysqli("localhost", "joakimedwardh", "x@ZeIbKiSPIr", "joakimedwardh");
         }
 
         function __destruct()
