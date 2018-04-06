@@ -1,8 +1,15 @@
 # webshop-backend-2.0
-Här är alla våra lösningar på problemen!
+
+Länk till konceptuellt ER diagram: https://drive.google.com/file/d/1WvHlt9pxFj-lLXUGShCv6sjtKrGWQ9rc/view?usp=sharing
+Kort om företags idén: <br>
+År 1992 var Super Nintendo Entertainment System (SNES) årets julklapp och den hetaste produkten på marknaden.
+Vi har därför bestämt oss för att göra en webbshop i retrostil där det ska säljas SNES, spel till SNES och andra tillbehör till konsolen. 
+
+
+
 Testa sidan live: "Site under construction"
 
-
+Lösningar på problemen:
 ```diff
  
 
