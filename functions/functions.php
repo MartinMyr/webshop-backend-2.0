@@ -15,6 +15,7 @@ function connection(){
     return $conn;
 
 }
+
 function selectedProduct(){
     $conn = connection();
 
