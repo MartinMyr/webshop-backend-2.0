@@ -1,3 +1,6 @@
+<?php 
+session_start()
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +15,10 @@
 <body>
     
     <header>
-        <div id="header_text">
-            
+        <div id="header_content">
+            <div>
                 <img id="logo" src="img/logo.png">
-            
+            </div>
         </div>    
     </header>
 
@@ -47,6 +50,13 @@
             </div>
             <div class="linkDiv">
                 <a href="login.php">Login</a>
-            </div>    
+            </div>  
+            <div id="cart">
+                <a id="cartLink" href="cart.php">
+                    <?php
+                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cart_item"][""]["quantity"]."";
+                    ?>
+                </a>
+            </div>  
         </div>
         <div id="content">
