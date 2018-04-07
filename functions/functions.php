@@ -14,7 +14,7 @@ function selectedProduct(){
         die("FEL: " . $conn->connect_error);
     }
 
-    $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
+    $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products WHERE category = '" .$_GET['category']. "'";
     $result = $conn->query($sql);
         
     if($result->num_rows > 0){
