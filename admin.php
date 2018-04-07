@@ -1,7 +1,3 @@
-<?php
-    include 'include/header.php';
-    include 'functions/functions.php';
-?>
 
 <h1>Login here!</h1>
 
@@ -18,23 +14,3 @@
     
     <button id="login" type="submit">Login</button>
 </form>
-
-
-<?php
-    
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-<?php
-    include 'include/footer.php';
-?>
