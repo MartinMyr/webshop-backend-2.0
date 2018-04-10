@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 # webshop-backend-2.0
-Här är alla våra lösningar på problemen!
-Testa sidan live: "Site under construction"
 
 
+
+
+<strong>Testa sidan live:</strong> "Site under construction"
+
+<strong>Lösningar på problemen:</strong>
 ```diff
  
 
@@ -12,9 +16,14 @@ Testa sidan live: "Site under construction"
 
 -Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
+        https://drive.google.com/file/d/1WvHlt9pxFj-lLXUGShCv6sjtKrGWQ9rc/view?usp=sharing
 
 -Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
+        År 1992 var Super Nintendo Entertainment System (SNES) årets julklapp 
+        och den hetaste produkten på marknaden.
+        Vi har därför bestämt oss för att göra en webbshop i retrostil där det ska säljas SNES,
+        spel till SNES och andra tillbehör till konsolen. 
 
 -All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 +    Lösning:
@@ -57,6 +66,12 @@ Testa sidan live: "Site under construction"
 
 -Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
 +    Lösning:
+        Detta har vi löst med en slidedown i JS som lägger sig överallt content på sidan.
+        När man fyller i fälten och klickar "yes" så skickas det med ett form.
+        Försvinner och sparas i session för att man inte ska få upp den igen.
+        Vi har sedan en isset som kollar POST["name"] && POST["email"].
+        Blir de satta så körs en funktion som skickar upp det till databasen med 
+        INSERT.
 
 -När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
 +    Lösning:
@@ -89,3 +104,6 @@ Testa sidan live: "Site under construction"
 +    Lösning:
 
 ```
+=======
+# webshop-backend-2.0
+>>>>>>> parent of d7d79db... Merge branch 'master' of https://github.com/MartinMyr/webshop-backend-2.0

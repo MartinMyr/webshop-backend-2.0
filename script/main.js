@@ -1,3 +1,4 @@
+
 window.onscroll = function() {myFunction()};
 
 var menu = document.getElementsByClassName("menu").item(0);
@@ -13,16 +14,18 @@ function myFunction() {
 
 
 //Slide in newsletter
-if(sessionStorage.getItem('newsletter') !== 'true'){
+if(sessionStorage.getItem('newsletter') == 'true'){
+  $("#newsletter").hide();
+}else{
+  $("#newsletter").hide();
   $("#newsletter").slideDown(400);
-}
-else
-{
-  $("#newsletter").remove();
 }
 
 $(".hideNewsletter").click(function(){
   $("#newsletter").slideUp();
   sessionStorage.setItem('newsletter', 'true');
 });
+
+
+
 //Slide in newsletter ends

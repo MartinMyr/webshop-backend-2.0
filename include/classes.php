@@ -1,6 +1,6 @@
 <?php
 
-    class DBObject
+    abstract class DBObject
     {
         private $conn;
 
