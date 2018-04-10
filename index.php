@@ -1,8 +1,11 @@
 <?php
     include 'include/header.php';
-    include 'functions/functions.php';
 ?>
    
+
+
+
+
 
 
 

@@ -1,6 +1,3 @@
-<?php 
-session_start()
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,19 +12,19 @@ session_start()
 <body>
     
     <header>
-        <div id="header_content">
-            <div>
+        <div id="header_text">
+            
                 <img id="logo" src="img/logo.png">
-            </div>
+            
         </div>    
     </header>
 
-    <div id="newsletter">
+    <div style="display:none" id="newsletter">
         <h2>Sign up for our newsletter NOW!!!</h2>
         <img src="./img/newsletter.jpg">
         <form method="post">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
+            <input type="mail" name="mail" placeholder="Email">
+            <input type="checkbox" name="isNewsletterTrue">
             <button type="submit" class="hideNewsletter">Yes plz</button>
         </form>
 
@@ -50,13 +47,6 @@ session_start()
             </div>
             <div class="linkDiv">
                 <a href="login.php">Login</a>
-            </div>  
-            <div id="cart">
-                <a id="cartLink" href="cart.php">
-                    <?php
-                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cart_item"][""]["quantity"]."";
-                    ?>
-                </a>
-            </div>  
+            </div>    
         </div>
         <div id="content">

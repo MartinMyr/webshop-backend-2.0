@@ -1,6 +1,5 @@
 <?php
     include 'include/header.php';
-    include 'functions/functions.php';
 ?>
 
 <h1>Login here!</h1>
@@ -20,10 +19,6 @@
 </form>
 
 
-<?php
-    
-
-?>
 
 
 

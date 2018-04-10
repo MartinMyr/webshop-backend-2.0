@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # webshop-backend-2.0
 
 
@@ -103,3 +104,6 @@
 +    Lösning:
 
 ```
+=======
+# webshop-backend-2.0
+>>>>>>> parent of d7d79db... Merge branch 'master' of https://github.com/MartinMyr/webshop-backend-2.0
