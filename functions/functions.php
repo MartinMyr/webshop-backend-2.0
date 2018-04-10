@@ -1,8 +1,8 @@
 <?php
+include './include/classes.php';
+
 function connection(){
-    
-}
-function selectedProduct(){
+
     $servername = "localhost";
     $username = "joakimedwardh";
     $password = "x@ZeIbKiSPIr";
@@ -14,7 +14,13 @@ function selectedProduct(){
         die("FEL: " . $conn->connect_error);
     }
 
-    $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products WHERE category = '" .$_GET['category']. "'";
+    return $conn;
+
+}
+function selectedProduct(){
+    $conn = connection();
+
+    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
     $result = $conn->query($sql);
         
     if($result->num_rows > 0){
@@ -28,8 +34,8 @@ function selectedProduct(){
             echo "<div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>";
             echo "<div class='amount_submit'>";
             echo "<form action='products.php' method='post'>";
-            echo "<input type='number' class='amount'>";
-            echo "<input type='submit' value='add to basket'>";
+            echo "<input value='1' name='quantity' type='number' class='amount'>";
+            echo "<input type='submit' value='add to basket' name='". $row["productId"]."'>";
             echo "</form>";
             echo "</div>";
             echo "</div>";
@@ -42,18 +48,9 @@ function selectedProduct(){
 }
 
 function allProducts(){ 
-    $servername = "localhost";
-    $username = "joakimedwardh";
-    $password = "x@ZeIbKiSPIr";
-    $dbname = "joakimedwardh";
+    $conn = connection();
 
-    $conn = new mysqli($servername,$username,$password,$dbname);
-
-    if($conn->connect_error){
-        die("FEL: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT pic, productName, info, price, unitsInStock FROM Products";
+    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
     $result = $conn->query($sql);
         
 
@@ -68,7 +65,8 @@ function allProducts(){
             echo "<div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>";
             echo "<div class='amount_submit'>";
             echo "<form action='products.php' method='post'>";
-            echo "<input type='number' class='amount'>";
+            echo "<input value='1' name='quantity' type='number' class='amount'>";
+            echo "<input type='hidden' value='". $row["productId"]."' name='id'>";
             echo "<input type='submit' value='add to basket'>";
             echo "</form>";
             echo "</div>";
@@ -80,3 +78,15 @@ function allProducts(){
             echo "error";
         }
     } 
+
+    function insert($namn, $email){
+        $sql = "INSERT INTO Subscribers (namn, email)
+        VALUES ('$namn', '$email')";
+        mysqli_query(connection(), $sql);
+    }
+
+    if(isset($_POST["name"]) && isset($_POST["email"]))
+    {
+        insert($_POST["name"],$_POST["email"]);
+    }
+
