@@ -26,19 +26,20 @@ function selectedProduct(){
     if($result->num_rows > 0){
         
         while($row = $result->fetch_assoc()){
-            echo "<div class='card'>";
-            echo "<div class='cardName'>" . $row["productName"] . "</div>";
-            echo "<div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>";
-            echo "<div class='cardInfo'>" . $row["info"] . "</div>";
-            echo "<div class='cardPrice'>Price: " . $row["price"] . ":-</div>";
-            echo "<div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>";
-            echo "<div class='amount_submit'>";
-            echo "<form action='products.php' method='post'>";
-            echo "<input value='1' name='quantity' type='number' class='amount'>";
-            echo "<input type='submit' value='add to basket' name='". $row["productId"]."'>";
-            echo "</form>";
-            echo "</div>";
-            echo "</div>";
+            echo "<div class='card'>
+            <div class='cardName'>" . $row["productName"] . "</div>
+                <div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>
+                <div class='cardInfo'>" . $row["info"] . "</div>
+                <div class='cardPrice'>Price: " . $row["price"] . ":-</div>
+                <div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>
+                <div class='amount_submit'>
+                    <form action='products.php' method='post'>
+                        <input value='1' name='quantity' type='number' class='amount'>
+                        <input type='hidden' value='". $row["productId"]."' name='id'>
+                        <input type='submit' value='add to basket'>
+                    </form>
+                </div>
+            </div>";
         }
         
         
@@ -57,20 +58,20 @@ function allProducts(){
     if($result->num_rows > 0){
         
         while($row = $result->fetch_assoc()){
-            echo "<div class='card'>";
-            echo "<div class='cardName'>" . $row["productName"] . "</div>";
-            echo "<div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>";
-            echo "<div class='cardInfo'>" . $row["info"] . "</div>";
-            echo "<div class='cardPrice'>Price: " . $row["price"] . ":-</div>";
-            echo "<div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>";
-            echo "<div class='amount_submit'>";
-            echo "<form action='products.php' method='post'>";
-            echo "<input value='1' name='quantity' type='number' class='amount'>";
-            echo "<input type='hidden' value='". $row["productId"]."' name='id'>";
-            echo "<input type='submit' value='add to basket'>";
-            echo "</form>";
-            echo "</div>";
-            echo "</div>";
+            echo "<div class='card'>
+            <div class='cardName'>" . $row["productName"] . "</div>
+                <div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>
+                <div class='cardInfo'>" . $row["info"] . "</div>
+                <div class='cardPrice'>Price: " . $row["price"] . ":-</div>
+                <div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>
+                <div class='amount_submit'>
+                    <form action='products.php' method='post'>
+                        <input value='1' name='quantity' type='number' class='amount'>
+                        <input type='hidden' value='". $row["productId"]."' name='id'>
+                        <input type='submit' value='add to basket'>
+                    </form>
+                </div>
+            </div>";
         }
         
         
