@@ -16,41 +16,40 @@
         <input type="password" name="password" placeholder="Password">
     </div>
     
-    <button  id="login" type="submit">Login</button>
+    <button id="login" type="submit">Login</button>
 </form>
 
 
 <?php
-     $conn = connection();
-     $sqlUser = "SELECT username FROM User";
-     $sqlPass = "SELECT 'password' FROM User";
-     $sqlUserChk = $conn->query($sqlUser);
-     $sqlPassChk = $conn->query($sqlPassword);
-
-print_r($sqlUserChk->fetch_assoc()["username"]);
-     for( $i = 0; $i < count($sqlUserChk->fetch_assoc()); $i++){
-        echo "4";
-        for( $j = 0; $j < count($sqlPassChk->fetch_assoc()["password"]); $j++){
-            echo $sqlPassChk;
-            if( $_POST["username"] == $sqlUserChk[$i] and  $_POST["password"] == $sqlPassChk[$j]){
-                echo "YOU FUCKING MADE IT!";
-
-            }
+    if(isset($_POST["username"])){
+        $conn = connection();
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password'"; 
+     
+        $results = $conn->query($sqlUser)->fetch_assoc();
+        
+        if($results == true){
+            print_r($results);
+        }else{
+           echo "False";
         }
+        
+        
     }
 
 
     
         
-        
+
+
 
 ?>
 
 
 
 
-
-
+  
 
 
 
