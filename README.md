@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # webshop-backend-2.0
 
 
@@ -65,7 +66,7 @@
 
 -Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
 +    Lösning:
-        Detta har vi löst med en slidedown i JS som lägger sig över allt content på sidan.
+        Detta har vi löst med en slidedown i JS som lägger sig överallt content på sidan.
         När man fyller i fälten och klickar "yes" så skickas det med ett form.
         Försvinner och sparas i session för att man inte ska få upp den igen.
         Vi har sedan en isset som kollar POST["name"] && POST["email"].
@@ -103,3 +104,6 @@
 +    Lösning:
 
 ```
+=======
+# webshop-backend-2.0
+>>>>>>> parent of d7d79db... Merge branch 'master' of https://github.com/MartinMyr/webshop-backend-2.0
