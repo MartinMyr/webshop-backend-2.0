@@ -23,9 +23,11 @@
 <?php
      $sqlUser = "SELECT 'username' FROM User";
      $sqlPass = "SELECT 'password' FROM User";
-     $sqlUsernameChk = mysqli_query(connection(), $sqlUser);
-     $sqlPasswordChk = mysqli_query(connection(), $sqlPass);
-     print_r($sqlPasswordChk);
+     $sqlUsernameChk = mysqli_query(connection(), $sqlUser)->fetch_assoc();
+     $sqlPasswordChk = mysqli_query(connection(), $sqlPass)->fetch_assoc();
+    
+     print_r($sqlUsernameChk);
+
      if($_POST["username"] == $sqlUsernameChk && $_POST["password"] == $sqlPasswordChk){
          echo "YOLOSWAG!";
      }

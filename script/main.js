@@ -22,7 +22,7 @@ else
 }
 
 $(".hideNewsletter").click(function(){
-  $("#newsletter").slideUp();
+  $("#newsletter").slideUp(400);
   sessionStorage.setItem('newsletter', 'true');
 });
 //Slide in newsletter ends

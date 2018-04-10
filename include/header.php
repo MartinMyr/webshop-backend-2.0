@@ -29,6 +29,7 @@ session_start()
             <input type="text" name="name" placeholder="Name">
             <input type="email" name="email" placeholder="Email">
             <button type="submit" class="hideNewsletter">Yes plz</button>
+            <button class="hideNewsletter">Noooo</button>
         </form>
     </div>
 
