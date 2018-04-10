@@ -21,16 +21,28 @@
 
 
 <?php
-     $sqlUser = "SELECT 'username' FROM User";
+     $conn = connection();
+     $sqlUser = "SELECT username FROM User";
      $sqlPass = "SELECT 'password' FROM User";
-     $sqlUsernameChk = mysqli_query(connection(), $sqlUser)->fetch_assoc();
-     $sqlPasswordChk = mysqli_query(connection(), $sqlPass)->fetch_assoc();
-    
-     print_r($sqlUsernameChk);
+     $sqlUserChk = $conn->query($sqlUser);
+     $sqlPassChk = $conn->query($sqlPassword);
 
-     if($_POST["username"] == $sqlUsernameChk && $_POST["password"] == $sqlPasswordChk){
-         echo "YOLOSWAG!";
-     }
+print_r($sqlUserChk->fetch_assoc()["username"]);
+     for( $i = 0; $i < count($sqlUserChk->fetch_assoc()); $i++){
+        echo "4";
+        for( $j = 0; $j < count($sqlPassChk->fetch_assoc()["password"]); $j++){
+            echo $sqlPassChk;
+            if( $_POST["username"] == $sqlUserChk[$i] and  $_POST["password"] == $sqlPassChk[$j]){
+                echo "YOU FUCKING MADE IT!";
+
+            }
+        }
+    }
+
+
+    
+        
+        
 
 ?>
 
