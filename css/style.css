@@ -163,7 +163,9 @@ footer { grid-area: footer;
     border-radius: 10%;
     margin:auto;
     margin-top:20px;
-    background-color: lightblue;
+    background-color: rgba(173, 216, 230, 0.776);
+    font-family: 'Press Start 2P', cursive;
+
 }
 #message{
     margin-top:20px;
