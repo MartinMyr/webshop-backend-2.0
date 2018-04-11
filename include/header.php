@@ -12,6 +12,7 @@ session_start();
     <script src="script/ajax.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script src="./script/main.js"></script>
 </head>
 <body>
     
