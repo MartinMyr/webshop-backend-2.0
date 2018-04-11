@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 # webshop-backend-2.0
-
-
-
-
 <strong>Testa sidan live:</strong> "Site under construction"
 
 <strong>Lösningar på problemen:</strong>
-```diff
- 
 
+```diff
 
 -Arbetet ska implementeras med objektorienterade principer. (G)
 +    Lösning:
@@ -104,6 +98,3 @@
 +    Lösning:
 
 ```
-=======
-# webshop-backend-2.0
->>>>>>> parent of d7d79db... Merge branch 'master' of https://github.com/MartinMyr/webshop-backend-2.0
