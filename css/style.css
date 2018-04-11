@@ -258,7 +258,8 @@ footer { grid-area: footer;
 /*Login page slut*/
 
 /*Admin page*/
-#subscribers{
-    color:blue;
+#subTable{
+    font-size:20px;
+    color:rgb(0, 0, 0);
     border:solid black 1px;
 }
