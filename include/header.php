@@ -9,10 +9,9 @@ session_start();
     <title>Super Nintendo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script/ajax.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <script src="./script/main.js"></script>
+    <script src="./script/ajax.js"></script>
 </head>
 <body>
     

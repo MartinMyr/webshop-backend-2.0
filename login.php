@@ -59,9 +59,8 @@
         $results = $conn->query($sqlUser)->fetch_assoc();
         
         if($results == true){
-            $_SESSION["adminCheck"] = true;
+            $_SESSION["adminCheck"] = "true";
             header("location: admin.php");
-            
             
         }else{
            echo "False";
