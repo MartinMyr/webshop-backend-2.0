@@ -43,7 +43,7 @@ function logout(){
         url: "./admin/logout.php",
         method: "GET",
     success: function(results){
-        $("#content").html(results)
+        $("body").html(results)
     },
     error: function(err){
         alert("PROBLEM");

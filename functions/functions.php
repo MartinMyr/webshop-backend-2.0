@@ -129,7 +129,4 @@ function allProducts(){
 
 
 
-    if(isset($_POST["name"]) && isset($_POST["email"]))
-    {
-        insert($_POST["name"],$_POST["email"]);
-    }
+
