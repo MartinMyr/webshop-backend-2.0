@@ -4,7 +4,10 @@ body{
     padding:0px;
     margin:0px;
     background: url("../img/background.jpg");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
 }
+
 #container{
     max-width:1360px;
     margin: auto;
@@ -16,6 +19,7 @@ body{
     "meny main"
     "meny footer";
 }
+
 header{ 
     grid-area: header; 
     height:100px;
@@ -23,9 +27,11 @@ header{
     border-bottom: 3px solid black;
     background-color: lightblue;
 }
+
 #logo{
     height:90px;
 }
+
 #header_content{
     display: flex;
     flex-direction: row;
@@ -33,12 +39,14 @@ header{
     height:100%;
     margin:auto;
 }
+
 footer { grid-area: footer; 
     background-color: lightblue;
     height:50px;
     border-top:3px solid black;
     padding-top:10px;
 }
+
 #footer_text{
     width:1360px;
     height:100%;
@@ -61,22 +69,27 @@ footer { grid-area: footer;
     border-right:3px solid black;
     border-bottom:3px solid black;
 }
+
 .sticky {
     width:200px;
     position: fixed;
     top: 0;
 }
+
 .linkDiv{
     margin-top:32px;
     margin-bottom:10px;
     text-align: center;
 }
+
 .linkDiv a:hover{
     color:rgb(141, 4, 4);
 }
+
 .linkDiv a:link{
     text-decoration: None;  
 }
+
 #cart{
     border-top:3px solid black;
     text-align: center;
@@ -85,9 +98,11 @@ footer { grid-area: footer;
     font-size: 15px;
     color:red;
 }
+
 #cartLink{
     text-decoration: none;
 }
+
 /* MENY SLUT */
 
 #content{
@@ -96,13 +111,16 @@ footer { grid-area: footer;
     min-height: 700px;
     text-align: center;
 }
+
 /* PRODUKTKORT START  */
+
 .cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .card{
     background-color: lightblue;
     width: 350px;
@@ -112,27 +130,34 @@ footer { grid-area: footer;
     border-radius:10%;
     border:3px solid black;
 }
+
 .cardName{
     font-size: 30px;
 }
+
 .gameImg{
     width:230px;
     height:140px;
 }
+
 .amount{
     width:25px;
 }
+
 .cardPrice{
     color:red;
     font-size: 25px;
     margin-top:5px;
 }
+
 #numberInStock{
     margin:10px;
 }
+
 /* PRODUKTKORT SLUT */
 
 /* PRODUKTKNAPPAR START */
+
 #productButtons{
     position: absolute;
     display: flex;
@@ -141,6 +166,7 @@ footer { grid-area: footer;
     top:0px;
     left:34vw;
 }
+
 #console, #games ,#accessories{
     width:190px;
     height:55px;
@@ -151,10 +177,12 @@ footer { grid-area: footer;
     margin-right:20px;
     background-color: lightgrey;
 } 
+
 /* PRODUKTKNAPPAR SLUT */
 
 
 /* KONTAKTFORMULÄR START */
+
 #formDiv{
     display: flex;
     flex-direction: column;
@@ -167,17 +195,18 @@ footer { grid-area: footer;
     font-family: 'Press Start 2P', cursive;
     font-size: 80%;
     padding: 1%;
-
 }
+
 #message{
     margin-top:20px;
     width:530px;
     height:250px;
 }
+
 /* KONTAKTFORMULÄR SLUT */
 
-
 /*Newsletter slidedown*/
+
 #newsletter{
     margin:auto;
     margin-left:40vw;
@@ -192,6 +221,7 @@ footer { grid-area: footer;
 }
 
 /*Login page*/
+
 #loginform{
     margin-left:32vw;
     margin-top:10vh;
@@ -202,21 +232,26 @@ footer { grid-area: footer;
     padding:20px;
     border:3px solid black;
 }
+
 .userField{
     display:flex;
     padding-bottom:15px;
 }
+
 .userField>input, .passwordField>input{
     height:20px;
 }
+
 .passwordField{
     display:flex;
 }
+
 #login{
     margin-top:10px;
 }
+
 .loginIcon{
     margin-right:10px;
 }
-/*login page*/
 
+/*Login page slut*/
