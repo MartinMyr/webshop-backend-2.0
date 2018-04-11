@@ -1,3 +1,4 @@
+
 function viewOrders(){
     $.ajax({
         url: "./admin/orders.php",
