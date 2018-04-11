@@ -1,8 +1,18 @@
 <?php
 include './include/classes.php';
 include './classEshop.php';
-;
+session_start();
+?>
 
+<?php
+function pushToCart($id, $amount){
+    if(isset($id)){
+        echo "<script>alert('Lagt i varukorg!');</script>";
+        $_SESSION["cartId"] += $id;
+        $_SESSION["cartAmount"] += $amount;
+        
+    }
+}
 
 
 function connection(){
@@ -66,8 +76,6 @@ function selectedProduct(){
                 </div>
             </div>";
         }
-        
-        
     } else {
         echo "error";
     }

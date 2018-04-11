@@ -8,8 +8,13 @@
 
 <?php	
 
-echo "detta är echo";	
-testloop();
+echo "Id: ".$_SESSION['cartId'];
+echo "<br/>";
+echo "Antal: ".$_SESSION['cartAmount'];
+	
+// testloop();
+
+
 
 ?>
 
