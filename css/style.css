@@ -285,6 +285,7 @@ tr{
     height: 200px;
     width: 200px;
     Background-color: white;
-
-
+}
+li{
+    list-style: none;
 }

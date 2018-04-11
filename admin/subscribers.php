@@ -12,16 +12,13 @@
                 echo "<tr><td>".$row['namn']."</td><td>".$row['email']."</td> </tr>";
             }
             
-        }
+        
         echo "</table>";
         connection()->close;
-    }
 
-
-   
-    else{
-        echo "error";
-    }
+        }else{
+            echo "error";
+        }
     
-
+    }
 ?>

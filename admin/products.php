@@ -6,30 +6,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo "Hej och välkommen till Produktsidan";
 
 
-    $sql = "SELECT productName, productId  FROM Products";
+    $sql = "SELECT productName, category  FROM Products ORDER BY category ASC";
     $totProd = connection()->query($sql);
-    echo "<ul>";
+    echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
     if($totProd->num_rows > 0){
         
         while($row = $totProd->fetch_assoc()){
-            echo "<li>" .$row['productName']. "</li><li>" .$row['productId']";
+            echo "<li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "</li>";
         }
         
     }
-    echo "</ul>";
+    else{
+        echo "error";
+    }
+
+    echo "</ul></div><br>";
     connection()->close;
    
 
 
-
-    else{
-    echo "error";
-    }
-
-
-
-
-    echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><div><br>";
 
     echo '<div id="newProd"><h4>Lägg till produkt</h4>
     <form method="post">
@@ -41,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <button type="submit" >Add product</button>
     </form></div>';
 
-
+}
  
 ?>
