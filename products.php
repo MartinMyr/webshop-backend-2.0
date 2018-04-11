@@ -3,6 +3,11 @@
     include 'functions/functions.php';
 ?>
 
+<?php
+
+    pushToCart($_POST["id"], $_POST["quantity"]);
+?>
+
 <div id="productButtons">
     <form method="GET">
     <button type="submit" name="category" value="console" id="console">Console</button>

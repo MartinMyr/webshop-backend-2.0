@@ -1,5 +1,5 @@
 <?php 
-session_start()
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ session_start()
             <div id="cart">
                 <a id="cartLink" href="cart.php">
                     <?php
-                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cart_item"][""]["quantity"]."";
+                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cartAmount"];
                     ?>
                 </a>
             </div>  
