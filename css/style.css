@@ -259,7 +259,12 @@ footer { grid-area: footer;
 
 /*Admin page*/
 #subTable{
+    text-align:center;
+    background-color: red;
     font-size:20px;
     color:rgb(0, 0, 0);
+    
+}
+tr{
     border:solid black 1px;
 }
