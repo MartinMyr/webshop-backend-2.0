@@ -26,7 +26,6 @@ function viewProducts(){
 
 function viewSubscribers(){
     $.ajax({
-        
         url: "./admin/subscribers.php",
         method: "GET",
     success: function(results){

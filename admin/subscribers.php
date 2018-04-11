@@ -1,8 +1,8 @@
 <?php
     
-
+    
     if ($_SERVER['REQUEST_METHOD'] == 'GET'){
-       
+        include '../functions/functions.php';
         $sql = "SELECT namn, email FROM Subscribers";
         $subs = connection()->query($sql);
         if($subs->num_rows > 0){
