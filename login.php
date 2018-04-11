@@ -3,7 +3,7 @@
     include 'functions/functions.php';
 ?>
 
-<h1>Login here!</h1>
+<h1 id="loginText">Login here!</h1>
 
 <form id="loginform" method="post">
     <div class="userField">
@@ -17,9 +17,35 @@
     </div>
     
     <button id="login" type="submit">Login</button>
-    <button onclick="member()">Bli medlem</button>
+    <button onclick="signUp()">Bli medlem</button>
     
 </form>
+
+<script>function signUp(){
+    $("#loginText").remove();
+    $("#loginform").empty();
+    $("#loginform").append(`
+        <h2>Please fill out the form</h2>
+        <div class="userField">
+            <img class="loginIcon" src="img/userlogin.png">
+            <input type="name" name="username" placeholder="Username">
+        </div>
+
+        <div class="passwordField">
+            <img class="loginIcon" src="img/bowserpassword.png">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+
+        <div class="passwordField">
+            <img class="loginIcon" src="img/userlogin.png">
+            <input type="email" name="email" placeholder="Email">
+        </div>
+
+        
+        
+        `
+    );
+}</script>
 
 
 

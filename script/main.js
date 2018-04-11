@@ -27,8 +27,6 @@ $(".hideNewsletter").click(function(){
 });
 //Slide in newsletter ends
 
-
-
-$("#member").click(function(){
-  console.log("hej");
-});
+function signUp(){
+  $("#loginform").empty();
+}
