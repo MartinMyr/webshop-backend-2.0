@@ -16,29 +16,40 @@
         <input type="password" name="password" placeholder="Password">
     </div>
     
-    <button  id="login" type="submit">Login</button>
+    <button id="login" type="submit">Login</button>
 </form>
 
 
 <?php
-     $sqlUser = "SELECT 'username' FROM User";
-     $sqlPass = "SELECT 'password' FROM User";
-     $sqlUsernameChk = mysqli_query(connection(), $sqlUser)->fetch_assoc();
-     $sqlPasswordChk = mysqli_query(connection(), $sqlPass)->fetch_assoc();
-    
-     print_r($sqlUsernameChk);
+    if(isset($_POST["username"])){
+        $conn = connection();
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password'"; 
+     
+        $results = $conn->query($sqlUser)->fetch_assoc();
+        
+        if($results == true){
+            print_r($results);
+        }else{
+           echo "False";
+        }
+        
+        
+    }
 
-     if($_POST["username"] == $sqlUsernameChk && $_POST["password"] == $sqlPasswordChk){
-         echo "YOLOSWAG!";
-     }
+
+    
+        
+
+
 
 ?>
 
 
 
 
-
-
+  
 
 
 
