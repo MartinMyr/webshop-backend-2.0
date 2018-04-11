@@ -10,6 +10,7 @@ function pushToCart($id, $amount){
         echo "<script>alert('Lagt i varukorg!');</script>";
         $_SESSION["cartId"] .= $id;
         $_SESSION["cartAmount"] += $amount;
+        header("Refresh:0");
         
     }
 }

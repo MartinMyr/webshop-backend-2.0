@@ -26,3 +26,9 @@ $(".hideNewsletter").click(function(){
   sessionStorage.setItem('newsletter', 'true');
 });
 //Slide in newsletter ends
+
+
+
+$("#member").click(function(){
+  console.log("hej");
+});
