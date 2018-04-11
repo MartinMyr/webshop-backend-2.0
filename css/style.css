@@ -244,6 +244,7 @@ footer { grid-area: footer;
 
 .passwordField{
     display:flex;
+    padding-bottom:15px;
 }
 
 #login{
