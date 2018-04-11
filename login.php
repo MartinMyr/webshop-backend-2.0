@@ -17,7 +17,10 @@
     </div>
     
     <button id="login" type="submit">Login</button>
+    <button onclick="member()">Bli medlem</button>
+    
 </form>
+
 
 
 <?php
@@ -47,14 +50,6 @@
 
 
 ?>
-
-
-
-
-  
-
-
-
 
 
 <?php
