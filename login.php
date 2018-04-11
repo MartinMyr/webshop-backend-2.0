@@ -33,8 +33,9 @@
         $results = $conn->query($sqlUser)->fetch_assoc();
         
         if($results == true){
-            print_r($results);
+            $_SESSION["adminCheck"] = true;
             header("location: admin.php");
+            
             
         }else{
            echo "False";

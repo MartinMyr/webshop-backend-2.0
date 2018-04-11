@@ -6,6 +6,19 @@
 <?php
 
     pushToCart($_POST["id"], $_POST["quantity"]);
+
+    class Cart{
+
+        public $cartId;
+        public $cartAmount;
+    }
+    $myCart = new Cart();
+    $myCart->cartId .= $_POST["id"];
+    $myCart->cartAmount .= $_POST["quantity"];
+
+    print_r($myCart);
+
+
 ?>
 
 <div id="productButtons">

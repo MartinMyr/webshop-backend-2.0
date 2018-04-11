@@ -8,8 +8,9 @@ session_start();
 function pushToCart($id, $amount){
     if(isset($id)){
         echo "<script>alert('Lagt i varukorg!');</script>";
-        $_SESSION["cartId"] += $id;
+        $_SESSION["cartId"] .= $id;
         $_SESSION["cartAmount"] += $amount;
+        header("Refresh:0");
         
     }
 }
