@@ -1,14 +1,15 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
+    if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+        
+            writeSubs();
+            
+        
+        
+        }
+        else{
+            echo "error";
+        }
     
-echo "Hej och välkommen till Subscribesidan";
-
-
-}
-else{
-echo "error";
-}
 
 ?>

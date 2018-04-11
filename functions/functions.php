@@ -126,7 +126,16 @@ function allProducts(){
     }
 
 
-
+    function writeSubs(){
+        $sql = "SELECT namn, email FROM Subscribers";
+        $subs = connection()->query($sql);
+        if($subs->num_rows > 0){
+        
+            while($row = $subs->fetch_assoc()){
+                echo $row["namn"];
+            }
+        }
+    }
 
 
 
