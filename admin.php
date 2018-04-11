@@ -1,9 +1,8 @@
 <?php
-    
-    include 'include/header.php';
     if(!isset($_SESSION["adminCheck"]) == true){
         hedear("location: index.php");
     }
+    include 'include/header.php';
     include 'functions/functions.php';
 ?>
    <script>$(".menu").empty();
