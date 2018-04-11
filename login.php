@@ -21,32 +21,6 @@
     
 </form>
 
-<script>function signUp(){
-    $("#loginText").remove();
-    $("#loginform").empty();
-    $("#loginform").append(`
-        <h2>Please fill out the form</h2>
-        <div class="userField">
-            <img class="loginIcon" src="img/userlogin.png">
-            <input type="name" name="signUpUsername" placeholder="Username">
-        </div>
-
-        <div class="passwordField">
-            <img class="loginIcon" src="img/bowserpassword.png">
-            <input type="password" name="signUpPassword" placeholder="Password">
-        </div>
-
-        <div class="passwordField">
-            <img class="loginIcon" src="img/userlogin.png">
-            <input type="email" name="signUpEmail" placeholder="Email">
-        </div>
-
-        <input type="submit" value="Create account">
-        
-        `
-    );
-}</script>
-
 
 
 <?php
