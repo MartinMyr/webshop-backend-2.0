@@ -53,7 +53,11 @@ session_start()
             <div id="cart">
                 <a id="cartLink" href="cart.php">
                     <?php
-                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cart_item"][""]["quantity"]."";
+                        if(!isset($_SESSION["cart_item"][""]["quantity"]))
+                        {
+                            $_SESSION["cart_item"][""]["quantity"] = 0;
+                        }
+                        echo "Antal varor i kundkorgen:<br/><br/>" . $_SESSION["cart_item"][""]["quantity"];
                     ?>
                 </a>
             </div>  
