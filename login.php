@@ -22,7 +22,6 @@
 </form>
 
 
-
 <?php
     if(isset($_POST["username"])){
         $conn = connection();
@@ -39,13 +38,7 @@
         }else{
            echo "False";
         }
-        
-        
     }
-
-
-    
-        
 
 
 
