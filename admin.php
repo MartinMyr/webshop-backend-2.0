@@ -1,7 +1,9 @@
 <?php
-    if(!isset($_SESSION["adminCheck"]) == true){
-        hedear("location: index.php");
+    session_start();
+    if(!isset($_SESSION["adminCheck"])){
+        header("location: index.php");
     }
+ 
     include 'include/header.php';
     include 'functions/functions.php';
 ?>
