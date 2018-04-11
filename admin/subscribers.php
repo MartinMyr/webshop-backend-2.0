@@ -12,6 +12,7 @@
             }
             echo "</table>";
         }
+        connection()->close;
     }
 
 
