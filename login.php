@@ -25,7 +25,7 @@
         $conn = connection();
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password'"; 
+        $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
      
         $results = $conn->query($sqlUser)->fetch_assoc();
         
