@@ -3,7 +3,7 @@
     
     if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         include '../functions/functions.php';
-        $sql = "SELECT username, email, name FROM Users";
+        $sql = "SELECT username, email, name FROM User";
         $users = connection()->query($sql);
         echo "<table border='2' id='subTable'><tr><th>Username</th><th>Email</th><th>Name</th></tr>";
         if($users->num_rows > 0){
