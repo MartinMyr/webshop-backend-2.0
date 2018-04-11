@@ -7,20 +7,17 @@
 
     pushToCart($_POST["id"], $_POST["quantity"]);
 
-class Cart{
+    class Cart{
 
-    public $cartId;
-    public $cartAmount;
-}
-$myCart = new Cart();
-$myCart->cartId .= $_POST["id"];
-$myCart->cartAmount .= $_POST["quantity"];
+        public $cartId;
+        public $cartAmount;
+    }
+    $myCart = new Cart();
+    $myCart->cartId .= $_POST["id"];
+    $myCart->cartAmount .= $_POST["quantity"];
 
-print_r($myCart);
-$cars = array($myCar, $yourCar);
-foreach ($cars as $car) {
-    echo 'This car is a ' . $car->color . ' ' . $car->type . "\n";
-}
+    print_r($myCart);
+
 
 ?>
 
