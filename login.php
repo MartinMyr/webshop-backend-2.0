@@ -31,6 +31,8 @@
         
         if($results == true){
             print_r($results);
+            header("location: admin.php");
+            
         }else{
            echo "False";
         }
