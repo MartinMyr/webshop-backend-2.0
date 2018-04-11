@@ -263,3 +263,10 @@ footer { grid-area: footer;
     color:rgb(0, 0, 0);
     border:solid black 1px;
 }
+
+#adminProds{
+    height: 300px;
+    width: 300px;
+    Background-color: white;
+
+}
