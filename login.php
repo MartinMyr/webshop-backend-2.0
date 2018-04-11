@@ -41,7 +41,7 @@
             <input type="email" name="email" placeholder="Email">
         </div>
 
-        
+        <input type="submit" value="Create account">
         
         `
     );
