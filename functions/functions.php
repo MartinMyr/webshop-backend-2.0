@@ -1,5 +1,9 @@
 <?php
 include './include/classes.php';
+include './classEshop.php';
+;
+
+
 
 function connection(){
 
@@ -17,6 +21,27 @@ function connection(){
     return $conn;
 
 }
+
+function testloop(){
+
+    $conn = connection();
+    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
+    $result = $conn->query($sql);
+    
+    print_r($result);
+
+    if($result->num_rows > 0){
+        echo "hit kommer den";
+        
+        while($row = $result->fetch_assoc()){
+            echo "hej!";
+        // $games = new Games();
+        // $games -> draw();
+        print_r($row);
+        }
+    }  
+}
+
 function selectedProduct(){
     $conn = connection();
 
@@ -91,3 +116,11 @@ function allProducts(){
         insert($_POST["name"],$_POST["email"]);
     }
 
+
+
+
+
+    if(isset($_POST["name"]) && isset($_POST["email"]))
+    {
+        insert($_POST["name"],$_POST["email"]);
+    }
