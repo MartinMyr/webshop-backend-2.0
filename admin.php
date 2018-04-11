@@ -1,5 +1,5 @@
 <?php
-    include 'script/ajax.js';
+    
     include 'include/header.php';
     include 'functions/functions.php';
 ?>
