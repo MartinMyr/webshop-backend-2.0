@@ -270,8 +270,20 @@ tr{
 }
 
 #adminProds{
+    text-align: center;
+    padding: 1%;
     height: 350px;
     width: 350px;
     Background-color: white;
+
+}
+
+#newProd{
+    text-align: center;
+    padding: 1%;
+    height: 2000px;
+    width: 200px;
+    Background-color: white;
+
 
 }
