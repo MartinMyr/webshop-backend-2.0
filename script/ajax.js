@@ -38,9 +38,9 @@ function viewSubscribers(){
     })
 }
 
-function viewUsers(){
+function logout(){
     $.ajax({
-        url: "./admin/users.php",
+        url: "./admin/logout.php",
         method: "GET",
     success: function(results){
         $("#content").html(results)
