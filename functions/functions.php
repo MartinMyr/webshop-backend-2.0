@@ -120,6 +120,12 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
+    function insertPassword($password){
+        $sql = "INSERT INTO User (username, password, email, admin, subscribe, name )
+        VALUES ('nej', '$password', 'mail', '1', '1','name')";
+        mysqli_query(connection(), $sql);
+    }
+
     if(isset($_POST["name"]) && isset($_POST["email"]))
     {
         insert($_POST["name"],$_POST["email"]);
