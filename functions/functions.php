@@ -5,6 +5,7 @@ session_start();
 ?>
 
 <?php
+
 function pushToCart($id, $amount){
     if(isset($id)){
         $_SESSION["cartId"] .= $id;
@@ -118,7 +119,6 @@ function allProducts(){
         VALUES ('$namn', '$email')";
         mysqli_query(connection(), $sql);
     }
-
     
     function insertPassword($password){
         $sql = "INSERT INTO User (username, password, email, admin, subscribe, name )
@@ -126,10 +126,23 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
+    function insertUser($userName, $email, $password, $subs){
+        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
+        VALUES ('$userName', '$email', '$password', '1', '$subs', 'name')";
+        mysqli_query(connection(), $sql);
+    }
+
     if(isset($_POST["newsletterName"]))
     {
         insert($_POST["newsletterName"],$_POST["email"]);
     }
+    
+    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
+    {  
+        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+    }
+
+
 
 
 
