@@ -120,9 +120,9 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
-    if(isset($_POST["name"]) && isset($_POST["email"]))
+    if(isset($_POST["newsletterName"]))
     {
-        insert($_POST["name"],$_POST["email"]);
+        insert($_POST["newsletterName"],$_POST["email"]);
     }
 
 
