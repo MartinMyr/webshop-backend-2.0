@@ -287,6 +287,15 @@ tr{
     
 
 }
+#newsDiv{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+    
+    Background-color: white;
+    
+
+}
 #userDiv{
     margin-top: 2%;
     text-align: center;
