@@ -278,7 +278,16 @@ tr{
     overflow: auto;
 
 }
+#subDiv{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+    height: 400px;
+    width: 400px;
+    Background-color: white;
+    
 
+}
 #newProd{
     margin-top: 2%;
     text-align: center;
