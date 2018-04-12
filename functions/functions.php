@@ -128,11 +128,16 @@ function allProducts(){
             echo "error";
         }
     } 
-
+    //Functions for insert to DB
     function insert($namn, $email){
         $sql = "INSERT INTO Subscribers (namn, email)
         VALUES ('$namn', '$email')";
         mysqli_query(connection(), $sql);
+    }
+    function insertNewsletter($title, $text){
+        $sql = "INSERT INTO Newsletter (title, message)
+        VALUES ('$title', '$message')";
+        mysqli_query(connection(),$sql);
     }
     
     function insertPassword($password){
@@ -146,25 +151,31 @@ function allProducts(){
         VALUES ('$userName', '$email', '$password', '1', '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
+    //
 
-    if(isset($_POST["newsletterName"]))
-    {
-        insert($_POST["newsletterName"],$_POST["email"]);
-    }
+ 
     
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
     }
 
-
-        if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
-        {
-            insert($_POST["newsletterName"],$_POST["email"]);  
-            setcookie("newsletter", "true", time()+3600*48);
+    //Newsletter check
+    if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
+    {
+        insert($_POST["newsletterName"],$_POST["email"]);  
+        setcookie("newsletter", "true", time()+3600*48);
             
-        }
+    }
+    //
 
+    //Send newsletter from admin check
+    if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
+        insert($_POST["newsletterTitle"],$_POST["comment"]);
+        echo "Sent";  
+    }
+
+    //
 function getOrders(){ 
     $conn = connection();
 
