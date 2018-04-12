@@ -105,6 +105,14 @@ footer { grid-area: footer;
 
 /* MENY SLUT */
 
+#startDiv{
+    padding: 1%;
+    height: 350px;
+    width: 350px;
+    Background-color: white;
+
+
+}
 #content{
     margin: 0 auto;
     grid-area: main; 
