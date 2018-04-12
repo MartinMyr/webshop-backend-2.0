@@ -23,7 +23,7 @@
 
 
 <?php
-    if(isset($_POST["username"])){
+    if(isset($_POST["username"]) && isset($_POST["password"])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
@@ -38,6 +38,8 @@
            echo "False";
         }
     }
+
+    
 
 ?>
 
