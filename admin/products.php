@@ -27,15 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         
 
 
-        
+        print_r($_POST);
 
         if(isset($_POST['formSubmit']) )
         {
-            //connection grej
+            
+            connection();
 
             if($_POST['Delete'] === 'true')
             {
-                //kör delete
+               // $sql = "DELETE productId FROM Products WHERE productId;
+                $totProd = connection()->query($sql);
             }
             else
             {
@@ -44,10 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $varDelete = $_POST['Delete'];
                 $varID = $_POST['prodButton'];
                 $errorMessage = "";
-                
+
                 //"UPDATE category FROM Products WHERE prodID = $varID"
         
-                // - - - snip - - - 
             }
         }
 
