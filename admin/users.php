@@ -10,8 +10,7 @@
             
             while($row = $users->fetch_assoc()){
                 echo "<tr><td>".$row['username']."</td><td>".$row['email']."</td><td>".$row['name']."</td> </tr>";
-            }
-            
+            }   
         }
         echo "</table></div>";
         connection()->close;
