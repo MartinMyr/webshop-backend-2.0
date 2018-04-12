@@ -168,8 +168,8 @@ function allProducts(){
 function getOrders(){ 
     $conn = connection();
 
-    $sql = "SELECT INTO `Orders` (`orderId`, `customerId`, `orderDate`, `shippedDate`, `shippedBy`, `shipped`, `recived`) VALUES ('234234', '23232', '210218', '210223', '1', '1', '0');
-    ";
+
+    $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
     $result = $conn->query($sql);
         
 
