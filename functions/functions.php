@@ -120,12 +120,20 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
+<<<<<<< HEAD
     if(isset($_POST["newsletterName"]))
+=======
+    function insertPassword($password){
+        $sql = "INSERT INTO User (username, password, email, admin, subscribe, name )
+        VALUES ('nej', '$password', 'mail', '1', '1','name')";
+        mysqli_query(connection(), $sql);
+    }
+
+    if(isset($_POST["name"]) && isset($_POST["email"]))
+>>>>>>> 9372f02c8d8af46bc36cc02df1e8dfa75188edc9
     {
         insert($_POST["newsletterName"],$_POST["email"]);
     }
-
-
 
 
 

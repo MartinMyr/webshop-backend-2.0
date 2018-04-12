@@ -3,7 +3,6 @@
     if(!isset($_SESSION["adminCheck"])){
         header("location: index.php");
     }
- 
     include 'include/header.php';
     include 'functions/functions.php';
 ?>

@@ -27,8 +27,13 @@ session_start();
         <h2>Sign up for our newsletter NOW!!!</h2>
         <img src="./img/newsletter.jpg">
         <form method="post">
+<<<<<<< HEAD
             <input type="text" name="newsletterName" placeholder="Name">
             <input type="email" name="email" placeholder="Email">
+=======
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+>>>>>>> 9372f02c8d8af46bc36cc02df1e8dfa75188edc9
             <button type="submit" class="hideNewsletter">Yes plz</button>
             <button class="hideNewsletter">Noooo</button>
         </form>

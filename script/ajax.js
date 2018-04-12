@@ -38,13 +38,27 @@ function viewSubscribers(){
     })
 }
 
-function logout(){
+
+function viewUsers(){
+    $.ajax({
+        url: "./admin/users.php",
+        method: "GET",
+    success: function(results){
+        $("#content").html(results)
+    },
+    error: function(err){
+        alert("PROBLEM");
+        
+    }
+    })
+}
+
+function Logout(){
     $.ajax({
         url: "./admin/logout.php",
         method: "GET",
     success: function(results){
         $("#content").html(results)
-        location.reload();
     },
     error: function(err){
         alert("PROBLEM");
