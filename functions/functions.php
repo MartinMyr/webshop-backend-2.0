@@ -10,8 +10,16 @@ include './classEshop.php';
 function pushToCart($prodID, $quantity) {
     if(isset($_SESSION['CART'])) $array = $_SESSION['CART'];
     else $array = array();
-    
-    array_push($array, array($prodID => $quantity));
+    $isInCart = false;
+    foreach($array as $key => $value) {
+        if(isset($value[$prodID])) {
+            $array[$key][$prodID]++;
+            $isInCart = true;
+            break;
+        }
+
+    }
+    if(!$isInCart) array_push($array, array($prodID => $quantity));
     
     $_SESSION['CART'] = $array;
     
@@ -141,6 +149,51 @@ function allProducts(){
             
         }
 
+function getOrders(){ 
+    $conn = connection();
+
+    $sql = "SELECT INTO `Orders` (`orderId`, `customerId`, `orderDate`, `shippedDate`, `shippedBy`, `shipped`, `recived`) VALUES ('234234', '23232', '210218', '210223', '1', '1', '0');
+    ";
+    $result = $conn->query($sql);
+        
+
+    if($result->num_rows > 0){
+        
+        while($row = $result->fetch_assoc()){
+            echo "
+                <table id='ordersTable'>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID</th>
+                        <th>Order Date</th>
+                        <th>shipped Date</th>
+                        <th>Shipped By</th>
+                        <th>Shipped</th>
+                        <th>Recieved</th>
+                    </tr>
+                    <tr>
+                        <td>".$row['orderId']."</td>
+                        <td>".$row['customerId']."</td>
+                        <td>".$row['orderDate']."</td>
+                        <td>".$row['shippedDate']."</td>
+                        <td>".$row['shippedBy']."</td>
+                        <td>".$row['shipped']."</td>
+                        <td>
+                            <form action='member.php' action='POST'>
+                                <input type='radio'>
+                                <input type='submit' value='recieved'>
+                            </form>
+                        </td>
+                    </tr>
+                </table>";
+
+        }
+        
+        
+        } else {
+            echo "error";
+        }
+}
     
 
 

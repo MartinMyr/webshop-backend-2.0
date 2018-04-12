@@ -296,3 +296,30 @@ tr{
 li{
     list-style: none;
 }
+
+/* MEMBER START */
+
+#orders{
+margin-top:40px;
+}
+#orderstable{
+    width:900px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 800px;
+}
+
+td, th {
+    border: 1px solid #5a5757;
+    text-align: center;
+    padding: 10px;
+    background-color: #dddddd;
+}
+
+tr:nth-child(even) {
+}
+#isOrderRecieved{
+    margin-top: 20px;
+}
