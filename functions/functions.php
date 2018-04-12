@@ -1,7 +1,8 @@
 <?php
+session_start();
 include './include/classes.php';
 include './classEshop.php';
-session_start();
+
 ?>
 
 <?php
@@ -127,10 +128,14 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
-    if(isset($_POST["newsletterName"]))
-    {
-        insert($_POST["newsletterName"],$_POST["email"]);
-    }
+        if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
+        {
+            insert($_POST["newsletterName"],$_POST["email"]);  
+            setcookie("newsletter", "true", time()+3600*48);
+            
+        }
+
+    
 
 
 
