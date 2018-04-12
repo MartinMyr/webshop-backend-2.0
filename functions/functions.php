@@ -146,18 +146,18 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
+    //Lägger till ny user i SQL
     function insertUser($userName, $email, $password, $subs){
         $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', '1', '$subs', 'name')";
+        VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
-    //
-
- 
     
+
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+        header("location:index.php");
     }
 
     //Newsletter check
