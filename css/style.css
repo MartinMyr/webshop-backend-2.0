@@ -270,7 +270,7 @@ tr{
 }
 
 #adminProds{
-    text-align: center;
+    
     padding: 1%;
     height: 350px;
     width: 350px;
@@ -286,6 +286,12 @@ tr{
     height: 200px;
     width: 200px;
     Background-color: white;
+}
+.prodList{
+    margin:1%;
+    border: solid 1px black;
+
+
 }
 li{
     list-style: none;
