@@ -27,7 +27,7 @@ abstract class Cart{
         echo"
             <div id='cartDiv'>
                 <div id='amountDiv'>
-                    ".$variabel."
+                    ".$id->."
                 </div>
                 <div id='productNameDiv'>
                     ".$variabel."

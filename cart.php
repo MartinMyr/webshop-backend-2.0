@@ -6,13 +6,26 @@
 
     
 
+<div id="cartDiv">
 <?php	
+print_r($_SESSION['CART']);
+echo $_SESSION['CART'][10];
 
-echo "Id: ".$_SESSION['cartId'];
-echo "<br/>";
-echo "Antal: ".$_SESSION['cartAmount'];
-	
-// testloop();
+foreach ($_SESSION['CART'] as $key => $value){
+	echo"
+		<div id='cartIdDiv'>
+		</div>
+		<div id='cartNameDiv'>
+			".$key."
+		</div>
+			<div id='cartAmountDiv'>
+			".$value."
+			</div>
+		</div>
+	";
+}
+
+
 
 
 

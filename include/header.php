@@ -27,7 +27,7 @@ session_start();
         <h2>Sign up for our newsletter NOW!!!</h2>
         <img src="./img/newsletter.jpg">
         <form method="post">
-            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="newsletterName" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <button type="submit" class="hideNewsletter">Yes plz</button>
             <button class="hideNewsletter">Noooo</button>
@@ -51,6 +51,9 @@ session_start();
             <div class="linkDiv">
                 <a href="login.php">Login</a>
             </div>  
+            <div class='linkDiv'>
+                    <a href='member.php'>Member</a>
+            </div>
             <div id="cart">
                 <a id="cartLink" href="cart.php">
                     <?php
