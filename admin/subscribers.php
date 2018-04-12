@@ -1,14 +1,24 @@
 <?php
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
     
-echo "Hej och välkommen till Subscribesidan";
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+        include '../functions/functions.php';
+        $sql = "SELECT namn, email FROM Subscribers";
+        $subs = connection()->query($sql);
+        echo "<table border='2' id='subTable'><tr><th>Name</th><th>Email</th></tr>";
+        if($subs->num_rows > 0){
+            
+            while($row = $subs->fetch_assoc()){
+                echo "<tr><td>".$row['namn']."</td><td>".$row['email']."</td> </tr>";
+            }
+            
+        
+        echo "</table>";
+        connection()->close;
 
-
-}
-else{
-echo "error";
-}
-
+        }else{
+            echo "error";
+        }
+    
+    }
 ?>

@@ -3,7 +3,7 @@
     include 'functions/functions.php';
 ?>
 
-<h1>Login here!</h1>
+<h1 id="loginText">Login here!</h1>
 
 <form id="loginform" method="post">
     <div class="userField">
@@ -17,20 +17,18 @@
     </div>
     
     <button id="login" type="submit">Login</button>
-    <button onclick="member()">Bli medlem</button>
+    <button onclick="signUp()">Bli medlem</button>
     
 </form>
 
 
-
 <?php
     if(isset($_POST["username"])){
-        $conn = connection();
         $username = $_POST['username'];
         $password = $_POST['password'];
         $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
      
-        $results = $conn->query($sqlUser)->fetch_assoc();
+        $results = connection()->query($sqlUser)->fetch_assoc();
         
         if($results == true){
             $_SESSION["adminCheck"] = "true";
@@ -39,15 +37,7 @@
         }else{
            echo "False";
         }
-        
-        
     }
-
-
-    
-        
-
-
 
 ?>
 

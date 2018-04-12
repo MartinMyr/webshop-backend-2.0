@@ -106,7 +106,7 @@ footer { grid-area: footer;
 /* MENY SLUT */
 
 #content{
-    
+    margin: 0 auto;
     grid-area: main; 
     min-height: 700px;
     text-align: center;
@@ -244,6 +244,7 @@ footer { grid-area: footer;
 
 .passwordField{
     display:flex;
+    padding-bottom:15px;
 }
 
 #login{
@@ -255,3 +256,37 @@ footer { grid-area: footer;
 }
 
 /*Login page slut*/
+
+/*Admin page*/
+#subTable{
+    text-align:center;
+
+    font-size:20px;
+    color:rgb(0, 0, 0);
+    
+}
+tr{
+    border:solid black 1px;
+}
+
+#adminProds{
+    text-align: center;
+    padding: 1%;
+    height: 350px;
+    width: 350px;
+    Background-color: white;
+    overflow: auto;
+
+}
+
+#newProd{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+    height: 200px;
+    width: 200px;
+    Background-color: white;
+}
+li{
+    list-style: none;
+}
