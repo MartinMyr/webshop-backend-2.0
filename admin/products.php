@@ -6,25 +6,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo "Hej och välkommen till Produktsidan";
 
 
-    $sql = "SELECT productName, category  FROM Products ORDER BY category ASC";
+    $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
     $totProd = connection()->query($sql);
     echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
     if($totProd->num_rows > 0){
         
         while($row = $totProd->fetch_assoc()){
-            echo "<li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
-            <p>Delete</p><input type='checkbox' name='delete' placeholder='Delete' required>
+            echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
+            Delete<input type='checkbox' name='delete' placeholder='Delete' required>
             <select name='Categorie'>
             <option value=''>Select Categorie</option>
-            <option value='Accesorie'>accesorie</option>
-            <option value='Game'>Gamme</option>
-            <option value='Console'>Console</option>
+            <option name='accesory' value='Accesorie'>accesorie</option>
+            <option name='game' value='Game'>Gamme</option>
+            <option name='console' value='Console'>Console</option>
             </select>
-            <button type='submit' class=''>Submit</button>
+            <button type='submit' class='' name='prodButton' value='" . $row['productId'] . "'>Submit</button>
             
-        </form></li>";
+        </form></li></div>";
         }
         
+
+
+        
+
+        if(isset($_POST['formSubmit']) )
+        {
+            //connection grej
+
+            if($_POST['Delete'] === 'true')
+            {
+                //kör delete
+            }
+            else
+            {
+                $varGame = $_POST['Game'];
+                $varConsole = $_POST['Console'];
+                $varDelete = $_POST['Delete'];
+                $varID = $_POST['prodButton'];
+                $errorMessage = "";
+                
+                //"UPDATE category FROM Products WHERE prodID = $varID"
+        
+                // - - - snip - - - 
+            }
+        }
+
+
+
+
+
     }
     else{
         echo "error";
