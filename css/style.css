@@ -64,7 +64,7 @@ footer { grid-area: footer;
     background-color: lightblue;
     font-size: 18px;
     font-weight: 900;
-    height:380px;
+    height:480px;
     border-bottom-right-radius: 10%;
     border-right:3px solid black;
     border-bottom:3px solid black;

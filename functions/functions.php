@@ -5,14 +5,21 @@ session_start();
 ?>
 
 <?php
-function pushToCart($id, $amount){
-    if(isset($id)){
-        $_SESSION["cartId"] .= $id;
-        $_SESSION["cartAmount"] += $amount;
-        header("Refresh:0");
-        
+
+function pushToCart($prodID, $quantity) {
+    if(isset($_SESSION['CART'])) $array = $_SESSION['CART'];
+    else $array = array();
+    
+    array_push($array, array($prodID => $quantity));
+    
+    $_SESSION['CART'] = $array;
+    
+    $antal = 0;
+    foreach($array as $value) {
+        $antal += reset($value);
     }
-}
+    $_SESSION["cartAmount"] += $antal;
+ }
 
 
 function connection(){

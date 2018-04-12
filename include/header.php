@@ -51,6 +51,9 @@ session_start();
             <div class="linkDiv">
                 <a href="login.php">Login</a>
             </div>  
+            <div class='linkDiv'>
+                    <a href='member.php'>Member</a>
+            </div>
             <div id="cart">
                 <a id="cartLink" href="cart.php">
                     <?php
