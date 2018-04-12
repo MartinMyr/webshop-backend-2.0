@@ -59,6 +59,7 @@ function Logout(){
         method: "GET",
     success: function(results){
         $("#content").html(results)
+        location.reload();
     },
     error: function(err){
         alert("PROBLEM");

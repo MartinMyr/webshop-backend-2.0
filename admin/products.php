@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         
         while($row = $totProd->fetch_assoc()){
             echo "<li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
-            <input type='checkbox' name='delete' placeholder='Delete' required>
+            <p>Delete</p><input type='checkbox' name='delete' placeholder='Delete' required>
             <select name='Categorie'>
-            <option value=''>Select...</option>
+            <option value=''>Select Categorie</option>
             <option value='Accesorie'>accesorie</option>
             <option value='Game'>Gamme</option>
             <option value='Console'>Console</option>
