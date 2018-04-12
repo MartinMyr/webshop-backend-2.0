@@ -134,7 +134,7 @@ function allProducts(){
         VALUES ('$namn', '$email')";
         mysqli_query(connection(), $sql);
     }
-    function insertNewsletter($title, $text){
+    function insertNewsletter($title, $message){
         $sql = "INSERT INTO Newsletter (title, message)
         VALUES ('$title', '$message')";
         mysqli_query(connection(),$sql);
@@ -171,8 +171,8 @@ function allProducts(){
 
     //Send newsletter from admin check
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
-        insert($_POST["newsletterTitle"],$_POST["comment"]);
-        echo "Sent";  
+        insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
+        echo "Sent";
     }
 
     //
