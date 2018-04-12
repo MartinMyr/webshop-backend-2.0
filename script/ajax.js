@@ -53,7 +53,7 @@ function viewUsers(){
     })
 }
 
-function Logout(){
+function logout(){
     $.ajax({
         url: "./admin/logout.php",
         method: "GET",
