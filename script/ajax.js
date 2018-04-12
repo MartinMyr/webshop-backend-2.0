@@ -66,3 +66,17 @@ function Logout(){
     }
     })
 }
+
+function createNews(){
+    $.ajax({
+        url: "./admin/newsletter.php",
+        method: "GET",
+    success: function(results){
+        $("#content").html(results)
+        
+    },
+    error: function(err){
+        alert("PROBLEM");
+    }
+    })
+}
