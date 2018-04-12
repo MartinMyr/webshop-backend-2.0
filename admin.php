@@ -11,6 +11,7 @@
                 </div><div class='linkDiv' onclick='viewProducts();'><a href='#'>Products</a>
                 </div><div class='linkDiv' onclick='viewSubscribers();'><a href='#'>Subs.</a>
                 </div><div class='linkDiv' onclick='viewUsers();'><a href='#'>Users</a>
+                </div><div class='linkDiv' onclick='createNews();'><a href='#'>Newsletter</a>
                 </div><div class='linkDiv' onclick='logout();'><a href='#'>Logout</a></div>`);
     </script>
    
