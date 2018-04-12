@@ -16,6 +16,10 @@
 </div>
 <div class="cards">
     <?php
+
+    if(isset($_POST["id"])){
+        pushToCart($_POST["id"], $_POST["quantity"]);
+    }
     // print_r($_POST);
         if (empty($_GET["category"])){
             allProducts();
