@@ -9,25 +9,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
     $totProd = connection()->query($sql);
     echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
+    
     if($totProd->num_rows > 0){
         
         while($row = $totProd->fetch_assoc()){
             echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
-            Delete<input type='checkbox' name='delete' placeholder='Delete' required>
+            Delete<input type='checkbox' name='delete' placeholder='Delete'>
             <select name='Categorie'>
             <option value=''>Select Categorie</option>
             <option name='accesory' value='Accesorie'>accesorie</option>
-            <option name='game' value='Game'>Gamme</option>
+            <option name='game' value='Game'>Game</option>
             <option name='console' value='Console'>Console</option>
             </select>
-            <button type='submit' class='' name='prodButton' value='" . $row['productId'] . "'>Submit</button>
+            <input type='hidden' name='productId' value='".$row['productId']."' />
+            <button type='submit' class=''>Submit</button>
             
         </form></li></div>";
         }
         
 
 
-        print_r($_POST);
+        print_r($_GET);
 
         if(isset($_POST['formSubmit']) )
         {
@@ -36,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             if($_POST['Delete'] === 'true')
             {
-               // $sql = "DELETE productId FROM Products WHERE productId;
+                $sql = "DELETE productId FROM Products WHERE productId =???no one knows";
                 $totProd = connection()->query($sql);
             }
             else

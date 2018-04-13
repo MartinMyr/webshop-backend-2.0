@@ -105,6 +105,14 @@ footer { grid-area: footer;
 
 /* MENY SLUT */
 
+#startDiv{
+    padding: 1%;
+    height: 350px;
+    width: 350px;
+    Background-color: white;
+
+
+}
 #content{
     margin: 0 auto;
     grid-area: main; 
@@ -278,7 +286,33 @@ tr{
     overflow: auto;
 
 }
+#subDiv{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+  
+    Background-color: white;
+    
 
+}
+#newsDiv{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+    
+    Background-color: white;
+    
+
+}
+#userDiv{
+    margin-top: 2%;
+    text-align: center;
+    padding: 1%;
+    
+    Background-color: white;
+    
+
+}
 #newProd{
     margin-top: 2%;
     text-align: center;

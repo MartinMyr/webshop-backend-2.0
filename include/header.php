@@ -48,12 +48,22 @@ session_start();
             <div class="linkDiv">
                 <a href="contact.php">Contact</a>
             </div>
-            <div class="linkDiv">
+            <div class="linkDiv" id="loginDiv">
                 <a href="login.php">Login</a>
             </div>  
             <div class='linkDiv'>
                     <a href='member.php'>Member</a>
             </div>
+
+            <?php
+                if(isset($_SESSION["adminCheck"])){
+                    if($_SESSION["adminCheck"] == 'false'){
+                        echo "<div class='linkDiv' onclick='logout();'><a href='#'>Logout</a></div>";
+                    }
+                }
+            ?>
+
+
             <div id="cart">
                 <a id="cartLink" href="cart.php">
                     <?php
