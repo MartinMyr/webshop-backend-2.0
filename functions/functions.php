@@ -139,8 +139,24 @@ function allProducts(){
         VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
-    
 
+
+
+    //Make admin
+    function updateAdmin($username){
+        $sql = "UPDATE User
+        SET admin = 1
+        WHERE username = $username)";
+        mysqli_query(connection(), $sql);
+    }
+      //makeAdmin check
+      if(isset($_GET["makeAdmin"])){
+        updateAdmin($_GET["makeAdmin"]);
+    }
+    //
+
+
+    
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
@@ -154,14 +170,13 @@ function allProducts(){
         setcookie("newsletter", "true", time()+3600*48);
             
     }
-    //
+  
 
     //Send newsletter from admin check
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
         echo "Sent";
     }
-
     //
 function getOrders(){ 
     $conn = connection();
