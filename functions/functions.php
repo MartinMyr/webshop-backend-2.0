@@ -10,8 +10,16 @@ include './classEshop.php';
 function pushToCart($prodID, $quantity) {
     if(isset($_SESSION['CART'])) $array = $_SESSION['CART'];
     else $array = array();
-    
-    array_push($array, array($prodID => $quantity));
+    $isInCart = false;
+    foreach($array as $key => $value) {
+        if(isset($value[$prodID])) {
+            $array[$key][$prodID]++;
+            $isInCart = true;
+            break;
+        }
+
+    }
+    if(!$isInCart) array_push($array, array($prodID => $quantity));
     
     $_SESSION['CART'] = $array;
     
@@ -120,13 +128,17 @@ function allProducts(){
             echo "error";
         }
     } 
-
+    //Functions for insert to DB
     function insert($namn, $email){
         $sql = "INSERT INTO Subscribers (namn, email)
         VALUES ('$namn', '$email')";
         mysqli_query(connection(), $sql);
     }
-
+    function insertNewsletter($title, $message){
+        $sql = "INSERT INTO Newsletter (title, message)
+        VALUES ('$title', '$message')";
+        mysqli_query(connection(),$sql);
+    }
     
     function insertPassword($password){
         $sql = "INSERT INTO User (username, password, email, admin, subscribe, name )
@@ -134,13 +146,81 @@ function allProducts(){
         mysqli_query(connection(), $sql);
     }
 
-        if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
-        {
-            insert($_POST["newsletterName"],$_POST["email"]);  
-            setcookie("newsletter", "true", time()+3600*48);
-            
-        }
+    //Lägger till ny user i SQL
+    function insertUser($userName, $email, $password, $subs){
+        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
+        VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
+        mysqli_query(connection(), $sql);
+    }
+    
 
+    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
+    {  
+        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+        
+    }
+
+    //Newsletter check
+    if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
+    {
+        insert($_POST["newsletterName"],$_POST["email"]);  
+        setcookie("newsletter", "true", time()+3600*48);
+            
+    }
+    //
+
+    //Send newsletter from admin check
+    if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
+        insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
+        echo "Sent";
+    }
+
+    //
+function getOrders(){ 
+    $conn = connection();
+
+
+    $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
+    $result = $conn->query($sql);
+        
+
+    if($result->num_rows > 0){
+        
+        while($row = $result->fetch_assoc()){
+            echo "
+                <table id='ordersTable'>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID</th>
+                        <th>Order Date</th>
+                        <th>shipped Date</th>
+                        <th>Shipped By</th>
+                        <th>Shipped</th>
+                        <th>Recieved</th>
+                    </tr>
+                    <tr>
+                        <td>".$row['orderId']."</td>
+                        <td>".$row['customerId']."</td>
+                        <td>".$row['orderDate']."</td>
+                        <td>".$row['shippedDate']."</td>
+                        <td>".$row['shippedBy']."</td>
+                        <td>".$row['shipped']."</td>
+                        <td>
+                            <form action='member.php' action='POST'>
+                                <input type='radio'>
+                                <input type='submit' value='recieved'>
+                            </form>
+                        </td>
+                    </tr>
+                </table>";
+
+        }
+        
+        
+        } else {
+            echo "error";
+        }
+}
     
 
 

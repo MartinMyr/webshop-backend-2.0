@@ -23,21 +23,23 @@
 
 
 <?php
-    if(isset($_POST["username"])){
+    if(isset($_POST["username"]) && isset($_POST["password"])){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sqlUser = "SELECT username, password FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
+        $sqlUser = "SELECT username, password, admin FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
      
         $results = connection()->query($sqlUser)->fetch_assoc();
         
-        if($results == true){
-            $_SESSION["adminCheck"] = "true";
+        if($results['admin'] == true){
+            $_SESSION["adminCheck"] = 'true';
             header("location: admin.php");
-            
         }else{
-           echo "False";
+            $_SESSION["adminCheck"] = 'false';
+            header("location: index.php");
         }
     }
+
+    
 
 ?>
 

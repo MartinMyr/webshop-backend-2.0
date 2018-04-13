@@ -53,13 +53,27 @@ function viewUsers(){
     })
 }
 
-function Logout(){
+function logout(){
     $.ajax({
         url: "./admin/logout.php",
         method: "GET",
     success: function(results){
         $("#content").html(results)
         location.reload();
+    },
+    error: function(err){
+        alert("PROBLEM");
+    }
+    })
+}
+
+function createNews(){
+    $.ajax({
+        url: "./admin/newsletter.php",
+        method: "GET",
+    success: function(results){
+        $("#content").html(results)
+        
     },
     error: function(err){
         alert("PROBLEM");
