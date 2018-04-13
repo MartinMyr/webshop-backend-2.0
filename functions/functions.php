@@ -134,8 +134,18 @@ function allProducts(){
     
 
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
-    {  
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+    {   
+        $sql = "SELECT username FROM User";
+        $result = connection()->query($sql);
+        
+        foreach($result as $name){
+            if($_POST["signUpUsername"] == $name['username']){
+                ?><script>alert("Username is not available!");</script><?php
+                break;
+            } else {
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+            }
+        }
         
     }
 
