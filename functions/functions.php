@@ -1,34 +1,21 @@
 <?php
 session_start();
-include './include/classes.php';
-include './classEshop.php';
+include './include/classEshop.php';
 
 ?>
 
 <?php
 
 function pushToCart($prodID, $quantity) {
-    if(isset($_SESSION['CART'])) $array = $_SESSION['CART'];
-    else $array = array();
-    $isInCart = false;
-    foreach($array as $key => $value) {
-        if(isset($value[$prodID])) {
-            $array[$key][$prodID]++;
-            $isInCart = true;
-            break;
-        }
-
-    }
-    if(!$isInCart) array_push($array, array($prodID => $quantity));
+if(empty($_SESSION['CART'])){
+    $_SESSION['CART'] = array();
+}
+    array_push($_SESSION['CART'], array($prodID => $quantity));
     
-    $_SESSION['CART'] = $array;
-    
-    $antal = 0;
-    foreach($array as $value) {
-        $antal += reset($value);
-    }
-    $_SESSION["cartAmount"] += $antal;
- }
+    // foreach ($_SESSION['CART'] as $key => $value){
+    //     $antal += $value;
+    // }
+}
 
 
 function connection(){
@@ -48,51 +35,37 @@ function connection(){
 
 }
 
-function testloop(){
-
-    $conn = connection();
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
-    $result = $conn->query($sql);
-    
-    print_r($result);
-
-    if($result->num_rows > 0){
-        echo "hit kommer den";
-        
-        while($row = $result->fetch_assoc()){
-            echo "hej!";
-        // $games = new Games();
-        // $games -> draw();
-        print_r($row);
-        }
-    }  
-}
 
 function selectedProduct(){
     $conn = connection();
 
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
     $result = $conn->query($sql);
         
     if($result->num_rows > 0){
-        
-        while($row = $result->fetch_assoc()){
-            echo "<div class='card'>
-            <div class='cardName'>" . $row["productName"] . "</div>
-                <div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>
-                <div class='cardInfo'>" . $row["info"] . "</div>
-                <div class='cardPrice'>Price: " . $row["price"] . ":-</div>
-                <div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>
-                <div class='amount_submit'>
-                    <form action='products.php' method='post'>
-                        <input value='1' name='quantity' type='number' class='amount'>
-                        <input type='hidden' value='". $row["productId"]."' name='id'>
-                        <input type='submit' value='add to basket'>
-                    </form>
-                </div>
-            </div>";
-        }
-    } else {
+        while($row = $result->fetch_assoc()){            
+            
+            if ($row['category'] == 'games') {
+                
+                $game = new Game($row);
+                echo $game->printProductDiv($sql);
+               
+            }
+            if ($row['category'] == 'accessories') {
+                $accessorie = new Accessorie($row);
+
+                echo $accessorie->printProductDiv($sql);
+            }
+            if ($row['category'] == 'console') {
+                
+                $console = new Console($row);
+                
+                echo $console->printProductDiv($sql);
+                
+            }            
+        }  
+    } 
+    else {
         echo "error";
     }
 }
@@ -100,30 +73,40 @@ function selectedProduct(){
 function allProducts(){ 
     $conn = connection();
     $class = "products";
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products";
     $result = $conn->query($sql);
         
 
     if($result->num_rows > 0){
-        
         while($row = $result->fetch_assoc()){
+            //print_r($row);
+            //ini_set('display_errors', 1 );
+            
+            
             if ($row['category'] == 'games') {
-                return new Game($row);
+                
+                $game = new Game($row);
+                echo $game->printProductDiv($sql);
+               
             }
             if ($row['category'] == 'accessories') {
-                return new Accessorie($row);
+                $accessorie = new Accessorie($row);
+
+                echo $accessorie->printProductDiv($sql);
             }
             if ($row['category'] == 'console') {
-                return new Console($row);
-            }
-            echo $row->printProductDiv();
-        }
-        
-        
-        } else {
-            echo "error";
-        }
+                
+                $console = new Console($row);
+                
+                echo $console->printProductDiv($sql);
+                
+            }            
+        }  
     } 
+    else {
+            echo "error";
+    }
+} 
     //Functions for insert to DB
     function insert($namn, $email){
         $sql = "INSERT INTO Subscribers (namn, email)
@@ -148,11 +131,36 @@ function allProducts(){
         VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
-    
 
+
+    //Make admin
+    function updateAdmin($username){
+        $sql = "UPDATE User
+        SET admin = 1
+        WHERE username = '$username')";
+        mysqli_query(connection(), $sql);
+    }
+      //makeAdmin check
+      if(isset($_GET["makeAdmin"])){
+        updateAdmin($_GET["makeAdmin"]);
+    }
+    //
+
+
+    
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
-    {  
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+    {   
+        $sql = "SELECT username FROM User";
+        $result = connection()->query($sql);
+        
+        foreach($result as $name){
+            if($_POST["signUpUsername"] == $name['username']){
+                ?><script>alert("Username is not available!");</script><?php
+                break;
+            } else {
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+            }
+        }
         
     }
 
@@ -163,14 +171,13 @@ function allProducts(){
         setcookie("newsletter", "true", time()+3600*48);
             
     }
-    //
+  
 
     //Send newsletter from admin check
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
         echo "Sent";
     }
-
     //
 function getOrders(){ 
     $conn = connection();
