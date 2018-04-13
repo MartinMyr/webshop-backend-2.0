@@ -9,15 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
     $totProd = connection()->query($sql);
     echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
+    
     if($totProd->num_rows > 0){
         
         while($row = $totProd->fetch_assoc()){
-            echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='get'>
-            Delete<input type='checkbox' name='delete' placeholder='Delete' required>
+            echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
+            Delete<input type='checkbox' name='delete' placeholder='Delete'>
             <select name='Categorie'>
             <option value=''>Select Categorie</option>
             <option name='accesory' value='Accesorie'>accesorie</option>
-            <option name='game' value='Game'>Gamme</option>
+            <option name='game' value='Game'>Game</option>
             <option name='console' value='Console'>Console</option>
             </select>
             <input type='hidden' name='productId' value='".$row['productId']."' />
