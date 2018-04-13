@@ -39,7 +39,6 @@
          
             $itemArray = array($productByCode["productId"]=>array('name'=>$productByCode["productName"], 'code'=>$productByCode["productId"], 'quantity'=>$_POST["unitsInStock"], 'price'=>$productByCode["price"]));
             
-            print_r($itemArray);
        
             if(!empty($_SESSION["cart_item"])) {
                 if(in_array($productByCode["code"],array_keys($_SESSION["cart_item"]))) {
