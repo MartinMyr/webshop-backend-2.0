@@ -1,7 +1,6 @@
 <?php
 session_start();
-include './include/classes.php';
-include './classEshop.php';
+include './include/classEshop.php';
 
 ?>
 
@@ -48,51 +47,37 @@ function connection(){
 
 }
 
-function testloop(){
-
-    $conn = connection();
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
-    $result = $conn->query($sql);
-    
-    print_r($result);
-
-    if($result->num_rows > 0){
-        echo "hit kommer den";
-        
-        while($row = $result->fetch_assoc()){
-            echo "hej!";
-        // $games = new Games();
-        // $games -> draw();
-        print_r($row);
-        }
-    }  
-}
 
 function selectedProduct(){
     $conn = connection();
 
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
     $result = $conn->query($sql);
         
     if($result->num_rows > 0){
-        
-        while($row = $result->fetch_assoc()){
-            echo "<div class='card'>
-            <div class='cardName'>" . $row["productName"] . "</div>
-                <div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>
-                <div class='cardInfo'>" . $row["info"] . "</div>
-                <div class='cardPrice'>Price: " . $row["price"] . ":-</div>
-                <div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>
-                <div class='amount_submit'>
-                    <form action='products.php' method='post'>
-                        <input value='1' name='quantity' type='number' class='amount'>
-                        <input type='hidden' value='". $row["productId"]."' name='id'>
-                        <input type='submit' value='add to basket'>
-                    </form>
-                </div>
-            </div>";
-        }
-    } else {
+        while($row = $result->fetch_assoc()){            
+            
+            if ($row['category'] == 'games') {
+                
+                $game = new Game($row);
+                echo $game->printProductDiv($sql);
+               
+            }
+            if ($row['category'] == 'accessories') {
+                $accessorie = new Accessorie($row);
+
+                echo $accessorie->printProductDiv($sql);
+            }
+            if ($row['category'] == 'console') {
+                
+                $console = new Console($row);
+                
+                echo $console->printProductDiv($sql);
+                
+            }            
+        }  
+    } 
+    else {
         echo "error";
     }
 }
@@ -100,30 +85,40 @@ function selectedProduct(){
 function allProducts(){ 
     $conn = connection();
     $class = "products";
-    $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products";
     $result = $conn->query($sql);
         
 
     if($result->num_rows > 0){
-        
         while($row = $result->fetch_assoc()){
+            //print_r($row);
+            //ini_set('display_errors', 1 );
+            
+            
             if ($row['category'] == 'games') {
-                return new Game($row);
+                
+                $game = new Game($row);
+                echo $game->printProductDiv($sql);
+               
             }
             if ($row['category'] == 'accessories') {
-                return new Accessorie($row);
+                $accessorie = new Accessorie($row);
+
+                echo $accessorie->printProductDiv($sql);
             }
             if ($row['category'] == 'console') {
-                return new Console($row);
-            }
-            echo $row->printProductDiv();
-        }
-        
-        
-        } else {
-            echo "error";
-        }
+                
+                $console = new Console($row);
+                
+                echo $console->printProductDiv($sql);
+                
+            }            
+        }  
     } 
+    else {
+            echo "error";
+    }
+} 
     //Functions for insert to DB
     function insert($namn, $email){
         $sql = "INSERT INTO Subscribers (namn, email)
