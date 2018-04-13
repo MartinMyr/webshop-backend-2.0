@@ -7,27 +7,15 @@ include './include/classEshop.php';
 <?php
 
 function pushToCart($prodID, $quantity) {
-    if(isset($_SESSION['CART'])) $array = $_SESSION['CART'];
-    else $array = array();
-    $isInCart = false;
-    foreach($array as $key => $value) {
-        if(isset($value[$prodID])) {
-            $array[$key][$prodID]++;
-            $isInCart = true;
-            break;
-        }
-
-    }
-    if(!$isInCart) array_push($array, array($prodID => $quantity));
+if(empty($_SESSION['CART'])){
+    $_SESSION['CART'] = array();
+}
+    array_push($_SESSION['CART'], array($prodID => $quantity));
     
-    $_SESSION['CART'] = $array;
-    
-    $antal = 0;
-    foreach($array as $value) {
-        $antal += reset($value);
-    }
-    $_SESSION["cartAmount"] += $antal;
- }
+    // foreach ($_SESSION['CART'] as $key => $value){
+    //     $antal += $value;
+    // }
+}
 
 
 function connection(){

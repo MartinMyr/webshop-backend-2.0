@@ -16,7 +16,7 @@
 </div>
 <div class="cards">
     <?php
-
+        print_r($_SESSION["antal"]);
     if(isset($_POST["id"])){
         pushToCart($_POST["id"], $_POST["quantity"]);
     }
