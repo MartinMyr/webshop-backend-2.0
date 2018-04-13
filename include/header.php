@@ -69,9 +69,9 @@ session_start();
                     <?php
                         if(!isset($_SESSION["cartAmount"]))
                         {
-                            $_SESSION["cartAmount"] = 0;
+                            $_SESSION["sumCart"] = 0;
                         }
-                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["cartAmount"];
+                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["sumCart"];
                     ?>
                 </a>
             </div>  

@@ -8,10 +8,10 @@
 
 <div id="cartDiv">
 <?php	
-print_r($_SESSION['CART']);
-echo $_SESSION['CART'][10];
+print_r($_SESSION['cart']);
+echo $sumArray;
 
-foreach ($_SESSION['CART'][i] as $key => $value){
+foreach ($sumArray as $key => $value){
 	echo"
 		<div id='cartIdDiv'>
 		</div>

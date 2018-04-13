@@ -7,22 +7,26 @@ include './include/classEshop.php';
 <?php
 
 function pushToCart($prodID, $quantity) {
-if(empty($_SESSION['CART'])){
-    $_SESSION['CART'] = array();
-}
-    array_push($_SESSION['CART'], array($prodID => $quantity));
+    if(empty($test)){
+        $test = array();
+    }
+
+    array_push($test, array($prodID => $quantity));
     if(empty($sumArray)){
         $sumArray = array();
     }
-
-    foreach ($_SESSION["CART"] as $k=>$subArray) {
+    print_r($test);
+    echo "<br/>";
+ 
+    foreach ($test as $k=>$subArray) {
       foreach ($subArray as $id=>$value) {
         $sumArray[$id]+=$value;
+        $_SESSION["sumCart"] += $value;
       }
     }
-    
     print_r($sumArray);
-    
+
+
 }
 
 
@@ -139,24 +143,8 @@ function allProducts(){
         VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
-
-
-
-    //Make admin
-    function updateAdmin($username){
-        $sql = "UPDATE User
-        SET admin = 1
-        WHERE username = $username)";
-        mysqli_query(connection(), $sql);
-    }
-      //makeAdmin check
-      if(isset($_GET["makeAdmin"])){
-        updateAdmin($_GET["makeAdmin"]);
-    }
-    //
-
-
     
+
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
@@ -170,13 +158,14 @@ function allProducts(){
         setcookie("newsletter", "true", time()+3600*48);
             
     }
-  
+    //
 
     //Send newsletter from admin check
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
         echo "Sent";
     }
+
     //
 function getOrders(){ 
     $conn = connection();
