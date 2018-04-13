@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if($totProd->num_rows > 0){
         
         while($row = $totProd->fetch_assoc()){
-            echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='post'>
+            echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "<form method='get'>
             Delete<input type='checkbox' name='delete' placeholder='Delete' required>
             <select name='Categorie'>
             <option value=''>Select Categorie</option>
@@ -20,14 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <option name='game' value='Game'>Gamme</option>
             <option name='console' value='Console'>Console</option>
             </select>
-            <button type='submit' class='' name='prodButton' value='" . $row['productId'] . "'>Submit</button>
+            <input type='hidden' name='productId' value='".$row['productId']."' />
+            <button type='submit' class=''>Submit</button>
             
         </form></li></div>";
         }
         
 
 
-        print_r($_POST);
+        print_r($_GET);
 
         if(isset($_POST['formSubmit']) )
         {
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             if($_POST['Delete'] === 'true')
             {
-               // $sql = "DELETE productId FROM Products WHERE productId;
+                $sql = "DELETE productId FROM Products WHERE productId =???no one knows";
                 $totProd = connection()->query($sql);
             }
             else
