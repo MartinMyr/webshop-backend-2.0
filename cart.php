@@ -11,7 +11,7 @@
 print_r($_SESSION['CART']);
 echo $_SESSION['CART'][10];
 
-foreach ($_SESSION['CART'] as $key => $value){
+foreach ($_SESSION['CART'][i] as $key => $value){
 	echo"
 		<div id='cartIdDiv'>
 		</div>

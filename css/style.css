@@ -299,7 +299,7 @@ li{
 
 /* MEMBER START */
 
-#orders{
+#memberDiv{
 margin-top:40px;
 }
 #orderstable{
@@ -318,8 +318,6 @@ td, th {
     background-color: #dddddd;
 }
 
-tr:nth-child(even) {
-}
 #isOrderRecieved{
     margin-top: 20px;
 }

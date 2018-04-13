@@ -43,7 +43,7 @@ function connection(){
     if($conn->connect_error){
         die("FEL: " . $conn->connect_error);
     }
-
+        // GÖR TILL GLOBAL
     return $conn;
 
 }
@@ -99,7 +99,7 @@ function selectedProduct(){
 
 function allProducts(){ 
     $conn = connection();
-
+    $class = "products";
     $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products";
     $result = $conn->query($sql);
         
@@ -107,20 +107,16 @@ function allProducts(){
     if($result->num_rows > 0){
         
         while($row = $result->fetch_assoc()){
-            echo "<div class='card'>
-            <div class='cardName'>" . $row["productName"] . "</div>
-                <div class='cardImage'><img src='img/" . $row["pic"] . "' class='gameImg'></div>
-                <div class='cardInfo'>" . $row["info"] . "</div>
-                <div class='cardPrice'>Price: " . $row["price"] . ":-</div>
-                <div class='unitsInStock'>In stock: " . $row["unitsInStock"] . "</div>
-                <div class='amount_submit'>
-                    <form action='products.php' method='post'>
-                        <input value='1' name='quantity' type='number' class='amount'>
-                        <input type='hidden' value='". $row["productId"]."' name='id'>
-                        <input type='submit' value='add to basket'>
-                    </form>
-                </div>
-            </div>";
+            if ($row['category'] == 'games') {
+                return new Game($row);
+            }
+            if ($row['category'] == 'accessories') {
+                return new Accessorie($row);
+            }
+            if ($row['category'] == 'console') {
+                return new Console($row);
+            }
+            echo $row->printProductDiv();
         }
         
         
@@ -172,21 +168,11 @@ function getOrders(){
     $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
     $result = $conn->query($sql);
         
-
+    
     if($result->num_rows > 0){
         
         while($row = $result->fetch_assoc()){
             echo "
-                <table id='ordersTable'>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer ID</th>
-                        <th>Order Date</th>
-                        <th>shipped Date</th>
-                        <th>Shipped By</th>
-                        <th>Shipped</th>
-                        <th>Recieved</th>
-                    </tr>
                     <tr>
                         <td>".$row['orderId']."</td>
                         <td>".$row['customerId']."</td>
@@ -195,13 +181,11 @@ function getOrders(){
                         <td>".$row['shippedBy']."</td>
                         <td>".$row['shipped']."</td>
                         <td>
-                            <form action='member.php' action='POST'>
-                                <input type='radio'>
+                            <form action='member.php?id=' action='POST'>
                                 <input type='submit' value='recieved'>
                             </form>
                         </td>
-                    </tr>
-                </table>";
+                    </tr>";
 
         }
         
