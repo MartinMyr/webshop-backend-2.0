@@ -43,14 +43,24 @@ include "./functions.php";
 abstract class Product {
 
 
-    protected $image;
-    protected $id;
-    protected $name;
-    protected $desc;
+    protected $pic;
+    protected $productId;
+    protected $productName;
+    protected $info;
     protected $price;
+    protected $unitsInStock;
 
+    public function __construct($sql){
 
-    public function printProductDiv() {
+        
+        $this->pic = $sql["pic"];
+        $this->productId = $sql["productId"];
+        $this->pruductName = $sql["productName"];
+        $this->info = $sql["info"];
+        $this->price = $sql["price"];
+    
+    }
+    public function printProductDiv($sql) {
         return "<div class='card'>
             <div class='cardName'>" . $this->productName . "</div>
                 <div class='cardImage'><img src='img/" . $this->pic . "' class='gameImg'></div>
@@ -70,49 +80,20 @@ abstract class Product {
 }
 
 
-abstract class Game extends Product{
+class Game extends Product{
 
-    public function __construct(){
-
-        
-        $this->image = $sql["pic"];
-        $this->id = $sql["productId"];
-        $this->name = $sql["productName"];
-        $this->desc = $sql["info"];
-        $this->price = $sql["price"];
     
-    }
+   
 }
 
-abstract class Console extends Product{
+class Console extends Product{
 
-    public function __construct(){
-
-        $sql = "SELECT productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
-        $result = $conn->query($sql);        
-         // $this->XXXX måste kopplas på något vis, antingen ifrån Sql eller input. eller befintligt.
-        // lite osäker på redan befintliga
-        $this->image = $sql["pic"];
-        $this->id = $sql["productId"];
-        $this->name = $sql["productName"];
-        $this->desc = $sql["info"];
-        $this->price = $sql["price"];
-    }
+    
 }
 
-abstract class Accessorie extends Product{
+class Accessorie extends Product{
 
-    public function __construct(){
-
-        // $this->XXXX måste kopplas på något vis, antingen ifrån Sql eller input. eller befintligt.
-        // lite osäker på redan befintliga
-        $this->image = $sql["pic"];
-        $this->id = $sql["productId"];
-        $this->name = $sql["productName"];
-        $this->desc = $sql["info"];
-        $this->price = $sql["price"];
-    
-    }
+   
 }
 
 ?>

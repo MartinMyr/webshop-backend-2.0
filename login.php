@@ -29,6 +29,10 @@
         $sqlUser = "SELECT username, password, admin FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
      
         $results = connection()->query($sqlUser)->fetch_assoc();
+
+        $_SESSION["inloggad"] = true;
+        $_SESSION["inloggadNamn"] = $username;
+
         
         if($results['admin'] == true){
             $_SESSION["adminCheck"] = 'true';
