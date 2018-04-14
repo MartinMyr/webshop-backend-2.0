@@ -253,7 +253,6 @@ footer { grid-area: footer;
 /*Login page*/
 
 #loginform{
-    margin-left:32vw;
     margin-top:10vh;
     max-width:250px;
     text-align: center;
