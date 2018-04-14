@@ -6,28 +6,56 @@ include './include/classEshop.php';
 
 <?php
 
-function pushToCart($prodID, $quantity) {
-    if(empty($test)){
-        $test = array();
-    }
+function printCart(){
 
-    array_push($test, array($prodID => $quantity));
-    if(empty($sumArray)){
-        $sumArray = array();
-    }
-    print_r($test);
-    echo "<br/>";
- 
-    foreach ($test as $k=>$subArray) {
-      foreach ($subArray as $id=>$value) {
-        $sumArray[$id]+=$value;
-        $_SESSION["sumCart"] += $value;
-      }
-    }
-    print_r($sumArray);
+    $conn = connection();
 
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
+    $result = $conn->query($sql);
 
+    foreach ($_SESSION['cartByproduct'] as $key => $value){
+        echo "
+        <tr>
+        <td>".$key."</td>
+        <td></td>
+        <td></td>
+        <td>".$value."</td>
+        <td>
+            <form action='member.php?id=' action='POST'>
+                <input type='submit' value='remove product'>
+            </form>
+        </td>
+    </tr>";
+    }
 }
+
+function pushToCart($prodID, $quantity) {
+    if(empty($_SESSION['CART'])){
+        $_SESSION['CART'] = array();
+    }
+        array_push($_SESSION['CART'], array($prodID => $quantity));
+        if(empty($sumArray)){
+            $sumArray = array();
+        }
+
+        foreach ($_SESSION['CART'] as $k=>$subArray) {
+            foreach ($subArray as $id=>$value) {
+               $antal += $value;
+            }
+        }
+        $_SESSION["antal"] = $antal; 
+
+        
+        foreach ($_SESSION["CART"] as $k=>$subArray) {
+            foreach ($subArray as $id=>$value) {
+                $sumArray[$id]+=$value;
+            }
+        }
+        $_SESSION["cartByproduct"] = $sumArray;
+        // print_r($sumArray);
+        header("Refresh:0");
+        
+    }
 
 
 function connection(){
@@ -212,21 +240,4 @@ function getOrders(){
 
 // BACKUP
 
-// function pushToCart($prodID, $quantity) {
-//     if(empty($_SESSION['CART'])){
-//         $_SESSION['CART'] = array();
-//     }
-//         array_push($_SESSION['CART'], array($prodID => $quantity));
-//         if(empty($sumArray)){
-//             $sumArray = array();
-//         }
-    
-//         foreach ($_SESSION["CART"] as $k=>$subArray) {
-//           foreach ($subArray as $id=>$value) {
-//             $sumArray[$id]+=$value;
-//           }
-//         }
-        
-//         print_r($sumArray);
-        
-//     }
+
