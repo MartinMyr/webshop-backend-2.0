@@ -52,13 +52,13 @@
                     <tr>
                         <td>".$key."</td>
                         <td>".$row['productName']."</td>
-                        <td><img style='width:100px;' src='img/".$row['pic']."'</td>
+                        <td><img style='width:100px; border-radius:10%; border:1px solid black;'  src='img/".$row['pic']."'</td>
                         <td>".$row['price']." kr</td>
                         <td>".$value."</td>
                         <td>
                             <form action='cart.php' method='POST'>
                                 <input type='hidden' name='delProdID' value='".$key."' />
-                                <input type='submit' value='remove product'>
+                                <input type='submit' value='Ta bort produkt'>
                             </form>
                         </td>
                     </tr>"

@@ -44,16 +44,16 @@ session_start();
                 <a href="index.php">Start</a>
             </div> 
             <div class="linkDiv">  
-                <a href="products.php">Products</a>
+                <a href="products.php">Produkter</a>
             </div> 
             <div class="linkDiv">
-                <a href="contact.php">Contact</a>
+                <a href="contact.php">Kontakt</a>
             </div>
             <div class="linkDiv" id="loginDiv">
                 <a href="login.php">Login</a>
             </div>  
             <div class='linkDiv'>
-                    <a href='member.php'>Member</a>
+                    <a href='member.php'>Medlem</a>
             </div>
 
             <?php

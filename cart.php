@@ -7,49 +7,51 @@
 	} 
 ?>
 <div id="cartProducts">
-	<h1> Your Cart</h1>
+	<!-- <h1> Din Varukorg</h1> -->
 	<table id='cartTable'>
 		<tr>
 			<th width="20px;">ID</th>
-			<th>Name</th>
-			<th>Image</th>
-			<th>Price</th>
-			<th>Quantity</th>
-			<th width="20px;">Remove</th>
+			<th>Namn</th>
+			<th>Bild på din vara</th>
+			<th>Pris</th>
+			<th width="10px;">Antal</th>
+			<th width="35px;"></th>
 		</tr>
 		<?php
 		$total = printCart();
 		?>   
-		<td colspan="3"></td>
+		<td colspan="3"><strong>TOTALT</strong></td>
 		<td>
 			<?php
-				echo $total[0]." kr";
+				echo"<strong>". $total[0]." kr</strong>";
 			?>
 		</td>
 		<td>
 			<?php
-				echo $total[1];
+				echo "<strong>" .$total[1]. "</strong>";
 			?>
 		</td>
-		<td><a href="clear.php"><button>rensa kundvagn</button></a></td>
+		<td><a href="clear.php"><button>Töm kundvagnen</button></a></td>
 	</table>
 </div>
 
 <div id="cartShipping">
-	<h2>SHIPPING</h2>
+	<h2>Välj ditt fraktbolag</h2>
 	<table id='cartTable' style="width:400px; margin: auto;">
-		<tr>
-			<th colspan="2">Choose your shipper:<th>
-		</tr>
+		<!-- <tr>
+			<th colspan="2">Välj ditt fraktsätt:<th>
+		</tr> -->
 		<tr>
 			<form action="cart.php" method="POST">
 				<?php 
 					shipping();
-					?>
-				<td>
-					<input type="submit" value="choose">
-				</td>
+				?>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="Välj" class="cartSubmit">
 			</form>
+			</td>
 		</tr>
 	</table>
 </div>
@@ -57,9 +59,9 @@
 <div id="cartAmounts">
 	<table id='cartTable' style="width:450px; margin: auto;">
 		<tr>
-			<th>Total amount of cart</th>
-			<th>Cost of shipping</th>
-			<th>Total</th>
+			<th>Totalt värde på din varukorg</th>
+			<th>Fraktkostnad</th>
+			<th>Totalt</th>
 		</tr>
 		<tr>
 			<td> <?php echo $total[0]; ?> kr</td>
@@ -86,7 +88,7 @@
 			<td colspan="3">
 				<form action="checkout.php" method="POST">
 					<input type="hidden">
-					<input type="submit" value="checkout">
+					<input type="submit" value="Slutför din beställning" class="cartSubmit">
 				</form>
 			</td>
 		</tr>
