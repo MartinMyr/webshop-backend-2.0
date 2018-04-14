@@ -17,10 +17,10 @@
             while($row = $totProd->fetch_assoc()){
                 echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "
                 <select id='category".$row['productId']."'>
-                    <option value=''>Select Categorie</option>
-                    <option value='Accesorie'>accesorie</option>
-                    <option value='Game'>Game</option>
-                    <option value='Console'>Console</option>
+                    <option value=''>Select Category</option>
+                    <option value='accessories'>accesorie</option>
+                    <option value='games'>Game</option>
+                    <option value='console'>Console</option>
                 </select>
                 <button type='button' onclick='changeCategory(".$row['productId'].")' class=''>Submit</button>
                 </li></div>";
