@@ -152,12 +152,26 @@ footer { grid-area: footer;
 }
 
 .gameImg{
+    border-radius: 10%;
+    border:2px solid black;
+    margin-top:10px;
+    margin-bottom:10px;
     width:230px;
     height:140px;
 }
+.cardInfo{
+    min-height: 50px;
+}
 
 .amount{
-    width:25px;
+    width:35px;
+    height: 20px;
+    margin-bottom:5px;
+    border-radius: 20%;
+    text-align: center;
+}
+.amount_submit{
+    margin-top:10px;
 }
 
 .cardPrice{
@@ -375,3 +389,4 @@ margin-top:10px;
     margin-top:80px;
     margin-bottom:50px;
 }
+
