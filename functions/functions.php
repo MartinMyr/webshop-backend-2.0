@@ -89,6 +89,29 @@
         return $conn;
     }
 
+    function shipping(){
+        $conn = connection();
+
+        $sql = "SELECT companyName FROM Shippers";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                echo "
+                ".$row['companyName']." <input type='radio' name='shipping' value='".$row['companyName']."'><br/>
+                
+                ";
+            }
+        }
+        else
+        {
+            echo "error";
+        }
+    }
+
+
     function selectedProduct()
     {
         $conn = connection();
@@ -136,8 +159,6 @@
         {
             while($row = $result->fetch_assoc())
             {
-                //print_r($row);
-                //ini_set('display_errors', 1 );
 
                 if ($row['category'] == 'games')
                 {

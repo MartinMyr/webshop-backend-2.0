@@ -18,23 +18,26 @@
 	</tr>
 	<?php
 		printCart();
-
 	?>   
-
+	<td colspan="100">
+		<a href="clear.php"><button>rensa kundvagn</button></a>
+	</td>
 </table>
+
+
 <div id="cartShipping">
 	SHIPPING
 	<hr>
-	<table>
-		<tr>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</table>
+	Choose your shipper:
+	<form action="cart.php" method="POST">
+		<?php 
+			shipping();
+		?>
+	<input type="submit">
+	</form>
+	<hr>
 </div>
 
-<a href="clear.php">rensa kundvagn</a>
 
 <?php
     include 'include/footer.php';
