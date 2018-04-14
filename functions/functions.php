@@ -270,9 +270,9 @@ function getOrders(){
         } else {
             echo "error";
         }
+    }
 }
     
-
 
 
 
