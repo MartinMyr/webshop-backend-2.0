@@ -8,26 +8,33 @@ include './include/classEshop.php';
 
 function printCart(){
     $conn = connection();
- 
-    
-  
     
     foreach ($_SESSION['cartByproduct'] as $key => $value){
-        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId == ".$key."";
-        $result = $conn->query($sql);
+        
+            $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
+            $result = $conn->query($sql);
+           
+            if($result->num_rows > 0){
+                if($row = $result->fetch_assoc()){  
 
-        echo "
-        <tr>
-        <td>".$key."</td>
-        <td>".$result['pic']."</td>
-        <td></td>
-        <td>".$value."</td>
-        <td>
-            <form action='member.php?id=' action='POST'>
-                <input type='submit' value='remove product'>
-            </form>
-        </td>
-    </tr>";
+             
+
+                    echo "
+                    <tr>
+                    <td>".$key."</td>
+                    <td>".$row['productName']."</td>
+                    <td><img style='width:100px;' src='img/".$row['pic']."'</td>
+                    <td>".$row['price']." kr</td>
+                    <td>".$value."</td>
+                    <td>
+                        <form action='member.php?id=' action='POST'>
+                            <input type='submit' value='remove product'>
+                        </form>
+                    </td>
+                    </tr>";
+                }   
+            }       
+
     }
 }
 
