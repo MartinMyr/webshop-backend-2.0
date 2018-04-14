@@ -168,7 +168,7 @@ function allProducts(){
     //Lägger till ny user i SQL
     function insertUser($userName, $email, $password, $subs){
         $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
+        VALUES ('$userName', '$email', '$password', 0, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
 
@@ -187,7 +187,7 @@ function allProducts(){
     }
     //
 
-
+   
     
 
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))

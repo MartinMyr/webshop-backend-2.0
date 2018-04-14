@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION["adminCheck"])){
+    if($_SESSION["adminCheck"] == 'false'){
         header("location: index.php");
     }
     include 'include/header.php';
