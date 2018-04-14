@@ -355,3 +355,8 @@ td, th {
 #isOrderRecieved{
     margin-top: 20px;
 }
+
+/* CART */
+#cartTable{
+margin-top:10px;
+}

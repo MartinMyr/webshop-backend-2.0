@@ -6,16 +6,56 @@ include './include/classEshop.php';
 
 <?php
 
+function printCart(){
+
+    $conn = connection();
+
+    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
+    $result = $conn->query($sql);
+
+    foreach ($_SESSION['cartByproduct'] as $key => $value){
+        echo "
+        <tr>
+        <td>".$key."</td>
+        <td></td>
+        <td></td>
+        <td>".$value."</td>
+        <td>
+            <form action='member.php?id=' action='POST'>
+                <input type='submit' value='remove product'>
+            </form>
+        </td>
+    </tr>";
+    }
+}
+
 function pushToCart($prodID, $quantity) {
-if(empty($_SESSION['CART'])){
-    $_SESSION['CART'] = array();
-}
-    array_push($_SESSION['CART'], array($prodID => $quantity));
-    
-    // foreach ($_SESSION['CART'] as $key => $value){
-    //     $antal += $value;
-    // }
-}
+    if(empty($_SESSION['CART'])){
+        $_SESSION['CART'] = array();
+    }
+        array_push($_SESSION['CART'], array($prodID => $quantity));
+        if(empty($sumArray)){
+            $sumArray = array();
+        }
+
+        foreach ($_SESSION['CART'] as $k=>$subArray) {
+            foreach ($subArray as $id=>$value) {
+               $antal += $value;
+            }
+        }
+        $_SESSION["antal"] = $antal; 
+
+        
+        foreach ($_SESSION["CART"] as $k=>$subArray) {
+            foreach ($subArray as $id=>$value) {
+                $sumArray[$id]+=$value;
+            }
+        }
+        $_SESSION["cartByproduct"] = $sumArray;
+        // print_r($sumArray);
+        header("Refresh:0");
+        
+    }
 
 
 function connection(){
@@ -133,34 +173,26 @@ function allProducts(){
     }
 
 
+
     //Make admin
     function updateAdmin($username){
         $sql = "UPDATE User
         SET admin = 1
-        WHERE username = '$username')";
+        WHERE username = '$username'";
         mysqli_query(connection(), $sql);
     }
       //makeAdmin check
-      if(isset($_GET["makeAdmin"])){
+    if(isset($_GET["makeAdmin"])){
         updateAdmin($_GET["makeAdmin"]);
     }
     //
 
 
     
+
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
-    {   
-        $sql = "SELECT username FROM User";
-        $result = connection()->query($sql);
-        
-        foreach($result as $name){
-            if($_POST["signUpUsername"] == $name['username']){
-                ?><script>alert("Username is not available!");</script><?php
-                break;
-            } else {
-                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
-            }
-        }
+    {  
+        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
         
     }
 
@@ -171,13 +203,14 @@ function allProducts(){
         setcookie("newsletter", "true", time()+3600*48);
             
     }
-  
+    //
 
     //Send newsletter from admin check
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]) ){
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
         echo "Sent";
     }
+
     //
 function getOrders(){ 
     $conn = connection();
@@ -215,5 +248,13 @@ function getOrders(){
     
 
 
+
+
+
+
+
+
+
+// BACKUP
 
 
