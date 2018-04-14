@@ -23,12 +23,23 @@
 		<td colspan="3"><strong>TOTALT</strong></td>
 		<td>
 			<?php
-				echo"<strong>". $total[0]." kr</strong>";
+				if(isset($total[0])){
+					echo"<strong>". $total[0]." kr</strong>";
+				}
+				else{
+					echo "<strong>0 kr</strong>";
+				}
 			?>
 		</td>
 		<td>
 			<?php
+			if(isset($total[1])){
 				echo "<strong>" .$total[1]. "</strong>";
+			}
+			else{
+				echo "<strong>0</strong>";
+			}
+				
 			?>
 		</td>
 		<td><a href="clear.php"><button>Töm kundvagnen</button></a></td>
@@ -64,14 +75,24 @@
 			<th>Totalt</th>
 		</tr>
 		<tr>
-			<td> <?php echo $total[0]; ?> kr</td>
+			<td> 
+				<?php if(isset($total[0])){
+					echo $total[0]." kr"; 
+				}
+				else{
+					echo "0 kr";
+				}
+				?> 
+			</td>
 			<td>
 				<?php
-					if ($total[0] <= 1000) {
-						echo $_POST["shipping"] ."kr";
-					} 
-					else{ 
-						echo "Free!";
+					if(isset($_POST["shipping"])){
+						if ($total[0] <= 1000) {
+							echo $_POST["shipping"] ."kr";
+						} 
+						else{ 
+							echo "Free!";
+						}
 					}
 				?> 
 			</td>

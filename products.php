@@ -9,9 +9,9 @@
 
 <div id="productButtons">
     <form method="GET">
-    <button type="submit" name="category" value="console" id="console">Console</button>
-    <button type="submit" name="category" value="games" id="games">Games</button>
-    <button type="submit" name="category" value="accessories" id="games">Accessories</button>
+    <button type="submit" name="category" value="console" id="console">Konsoll</button>
+    <button type="submit" name="category" value="games" id="games">Spel</button>
+    <button type="submit" name="category" value="accessories" id="games">Tillbehör</button>
 </form>
 </div>
 <div class="cards">
