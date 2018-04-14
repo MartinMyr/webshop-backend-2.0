@@ -60,7 +60,7 @@ function pushToCart($prodID, $quantity) {
             }
         }
         $_SESSION["cartByproduct"] = $sumArray;
-        // print_r($sumArray);
+
         header("Refresh:0");
         
     }
