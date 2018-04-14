@@ -11,6 +11,7 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <script src="./script/ajax.js"></script>
 </head>
 <body>
@@ -63,16 +64,16 @@ session_start();
                 }
             ?>
 
-
             <div id="cart">
-                <a id="cartLink" href="cart.php">
+                <a id="cartLink" href="cart.php" style="color:white";>
                     <?php
-                        if(!isset($_SESSION["antal"]))
-                        {
-                            $_SESSION["antal"] = 0;
-                        }
-                        echo "Antal varor i kundkorgen:<br/><br/>".$_SESSION["antal"];
-                    ?>
+                    if(empty($_SESSION['CART'])){
+                        echo "<i class='fas fa-cart-arrow-down fa-6x'></i>";
+                    }
+                    else{
+                        echo "<i class='fas fa-shopping-cart fa-6x'></i>";
+                    }
+                    ?>    
                 </a>
             </div>  
         </div>

@@ -4,6 +4,29 @@
 ?>
 
 <?php
+    function shipping(){
+        $conn = connection();
+
+        $sql = "SELECT companyName, price FROM Shippers";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                echo "
+                
+                <td>".$row['companyName']. "   <input type='radio' name='shipping' value='".$row['price']."'></td>
+                
+                ";
+            }
+        }
+        else
+        {
+            echo "error";
+        }
+    }
+
     function printCart()
     {
         $conn = connection();
@@ -17,6 +40,14 @@
             {
                 if($row = $result->fetch_assoc())
                 {
+                    $price = $row['price'];
+
+                    // The subtotal is the cost of each item multiplied by how many you're ordering
+                    $subtotal = $price * $value;
+                
+                    // Add this subtotal to the running total
+                    $totalPrice += $subtotal;
+                    $totalAmount += $value;
                     echo "
                     <tr>
                         <td>".$key."</td>
@@ -30,10 +61,15 @@
                                 <input type='submit' value='remove product'>
                             </form>
                         </td>
-                    </tr>";
+                    </tr>"
+                    ;
+                  
                 }
             }
         }
+
+        return array($totalPrice, $totalAmount);
+
     }
 
     function pushToCart($prodID, $quantity)
@@ -49,15 +85,6 @@
         {
             $sumArray = array();
         }
-
-        foreach ($_SESSION['CART'] as $k=>$subArray)
-        {
-            foreach ($subArray as $id=>$value)
-            {
-               $antal += $value;
-            }
-        }
-        $_SESSION["antal"] = $antal;
         
         foreach ($_SESSION["CART"] as $k=>$subArray)
         {
@@ -88,29 +115,6 @@
         // GÖR TILL GLOBAL
         return $conn;
     }
-
-    function shipping(){
-        $conn = connection();
-
-        $sql = "SELECT companyName FROM Shippers";
-        $result = $conn->query($sql);
-        
-        if($result->num_rows > 0)
-        {
-            while($row = $result->fetch_assoc())
-            {
-                echo "
-                ".$row['companyName']." <input type='radio' name='shipping' value='".$row['companyName']."'><br/>
-                
-                ";
-            }
-        }
-        else
-        {
-            echo "error";
-        }
-    }
-
 
     function selectedProduct()
     {

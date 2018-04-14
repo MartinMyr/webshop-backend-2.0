@@ -106,10 +106,13 @@ footer { grid-area: footer;
 /* MENY SLUT */
 
 #startDiv{
-    padding: 1%;
+    margin-top:30px;
+    border:3px solid black;
+    border-radius: 10%;
+    padding: 3%;
     height: 350px;
-    width: 350px;
-    Background-color: white;
+    width: 550px;
+    background-color: lightblue;
 
 
 }
@@ -360,6 +363,10 @@ td, th {
 #cartTable{
 margin-top:10px;
 }
-#cartShipping{
+#cartProducts, #cartShipping, #cartAmounts{
     margin-top:30px;
+}
+#cartAmounts{
+    margin-top:80px;
+    margin-bottom:50px;
 }

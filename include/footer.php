@@ -4,7 +4,7 @@
     
     <footer>
         <div id="footer_text">
-            FOOTER
+            Lazy BaztardZ &copy;
         </div>
 </footer>
     <script src="./script/main.js"></script>
