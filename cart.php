@@ -11,16 +11,27 @@
 	<tr>
 		<th width="20px;">ID</th>
 		<th>Name</th>
+		<th>Image</th>
 		<th>Price</th>
 		<th>Quantity</th>
 		<th width="20px;">Remove</th>
 	</tr>
 	<?php
 	
-	printCart();
+		printCart();
 
 	?>   
+
 </table>
+	<div>
+		<table>
+			<tr>
+				<th></th>
+				<th></th>
+			</tr>
+		</table>
+	</div>
+
 
 	
 	<a href="clear.php">rensa kundvagn</a>

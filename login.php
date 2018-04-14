@@ -15,10 +15,10 @@
         <img class="loginIcon" src="img/bowserpassword.png">
         <input type="password" name="password" placeholder="Password">
     </div>
-    
+
     <button id="login" type="submit">Login</button>
     <button onclick="signUp()">Bli medlem</button>
-    
+
 </form>
 
 

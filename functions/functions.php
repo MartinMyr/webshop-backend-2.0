@@ -1,31 +1,41 @@
 <?php
 session_start();
 include './include/classEshop.php';
+include './Krypt.php';
 
 ?>
 
 <?php
 
 function printCart(){
-
     $conn = connection();
-
-    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
-    $result = $conn->query($sql);
-
+    
     foreach ($_SESSION['cartByproduct'] as $key => $value){
-        echo "
-        <tr>
-        <td>".$key."</td>
-        <td></td>
-        <td></td>
-        <td>".$value."</td>
-        <td>
-            <form action='member.php?id=' action='POST'>
-                <input type='submit' value='remove product'>
-            </form>
-        </td>
-    </tr>";
+        
+            $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
+            $result = $conn->query($sql);
+           
+            if($result->num_rows > 0){
+                if($row = $result->fetch_assoc()){  
+
+             
+
+                    echo "
+                    <tr>
+                    <td>".$key."</td>
+                    <td>".$row['productName']."</td>
+                    <td><img style='width:100px;' src='img/".$row['pic']."'</td>
+                    <td>".$row['price']." kr</td>
+                    <td>".$value."</td>
+                    <td>
+                        <form action='member.php?id=' action='POST'>
+                            <input type='submit' value='remove product'>
+                        </form>
+                    </td>
+                    </tr>";
+                }   
+            }       
+
     }
 }
 
@@ -187,13 +197,25 @@ function allProducts(){
     }
     //
 
+<<<<<<< HEAD
    
     
 
+=======
+>>>>>>> 81b24498677a0c83dc3d506be3d9b395da08b926
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+        $sql = "SELECT username FROM User";
+        $result = connection()->query($sql);
         
+        foreach($result as $name){
+            if($_POST["signUpUsername"] == $name['username']){
+                ?><script>alert("Username is not available!");</script><?php
+                break;
+            } else {
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+            }
+        }
     }
 
     //Newsletter check
