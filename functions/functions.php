@@ -1,6 +1,7 @@
 <?php
 session_start();
 include './include/classEshop.php';
+include './Krypt.php';
 
 ?>
 
@@ -196,13 +197,9 @@ function allProducts(){
     }
     //
 
-
-    
-
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
-        
+        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"],$_POST["signUpPassword"] , true);
     }
 
     //Newsletter check
