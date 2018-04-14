@@ -1,8 +1,6 @@
 <?php
-session_start();
-include './include/classEshop.php';
-include './Krypt.php';
-
+    session_start();
+    include './include/classEshop.php';
 ?>
 
 <?php
@@ -22,20 +20,20 @@ function printCart(){
 
                     echo "
                     <tr>
-                    <td>".$key."</td>
-                    <td>".$row['productName']."</td>
-                    <td><img style='width:100px;' src='img/".$row['pic']."'</td>
-                    <td>".$row['price']." kr</td>
-                    <td>".$value."</td>
-                    <td>
-                        <form action='member.php?id=' action='POST'>
-                            <input type='submit' value='remove product'>
-                        </form>
-                    </td>
+                        <td>".$key."</td>
+                        <td>".$row['productName']."</td>
+                        <td><img style='width:100px;' src='img/".$row['pic']."'</td>
+                        <td>".$row['price']." kr</td>
+                        <td>".$value."</td>
+                        <td>
+                            <form action='cart.php' method='POST'>
+                                <input type='hidden' name='delProdID' value='".$key."' />
+                                <input type='submit' value='remove product'>
+                            </form>
+                        </td>
                     </tr>";
                 }   
             }       
-
     }
 }
 
@@ -197,14 +195,13 @@ function allProducts(){
     }
     //
 
+
+    
+
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
-<<<<<<< HEAD
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"],$_POST["signUpPassword"] , true);
-=======
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
         
->>>>>>> parent of d8c3513... update
     }
 
     //Newsletter check
