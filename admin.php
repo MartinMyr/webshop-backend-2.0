@@ -17,6 +17,8 @@
    
 
 <?php
+    echo "Hej och välkommen till Adminsidan!"
+
 ?>
 
 <?php
