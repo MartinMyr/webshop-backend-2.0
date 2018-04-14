@@ -143,7 +143,6 @@ function allProducts(){
         VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
-<<<<<<< HEAD
 
 
 
@@ -161,8 +160,6 @@ function allProducts(){
     //
 
 
-=======
->>>>>>> 1ee9cf78666a166e735c4950dddcd74bf51e5643
     
 
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
