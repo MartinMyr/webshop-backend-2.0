@@ -1,6 +1,10 @@
 <?php
 	include 'include/header.php';
 	include 'functions/functions.php';
+
+	if(isset($_POST['delProdID'])) {
+		unset($_SESSION['cartByproduct'][$_POST['delProdID']]);
+	} 
 ?>
    
 <table id='cartTable'>
@@ -13,15 +17,14 @@
 		<th width="20px;">Remove</th>
 	</tr>
 	<?php
-	if(isset($_POST['delProdID'])) {
-		unset($_SESSION['cartByproduct'][$_POST['delProdID']]);
-	} 
 		printCart();
 
 	?>   
 
 </table>
 <div id="cartShipping">
+	SHIPPING
+	<hr>
 	<table>
 		<tr>
 			<th></th>
