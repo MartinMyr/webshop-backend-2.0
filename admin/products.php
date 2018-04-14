@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST['deleteId'])) {
-    include '../functions/functions.php';
+    include_once '../functions/functions.php';
     $conn = connection();
     $sql = "DELETE Products WHERE  (productId = ".$_POST['deleteId'].")";
     $conn->query($sql);
@@ -10,7 +10,7 @@ if(isset($_POST['deleteId'])) {
 }
 
     if(isset($_POST['category']) && isset($_POST['productId'])) {
-        include '../functions/functions.php';
+        include_once '../functions/functions.php';
         $conn = connection();
         $sql = "UPDATE Products SET  category = '".$_POST['category']."' WHERE (productId = ".$_POST['productId'].")";
         $conn->query($sql);
@@ -18,7 +18,7 @@ if(isset($_POST['deleteId'])) {
 
 
     } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        include '../functions/functions.php';
+        include_once '../functions/functions.php';
         echo "Hej och välkommen till Produktsidan";
         $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
         $totProd = connection()->query($sql);
