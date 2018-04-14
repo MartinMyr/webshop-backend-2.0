@@ -8,6 +8,15 @@ function changeCategory(prodID) {
     });
 }
 
+
+function Delete(prodID) {
+    
+
+    $.post("./admin/products.php", {deleteID: prodID,}, function(results){
+        if(results) viewProducts();
+    });
+}
+
 function viewOrders(){
     $.ajax({
         url: "./admin/orders.php",

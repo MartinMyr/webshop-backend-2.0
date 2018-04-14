@@ -30,9 +30,8 @@
      
         $results = connection()->query($sqlUser)->fetch_assoc();
 
-        $_SESSION["inloggad"] = true;
         $_SESSION["inloggadNamn"] = $username;
-
+        $_SESSION["inloggad"] = 'true';
         
         if($results['admin'] == true){
             $_SESSION["adminCheck"] = 'true';

@@ -176,7 +176,7 @@ function allProducts(){
     //Lägger till ny user i SQL
     function insertUser($userName, $email, $password, $subs){
         $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 1, '$subs', 'name')";
+        VALUES ('$userName', '$email', '$password', 0, '$subs', 'name')";
         mysqli_query(connection(), $sql);
     }
 
@@ -202,6 +202,24 @@ function allProducts(){
     {  
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
         
+
+   
+    
+
+    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
+    {  
+        $sql = "SELECT username FROM User";
+        $result = connection()->query($sql);
+        
+        foreach($result as $name){
+            if($_POST["signUpUsername"] == $name['username']){
+                ?><script>alert("Username is not available!");</script><?php
+                break;
+            } else {
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+            }
+        }
+
     }
 
     //Newsletter check

@@ -1,4 +1,14 @@
 <?php
+
+if(isset($_POST['deleteId'])) {
+    include '../functions/functions.php';
+    $conn = connection();
+    $sql = "DELETE Products WHERE  (productId = ".$_POST['deleteId'].")";
+    $conn->query($sql);
+    echo $conn->affected_rows;
+
+}
+
     if(isset($_POST['category']) && isset($_POST['productId'])) {
         include '../functions/functions.php';
         $conn = connection();
@@ -16,6 +26,7 @@
         if($totProd->num_rows > 0) {
             while($row = $totProd->fetch_assoc()){
                 echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "
+               <br> <button type='button' id='delete' onclick='Delete(".$row['productId'].")' class=''>Delete</button>
                 <select id='category".$row['productId']."'>
                     <option value=''>Select Category</option>
                     <option value='accessories'>accesorie</option>

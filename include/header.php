@@ -56,10 +56,10 @@ session_start();
             </div>
 
             <?php
-                if(isset($_SESSION["adminCheck"])){
-                    if($_SESSION["adminCheck"] == 'false'){
-                        echo "<div class='linkDiv' onclick='logout();'><a href='#'>Logout</a></div>";
-                    }
+                if(isset($_SESSION["inloggad"])){
+                    
+                    echo "<div class='linkDiv' onclick='logout();'><a href='#'>Logout</a></div>";
+                    
                 }
             ?>
 
