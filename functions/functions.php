@@ -7,17 +7,19 @@ include './include/classEshop.php';
 <?php
 
 function printCart(){
-
     $conn = connection();
-
-    $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '".$_GET['category']."' ";
-    $result = $conn->query($sql);
-
+ 
+    
+  
+    
     foreach ($_SESSION['cartByproduct'] as $key => $value){
+        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId == ".$key."";
+        $result = $conn->query($sql);
+
         echo "
         <tr>
         <td>".$key."</td>
-        <td></td>
+        <td>".$result['pic']."</td>
         <td></td>
         <td>".$value."</td>
         <td>
