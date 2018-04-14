@@ -16,7 +16,7 @@
             {
                 echo "
                 
-                <td>".$row['companyName']. "   <input type='radio' name='shipping' value='".$row['price']."'></td>
+                <td>".$row['companyName']. " (".$row['price']." kr)   <input type='radio' name='shipping' value='".$row['price']."'></td>
                 
                 ";
             }

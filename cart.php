@@ -37,19 +37,19 @@
 
 <div id="cartShipping">
 	<h2>SHIPPING</h2>
-	<table id='cartTable' style="width:350px; margin: auto;">
+	<table id='cartTable' style="width:400px; margin: auto;">
 		<tr>
 			<th colspan="2">Choose your shipper:<th>
 		</tr>
 		<tr>
-			<?php 
-				shipping();
-				?>
-			<td>
-				<form action="cart.php" method="POST">
-				<input type="submit" value="choose">
-				</form>
-			</td>
+			<form action="cart.php" method="POST">
+				<?php 
+					shipping();
+					?>
+				<td>
+					<input type="submit" value="choose">
+				</td>
+			</form>
 		</tr>
 	</table>
 </div>
