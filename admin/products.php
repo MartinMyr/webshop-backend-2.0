@@ -16,6 +16,7 @@
         if($totProd->num_rows > 0) {
             while($row = $totProd->fetch_assoc()){
                 echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "
+               <br> <button type='button' onclick='Delete(".$row['productId'].")' class=''>Delete</button>
                 <select id='category".$row['productId']."'>
                     <option value=''>Select Category</option>
                     <option value='accessories'>accesorie</option>
