@@ -17,6 +17,16 @@ function Delete(prodID) {
     });
 }
 
+function createProduct(pic) {
+    
+    game = new Game(pic);
+    
+
+    $.post("./admin/products.php", {addID: prodID}, function(results){
+        if(results) viewProducts();
+    });
+}
+
 function viewOrders(){
     $.ajax({
         url: "./admin/orders.php",

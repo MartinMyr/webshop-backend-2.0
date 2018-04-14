@@ -47,7 +47,7 @@
                    <option value='games'>Game</option>
                    <option value='console'>Console</option>
                </select>
-           <button type='submit' >Add product</button>
+               <button type='button' onclick='createProduct()' class=''>Submit</button>
            </div>';
        
        }
