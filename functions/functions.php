@@ -199,7 +199,12 @@ function allProducts(){
 
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
+<<<<<<< HEAD
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"],$_POST["signUpPassword"] , true);
+=======
+        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+        
+>>>>>>> parent of d8c3513... update
     }
 
     //Newsletter check
