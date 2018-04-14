@@ -69,6 +69,9 @@ footer { grid-area: footer;
     border-right:3px solid black;
     border-bottom:3px solid black;
 }
+.menu a{
+    color:black;
+}
 
 .sticky {
     width:200px;
@@ -83,7 +86,7 @@ footer { grid-area: footer;
 }
 
 .linkDiv a:hover{
-    color:rgb(141, 4, 4);
+    color:red;
 }
 
 .linkDiv a:link{
@@ -102,7 +105,9 @@ footer { grid-area: footer;
 #cartLink{
     text-decoration: none;
 }
-
+#cartLink :hover{
+    color:red;
+}
 /* MENY SLUT */
 
 #startDiv{

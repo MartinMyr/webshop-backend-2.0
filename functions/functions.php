@@ -95,7 +95,6 @@
         }
         $_SESSION["cartByproduct"] = $sumArray;
 
-        header("Refresh:0");
     }
 
     function connection()

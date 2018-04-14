@@ -65,7 +65,7 @@ session_start();
             ?>
 
             <div id="cart">
-                <a id="cartLink" href="cart.php" style="color:white";>
+                <a id="cartLink" href="cart.php" style="color:black";>
                     <?php
                     if(empty($_SESSION['CART'])){
                         echo "<i class='fas fa-cart-arrow-down fa-6x'></i>";
