@@ -12,7 +12,17 @@ function changeCategory(prodID) {
 function Delete(prodID) {
     
 
-    $.post("./admin/products.php", {deleteID: prodID,}, function(results){
+    $.post("./admin/products.php", {deleteID: prodID}, function(results){
+        if(results) viewProducts();
+    });
+}
+
+function createProduct(pic) {
+    
+    game = new Game(pic);
+    
+
+    $.post("./admin/products.php", {addID: prodID}, function(results){
         if(results) viewProducts();
     });
 }
