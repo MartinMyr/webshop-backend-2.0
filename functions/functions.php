@@ -138,11 +138,11 @@ function allProducts(){
     function updateAdmin($username){
         $sql = "UPDATE User
         SET admin = 1
-        WHERE username = $username)";
+        WHERE username = '$username'";
         mysqli_query(connection(), $sql);
     }
       //makeAdmin check
-      if(isset($_GET["makeAdmin"])){
+    if(isset($_GET["makeAdmin"])){
         updateAdmin($_GET["makeAdmin"]);
     }
     //
