@@ -1,5 +1,34 @@
 <?php
-    
+    if(isset($_POST['category']) && isset($_POST['productId'])) {
+        include '../functions/functions.php';
+        $conn = connection();
+        $sql = "UPDATE Products SET  category = '".$_POST['category']."' WHERE (productId = ".$_POST['productId'].")";
+        $conn->query($sql);
+        echo $conn->affected_rows;
+
+
+    } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        include '../functions/functions.php';
+        echo "Hej och välkommen till Produktsidan";
+        $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
+        $totProd = connection()->query($sql);
+        echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
+        if($totProd->num_rows > 0) {
+            while($row = $totProd->fetch_assoc()){
+                echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "
+                <select id='category".$row['productId']."'>
+                    <option value=''>Select Category</option>
+                    <option value='accessories'>accesorie</option>
+                    <option value='games'>Game</option>
+                    <option value='console'>Console</option>
+                </select>
+                <button type='button' onclick='changeCategory(".$row['productId'].")' class=''>Submit</button>
+                </li></div>";
+            }
+        }
+    }
+
+    die();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include '../functions/functions.php';
     
@@ -23,11 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </select>
             <input type='hidden' name='productId' value='".$row['productId']."' />
             <button type='submit' class=''>Submit</button>
-            
-        </form></li></div>";
+            </form></li></div>";
         }
-        
-
 
         print_r($_GET);
 
