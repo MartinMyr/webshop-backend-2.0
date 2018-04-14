@@ -10,10 +10,9 @@ function changeCategory(prodID) {
 
 
 function Delete(prodID) {
-    var category = $('#category'+prodID+' option:selected').val();
-    if(category == '') return;
+    
 
-    $.post("./admin/products.php", {productId: prodID, category: category}, function(results){
+    $.post("./admin/products.php", {deleteID: prodID,}, function(results){
         if(results) viewProducts();
     });
 }
