@@ -13,14 +13,14 @@ function printCart(){
   
     
     foreach ($_SESSION['cartByproduct'] as $key => $value){
-        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId == ".$key."";
+        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = ".$key."";
         $result = $conn->query($sql);
 
         echo "
         <tr>
         <td>".$key."</td>
-        <td>".$result['pic']."</td>
-        <td></td>
+        <td>".$result["pic"]."</td>
+        <td>".$result["price"]."</td>
         <td>".$value."</td>
         <td>
             <form action='member.php?id=' action='POST'>
