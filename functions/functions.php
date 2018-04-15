@@ -232,20 +232,17 @@
     {
         updateAdmin($_GET["makeAdmin"]);
     }
-<<<<<<< HEAD
     //
 
    
     
 
-=======
     
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {
         insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
     }
     
->>>>>>> 0f93925d307467d23cc69d7051f78ca85afad2ed
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         $sql = "SELECT username FROM User";
