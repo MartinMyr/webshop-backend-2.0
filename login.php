@@ -25,8 +25,9 @@
 <?php
     if(isset($_POST["username"]) && isset($_POST["password"])){
         $username = $_POST['username'];
-        $password = $_POST['password'];
-        $sqlUser = "SELECT username, password, admin FROM User WHERE username = '$username' AND password = '$password' LIMIT 1"; 
+        $decrypted = my_simple_crypt( $_POST['password'], 'd' );
+
+        $sqlUser = "SELECT username, password, admin FROM User WHERE username = '$username' AND password = '$decrypted' LIMIT 1"; 
      
         $results = connection()->query($sqlUser)->fetch_assoc();
 

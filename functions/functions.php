@@ -1,6 +1,7 @@
 <?php
     session_start();
     include './include/classEshop.php';
+    include './functions/krypt.php';
 ?>
 
 <?php
@@ -202,20 +203,15 @@
         VALUES ('$title', '$message')";
         mysqli_query(connection(),$sql);
     }
-    
-    function insertPassword($password)
-    {
-        $sql = "INSERT INTO User (username, password, email, admin, subscribe, name )
-        VALUES ('nej', '$password', 'mail', '1', '1','name')";
-        mysqli_query(connection(), $sql);
-    }
+
     
     //Lägger till ny user i SQL
-    function insertUser($userName, $email, $password, $subs)
+    function insertUser($userName, $email, $password, $subs, $name)
     {
         $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 0, '$subs', 'name')";
+        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
         mysqli_query(connection(), $sql);
+
     }
 
     //Make admin
@@ -238,29 +234,28 @@
     
 
     
-    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
-    {
-        insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
-    }
-    
-    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
+  
+    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]) && isset($_POST["signUpName"]))
     {  
         $sql = "SELECT username FROM User";
         $result = connection()->query($sql);
-        
+  
         foreach($result as $name)
         {
-            if($_POST["signUpUsername"] == $name['username'])
-            {
+            
+            if($_POST["signUpUsername"] == $name['username']){
                 ?><script>alert("Username is not available!");</script><?php
                 break;
             }
             else
             {
-                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $_POST["signUpPassword"], true);
+                $encrypted = my_simple_crypt($_POST["signUpPassword"], 'e' );
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $encrypted, true, $_POST["signUpName"]);
+                break;
             }
         }
     }
+    
 
     //Newsletter check
     if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
