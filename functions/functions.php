@@ -197,12 +197,9 @@ function allProducts(){
     }
     //
 
-<<<<<<< HEAD
    
     
 
-=======
->>>>>>> 81b24498677a0c83dc3d506be3d9b395da08b926
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]))
     {  
         $sql = "SELECT username FROM User";
