@@ -5,6 +5,37 @@
 ?>
 
 <?php
+
+
+
+function insertOrder()
+{
+    $conn = connection();
+    
+    foreach ($_SESSION['cartByproduct'] as $key => $value)
+    {
+        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0)
+        {
+            if($row = $result->fetch_assoc())
+            {
+                $price = $row['price'];
+                    // $key." productId
+                    // $row['price'] price
+                    // $value quantity
+                    
+                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                VALUES ('1','$key','$price','$value')";
+                mysqli_query(connection(), $sqlinsert);
+              
+            }
+        }
+    }
+
+}
+
     function shipping(){
         $conn = connection();
 
