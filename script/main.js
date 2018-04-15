@@ -47,7 +47,7 @@ function signUp(){
           <input type="email" name="signUpEmail" placeholder="Email" required>
       </div>
 
-      <button id="login" type="submit">tjena</button>
+      <button id="login" type="submit">Skapa konto</button>
       
       `
   );
