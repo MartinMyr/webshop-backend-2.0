@@ -34,7 +34,11 @@ function signUp(){
       <h2>Please fill out the form</h2>
       <div class="userField">
           <img class="loginIcon" src="img/userlogin.png">
-          <input type="name" name="signUpUsername" placeholder="Username" required>
+          <input type="text" name="signUpName" placeholder="Name" required>
+      </div>
+      <div class="userField">
+          <img class="loginIcon" src="img/userlogin.png">
+          <input type="text" name="signUpUsername" placeholder="Username" required>
       </div>
 
       <div class="passwordField">
@@ -47,8 +51,11 @@ function signUp(){
           <input type="email" name="signUpEmail" placeholder="Email" required>
       </div>
 
-      <button id="login" type="submit">tjena</button>
+      <button id="login" type="submit">Skapa konto</button>
       
       `
   );
 }
+
+
+
