@@ -69,6 +69,9 @@ footer { grid-area: footer;
     border-right:3px solid black;
     border-bottom:3px solid black;
 }
+.menu a{
+    color:black;
+}
 
 .sticky {
     width:200px;
@@ -83,7 +86,7 @@ footer { grid-area: footer;
 }
 
 .linkDiv a:hover{
-    color:rgb(141, 4, 4);
+    color:red;
 }
 
 .linkDiv a:link{
@@ -102,14 +105,19 @@ footer { grid-area: footer;
 #cartLink{
     text-decoration: none;
 }
-
+#cartLink :hover{
+    color:red;
+}
 /* MENY SLUT */
 
 #startDiv{
-    padding: 1%;
+    margin-top:30px;
+    border:3px solid black;
+    border-radius: 10%;
+    padding: 3%;
     height: 350px;
-    width: 350px;
-    Background-color: white;
+    width: 550px;
+    background-color: lightblue;
 
 
 }
@@ -144,12 +152,26 @@ footer { grid-area: footer;
 }
 
 .gameImg{
+    border-radius: 10%;
+    border:2px solid black;
+    margin-top:10px;
+    margin-bottom:10px;
     width:230px;
     height:140px;
 }
+.cardInfo{
+    min-height: 50px;
+}
 
 .amount{
-    width:25px;
+    width:35px;
+    height: 20px;
+    margin-bottom:5px;
+    border-radius: 20%;
+    text-align: center;
+}
+.amount_submit{
+    margin-top:10px;
 }
 
 .cardPrice{
@@ -231,7 +253,6 @@ footer { grid-area: footer;
 /*Login page*/
 
 #loginform{
-    margin-left:32vw;
     margin-top:10vh;
     max-width:250px;
     text-align: center;
@@ -359,4 +380,18 @@ td, th {
 /* CART */
 #cartTable{
 margin-top:10px;
+border-radius: 10%;
 }
+#cartProducts, #cartShipping, #cartAmounts{
+    margin-top:30px;
+}
+#cartAmounts{
+    margin-top:80px;
+    margin-bottom:50px;
+}
+.cartSubmit{
+    width:150px;
+    height:70px;
+    font-size: 23px;
+}
+
