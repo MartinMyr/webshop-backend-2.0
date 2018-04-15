@@ -5,9 +5,11 @@
 	if(isset($_POST['delProdID'])) {
 		unset($_SESSION['cartByproduct'][$_POST['delProdID']]);
 	} 
+	if(isset($_POST['changeAmount'])) {
+		$_SESSION['cartByproduct'][$_POST['delProdID']] = $_POST['changeAmount']; 
+	} 
 ?>
 <div id="cartProducts">
-	<!-- <h1> Din Varukorg</h1> -->
 	<table id='cartTable'>
 		<tr>
 			<th width="20px;">ID</th>
@@ -109,7 +111,7 @@
 			<td colspan="3">
 				<form action="checkout.php" method="POST">
 					<input type="hidden">
-					<input type="submit" value="Slutför din beställning" class="cartSubmit">
+					<input type="submit" name="checkOut" value="Slutför din beställning" class="cartSubmit">
 				</form>
 			</td>
 		</tr>
