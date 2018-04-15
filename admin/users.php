@@ -12,13 +12,13 @@
             
 
             while($row = $users->fetch_assoc()){
-                echo "<tr><td>".$row['username']."</td><td>".$row['email']."</td><td>".$row['name']."</td><td>".$row["admin"]."</td><td><input type='checkbox' name='makeAdmin' value='".$row['name']."' ></td> </tr>";
+                echo "<tr><td>".$row['username']."</td><td>".$row['email']."</td><td>".$row['name']."</td><td>".$row["admin"]."</td><td><input type='checkbox' name='makeAdmin' value='".$row['username']."' ></td> </tr>";
             }  
             
         }else{
             echo "error";
         }
-        echo "</table></div><button id='makeAdmin' type='submit'>Make admin</button></form>";
+        echo "</table></div><button id='makeAdmin'  type='submit'>Make admin</button></form>";
         connection()->close;
        
         
