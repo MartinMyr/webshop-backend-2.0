@@ -39,7 +39,6 @@
         }else
         {
             $_SESSION["nameOnUser"] = $results["username"];
-            ?><script>sessionStorage.setItem("userLoggedIn","true");;</script><?php
             header("location: index.php");
             
         }

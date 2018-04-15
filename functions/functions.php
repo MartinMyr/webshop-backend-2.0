@@ -255,7 +255,6 @@
             }
             else
             {
-                $encrypted = my_simple_crypt($_POST["signUpPassword"], 'e' );
                 insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
                 break;
             }
@@ -309,4 +308,9 @@
         {
             echo "error";
         }
+    }
+
+
+    if($_SESSION["nameOnUser"] == true){
+        ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
