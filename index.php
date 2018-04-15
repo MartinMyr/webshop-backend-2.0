@@ -20,5 +20,6 @@
 
 
 <?php
+    print_r($_SESSION["nameOnUser"]);
     include 'include/footer.php';
 ?>
