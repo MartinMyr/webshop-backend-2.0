@@ -41,13 +41,13 @@
            <input id="name" type="text" name="name" placeholder="Name">
            <input id=info"" type="text" name="info" placeholder="Info">
            <input id="price" type="text" name="price" placeholder="Price">
-           <select id="category"'.$row['productId']."'>
-                   <option value=''>Select Category2</option>
-                   <option value='accessories'>accesorie</option>
-                   <option value='games'>Game</option>
-                   <option value='console'>Console</option>
+           <select id="category"'.$row['productId'].'">
+                   <option value="">Select Category2</option>
+                   <option value="accessories">accesorie</option>
+                   <option value="games">Game</option>
+                   <option value="console">Console</option>
                </select>
-               <button type='button' onclick='createProduct()' class=''>Submit</button>
+               <button type="button" onclick="createProduct()" class="">Submit</button>
            </div>';
        
        }

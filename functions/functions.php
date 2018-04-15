@@ -55,7 +55,13 @@
                         <td>".$row['productName']."</td>
                         <td><img style='width:100px; border-radius:10%; border:1px solid black;'  src='img/".$row['pic']."'</td>
                         <td>".$row['price']." kr</td>
-                        <td>".$value."</td>
+                        <td>
+                            <form action='cart.php' method='POST'>
+                                <input style='width:30px; text-align:center;' type='number' name='changeAmount' value='".$value."'>
+                                <input type='hidden' name='delProdID' value='".$key."' />
+                                <input type='submit' value='ändra antal'>
+                            </form>
+                        </td>
                         <td>
                             <form action='cart.php' method='POST'>
                                 <input type='hidden' name='delProdID' value='".$key."' />
