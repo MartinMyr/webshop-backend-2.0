@@ -8,6 +8,10 @@
 	if(isset($_POST['changeAmount'])) {
 		$_SESSION['cartByproduct'][$_POST['delProdID']] = $_POST['changeAmount']; 
 	} 
+	if(isset($_POST["checkOut"])){
+		insertOrder();
+		
+	}
 ?>
 <div id="cartProducts">
 	<table id='cartTable'>
@@ -109,9 +113,9 @@
 		</tr>
 		<tr>
 			<td colspan="3">
-				<form action="checkout.php" method="POST">
-					<input type="hidden">
-					<input type="submit" name="checkOut" value="Slutför din beställning" class="cartSubmit">
+				<form action="cart.php" method="POST">
+					<input type="hidden" name="checkOut">
+					<input type="submit" value="Slutför din beställning" class="cartSubmit">
 				</form>
 			</td>
 		</tr>
