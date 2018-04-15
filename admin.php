@@ -14,10 +14,11 @@
                 </div><div class='linkDiv' onclick='createNews();'><a href='#'>Newsletter</a>
                 </div><div class='linkDiv' onclick='logout();'><a href='#'>Logout</a></div>`);
     </script>
-   
+
 
 <?php
-    echo "Hej och välkommen till Adminsidan!"
+    echo "Hej och välkommen till Adminsidan!";
+
 
 ?>
 

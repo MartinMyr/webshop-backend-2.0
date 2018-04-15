@@ -286,8 +286,7 @@ function insertOrder()
             }
             else
             {
-                $encrypted = my_simple_crypt($_POST["signUpPassword"], 'e' );
-                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], $encrypted, true, $_POST["signUpName"]);
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
                 break;
             }
         }
@@ -340,4 +339,9 @@ function insertOrder()
         {
             echo "error";
         }
+    }
+
+
+    if($_SESSION["nameOnUser"] == true){
+        ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }

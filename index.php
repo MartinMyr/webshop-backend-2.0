@@ -4,12 +4,7 @@
     
 ?>
 <div id='startDiv'>
-    <?php 
-        if($_SESSION["inloggad"] == 'true'){
-            echo "<h1>Välkommen " . $_SESSION["inloggadNamn"] . "!";
-        }
-    ?>
-    <h1>Hej och välkommen till året 1992.</h1>
+    <h1>Hej och välkommen <?php echo $_SESSION["nameOnUser"]?> till året 1992.</h1>
     <p> 
         År 1992 blev tv-spelskonsolen årets julklapp, här på denna retroinspirerade superawzumsida skickar vi er tillbaka till denna udnerbara 16bits tid. 
     </p>

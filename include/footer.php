@@ -8,5 +8,6 @@
         </div>
 </footer>
     <script src="./script/main.js"></script>
+    <script src="./script/login.js"></script>
 </body>
 </html>
