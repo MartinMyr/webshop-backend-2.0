@@ -132,6 +132,7 @@ function insertOrder()
             }
         }
         $_SESSION["cartByproduct"] = $sumArray;
+        header("Refresh:0");
 
     }
 
