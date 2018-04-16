@@ -288,6 +288,7 @@ function insertOrder()
             else
             {
                 insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
+                ?><script>alert('User created')</script><?php
                 break;
             }
         }
@@ -305,7 +306,7 @@ function insertOrder()
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]))
     {
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
-        echo "Sent";
+            ?><script>alert('Newsletter created')</script><?php
     }
 
     function getOrders()
