@@ -27,15 +27,24 @@
 
 -Man ska kunna logga in som administratör i systemet (G)
 +    Lösning:
-
+        Vi har samma inloggning för vanliga users som för admins.
+        Vid inloggning så kollar den först om admin från DB är 1.
+        Sedan kollar den om det blev en matchning från DB och sist så går den in i else och ett felmeddelande skrivs ut.
 -Man ska kunna registrera sig som administratör på sidan, nya användare ska sparas i databasen (VG)
 +    Lösning:
+        Vi har valt att man inte ska kunna välja vid registrering av användare att kryssa i sig som admin. Detta bestäms sedan utav de som har admin åtkomst där de kan kryssa i och göra en vanlig användare till admin.
+        
+        Alla nya användare som skapas blir kollade på "username" mot databasen för att kolla om det redan existerar. Finns det redan får man ett felmeddelande, annars skickas den upp all info till databsen och man får sedan logga in.
 
 -En administratör behöver godkännas av en tidigare administratör innan man kan logga in (VG)
 +    Lösning:
+        När man är inloggad som admin så har vi en tabell som visar vilka som är admin och inte just nu.
+        Brevid tabellen har vi en "input checkbox" tillhörande en submit knapp längre ner.
+        Där slänger den in values från checkboxarna i en query och jämför dessa med de i databasen. Sedan får de match och uppdaterar admin med value "1" där de får träff från queryn.              
 
 -Inga Lösenord får sparas i klartext i databasen (G)
 +    Lösning:
+        När vi skapar användare körs funktionen md5() som krypterar lösenordet. Denna funktionen används sedan också för att kunna matcha rätt inputs vid login med databasen.
 
 -En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 +    Lösning:
@@ -81,19 +90,23 @@
 
 -Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 +    Lösning:
-
+        På admin sidan så kan man välja "subscribers" som meny alt. 
+        En ajax körs och sidan skriver ut en table med info från DB.
 -Besökare ska kunna välja ett av flera fraktalternativ (G)
 +    Lösning:
 
 -Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
 +    Lösning:
 
--Administratörer ska kunna rediga vilka kategorier en produkt tillhör (VG)
+-Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:
 
 -Administratörer ska kunna skicka nyhetsbrev från sitt gränssnitt, nyhetsbrevet ska sparas i databasen samt innehålla en -titel och en brödtext (VG)
 +    Lösning:
-
+        Meny alt. med "newsletter" kommer man åt när man är inloggad som admin.
+        Där finns det 2 input fält, titel och info som man kan fylla i.
+        Både på titeln och info rutan ligger det en max som spärrar användaren att fylla i med allt för mycket text.
+        Klickar man sedan på skicka så skickas det med Post och en INSERT startar med texten man fyllt in.
 -Administratörer ska kunna lägga till och ta bort produkter (VG)
 +    Lösning:
 
