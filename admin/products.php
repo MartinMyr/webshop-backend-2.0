@@ -15,6 +15,13 @@
        echo $conn->affected_rows;
 
 
+    } else if(isset($_POST['amountID'])) {
+        include_once '../functions/functions.php';
+        $conn = connection();
+        $sql = "UPDATE Products SET  unitsInStock = '".$_POST['unitsInStock']."' WHERE (productId = ".$_POST['amountId'].")";
+        $conn->query($sql);
+        echo $conn->affected_rows;
+
    } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
        include_once '../functions/functions.php';
        echo "Hej och välkommen till Produktsidan";
@@ -32,7 +39,7 @@
                    <option value='console'>Console</option>
                </select>
                <input id='amount' type='number' name='units' placeholder='Amount'>
-               <button type='button' onclick='changeCategory(".$row['productId'].")' class=''>Submit</button>
+               <button type='button' onclick='changeCategory(".$row['productId'].");changeAmount(".$row['productId'].");' class=''>Submit</button>
                </li></div>";
            }
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
