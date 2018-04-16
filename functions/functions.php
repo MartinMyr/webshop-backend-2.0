@@ -8,92 +8,9 @@
 
 <?php
 
-    function insertOrder()
-    
-    {
-        $conn = connection();
 
-        //FÖR ATT SKICKA ORDERN TILL ORDERS
-        $date = date('Y-m-d');
 
-        $nameOnuser= $_SESSION["nameOnUser"];
-        
-
-        $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-        VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
-        (mysqli_query(connection(), $sqlInsertIntoOrders));
-
-        
-        //FÖR ATT HÄMTA ID
-        
-        $selectId = "SELECT MAX(orderId) as id FROM Orders ";
-        $id = $conn->query($selectId)->fetch_assoc();
-        $_SESSION = $id;
-        
-        foreach ($_SESSION['cartByproduct'] as $key => $value)
-        {
-            $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
-            $result = $conn->query($sql);
-            
-            if($result->num_rows > 0)
-            {
-                if($row = $result->fetch_assoc())
-                {
-                    $price = $row['price'];
-     
-                        
-                    $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                    VALUES (' ".$id["id"]." ','$key','$price','$value')";
-                    mysqli_query(connection(), $sqlinsert);
-                
-                }
-            }
-            
-            if($result->num_rows > 0){
-                if($row = $result->fetch_assoc()){
-                    $price = $row['price'];
-                    
-                    $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
-                    
-                }
-            }
-            
-            
-            $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-            VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
-            (mysqli_query(connection(), $sqlinsert));
-
-        }
-        session_unset($_SESSION['CART']);
-        header("location:thanks.php");
- 
-
-    }
-
-    function showOrder(){
-    $_SESSION["id"];
-
-    $sql = "SELECT `orderId`, `productId`, `price` FROM `Order_details` WHERE orderId = ".$_SESSION["id"]." ";
-    $result = $conn->query($sql);
-        
-        if($result->num_rows > 0)
-        {
-            while($row = $result->fetch_assoc())
-            {
-     
-                echo "
-                
-                ".$row['orderId']." <br> ".$row['productId']." <br>
-                ".$row['price']." <br>
-                
-                ";
-            }
-        }
-        else
-        {
-            echo "error";
-        }
-    }
+   
 
     function shipping(){
         $conn = connection();
@@ -120,7 +37,7 @@
         {
             echo "error";
         }
-   
+        echo $_SESSION["shipping_id"];
     }
 
     function printCart()
@@ -316,6 +233,7 @@
 
     }
 
+<<<<<<< HEAD
     //Make admin
     function updateAdmin($username)
     {
@@ -384,6 +302,8 @@
             ?><script>alert('Newsletter created')</script><?php
     }
 
+=======
+>>>>>>> 709211db0589fafbb9f657035d10f1df12cc4ef4
     function getOrders()
     {
         $conn = connection();
