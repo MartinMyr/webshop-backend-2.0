@@ -12,6 +12,12 @@
 		insertOrder();
 		
 	}
+	if(isset($_POST["cartNewsLetter"])){
+		echo "<script>sessionStorage.removeItem(`newsletter`);</script>";
+		unset($_COOKIE['newsletter']);
+		
+	}
+	
 ?>
 <div id="cartProducts">
 	<table id='cartTable'>
@@ -112,8 +118,13 @@
 			</td> 
 		</tr>
 		<tr>
+		<td colspan="3">
+			<form action="cart.php" method="POST">
+				Önskar du vårat nyhetsbrev <input type="radio" name="cartNewsLetter">
+			</td>
+		</tr>
+		<tr>
 			<td colspan="3">
-				<form action="cart.php" method="POST">
 					<input type="hidden" name="checkOut">
 					<input type="submit" value="Slutför din beställning" class="cartSubmit">
 				</form>
