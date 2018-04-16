@@ -231,7 +231,7 @@ function insertOrder()
     {
         $conn = connection();
         $class = "products";
-        $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products";
+        $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products ORDER BY ( CASE WHEN category = 'console' THEN 0 ELSE 1 END ), category";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0)
