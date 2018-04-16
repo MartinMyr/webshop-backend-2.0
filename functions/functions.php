@@ -117,24 +117,6 @@
 
     }
 
-    function connection()
-    {
-        $servername = "localhost";
-        $username = "joakimedwardh";
-        $password = "x@ZeIbKiSPIr";
-        $dbname = "joakimedwardh";
-
-        $conn = new mysqli($servername,$username,$password,$dbname);
-
-        if($conn->connect_error)
-        {
-            die("FEL: " . $conn->connect_error);
-        }
-        
-        // GÖR TILL GLOBAL
-        return $conn;
-    }
-
     function selectedProduct()
     {
         $conn = connection();
@@ -208,102 +190,6 @@
         }
     }
     
-    //Functions for insert to DB
-    function insert($namn, $email)
-    {
-        $sql = "INSERT INTO Subscribers (namn, email)
-        VALUES ('$namn', '$email')";
-        mysqli_query(connection(), $sql);
-    }
-
-    function insertNewsletter($title, $message)
-    {
-        $sql = "INSERT INTO Newsletter (title, message)
-        VALUES ('$title', '$message')";
-        mysqli_query(connection(),$sql);
-    }
-
-    
-    //Lägger till ny user i SQL
-    function insertUser($userName, $email, $password, $subs, $name)
-    {
-        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
-        mysqli_query(connection(), $sql);
-
-    }
-
-<<<<<<< HEAD
-    //Make admin
-    function updateAdmin($username)
-    {
-        $sql = "UPDATE User
-        SET admin = 1
-        WHERE username = '$username'";
-        mysqli_query(connection(), $sql);
-    }
-    
-    //makeAdmin check
-    if(isset($_GET["makeAdmin"]))
-    {
-        updateAdmin($_GET["makeAdmin"]);
-    }
-    
-    function updateOrderSkickad($orderId)
-    {
-        $sql = "UPDATE Orders
-        SET shipped = 0
-        WHERE orderId = '$orderId'";
-        mysqli_query(connection(), $sql);
-    }
-
-    if(isset($_GET["orderSkickad"])){
-        updateOrderSkickad($_GET["orderSkickad"]);
-    }
-
-   
-    
-
-    
-  
-    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]) && isset($_POST["signUpName"]))
-    {  
-        $sql = "SELECT username FROM User";
-        $result = connection()->query($sql);
-  
-        foreach($result as $name)
-        {
-            
-            if($_POST["signUpUsername"] == $name['username']){
-                ?><script>alert("Username is not available!");</script><?php
-                break;
-            }
-            else
-            {
-                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
-                ?><script>alert('User created')</script><?php
-                break;
-            }
-        }
-    }
-    
-
-    //Newsletter check
-    if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
-    {
-        insert($_POST["newsletterName"],$_POST["email"]);
-        setcookie("newsletter", "true", time()+3600*48);
-    }
-
-    //Send newsletter from admin check
-    if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]))
-    {
-        insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
-            ?><script>alert('Newsletter created')</script><?php
-    }
-
-=======
->>>>>>> 709211db0589fafbb9f657035d10f1df12cc4ef4
     function getOrders()
     {
         $conn = connection();
