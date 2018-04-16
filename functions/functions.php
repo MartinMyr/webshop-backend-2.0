@@ -6,9 +6,8 @@
 
 <?php
 
-
-
     function insertOrder()
+    
     {
         $conn = connection();
 
@@ -27,7 +26,7 @@
         
         $selectId = "SELECT MAX(orderId) as id FROM Orders ";
         $id = $conn->query($selectId)->fetch_assoc();
-
+        $_SESSION = $id;
         
         foreach ($_SESSION['cartByproduct'] as $key => $value)
         {
@@ -39,9 +38,7 @@
                 if($row = $result->fetch_assoc())
                 {
                     $price = $row['price'];
-                        // $key." productId
-                        // $row['price'] price
-                        // $value quantity
+     
                         
                     $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
                     VALUES (' ".$id["id"]." ','$key','$price','$value')";
@@ -67,7 +64,33 @@
         }
         session_unset($_SESSION['CART']);
         header("location:thanks.php");
+ 
 
+    }
+
+    function showOrder(){
+    $_SESSION["id"];
+
+    $sql = "SELECT `orderId`, `productId`, `price` FROM `Order_details` WHERE orderId = ".$_SESSION["id"]." ";
+    $result = $conn->query($sql);
+        
+        if($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+     
+                echo "
+                
+                ".$row['orderId']." <br> ".$row['productId']." <br>
+                ".$row['price']." <br>
+                
+                ";
+            }
+        }
+        else
+        {
+            echo "error";
+        }
     }
 
     function shipping(){
@@ -95,7 +118,7 @@
         {
             echo "error";
         }
-        echo $_SESSION["shipping_id"];
+   
     }
 
     function printCart()
