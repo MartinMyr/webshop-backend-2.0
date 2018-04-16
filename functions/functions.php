@@ -12,7 +12,30 @@
 
 
 
-   
+function showOrder(){
+        $_SESSION["id"];
+    
+       $sql = "SELECT `orderId`, `productId`, `price` FROM `Order_details` WHERE orderId = ".$_SESSION["id"]." ";
+       $result = $conn->query($sql);
+            
+            if($result->num_rows > 0)
+            {
+               while($row = $result->fetch_assoc())
+                {
+         
+                    echo "
+                   
+                   ".$row['orderId']." <br> ".$row['productId']." <br>
+                   ".$row['price']." <br>
+                    
+                    ";
+                }
+         }
+           else
+       {
+              echo "error";
+            }
+        }
 
     function shipping(){
         $conn = connection();
