@@ -361,8 +361,9 @@ function insertOrder()
             echo "error";
         }
     }
-
-
+    if(!isset($_SESSION["nameOnUser"])){
+        $_SESSION["nameOnUser"] = "Guest";
+    }
     if($_SESSION["nameOnUser"] == true){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
