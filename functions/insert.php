@@ -1,5 +1,15 @@
 <?php
 
+    //FÖR ATT HÄMTA SENASTE ORDER ID
+    function getLatesOrder(){
+        $conn = connection();
+
+        $selectId = "SELECT MAX(orderId) as id FROM Orders ";
+        $id = $conn->query($selectId)->fetch_assoc();
+
+        return $id;
+    }
+    
     function insertOrder()
     {
         $conn = connection();
@@ -14,13 +24,7 @@
         VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
         (mysqli_query(connection(), $sqlInsertIntoOrders));
 
-        
-        //FÖR ATT HÄMTA ID
-        
-        $selectId = "SELECT MAX(orderId) as id FROM Orders ";
-        $id = $conn->query($selectId)->fetch_assoc();
-        $_SESSION = $id;
-        echo $_SESSION["id"];
+        $id = getLatesOrder();
         
         foreach ($_SESSION['cartByproduct'] as $key => $value)
         {
@@ -56,8 +60,8 @@
             (mysqli_query(connection(), $sqlinsert));
 
         }
-        // session_unset($_SESSION['CART']);
-        // header("location:thanks.php");
+        session_unset($_SESSION['CART']);
+        header("location:thanks.php");
 
     }
 
