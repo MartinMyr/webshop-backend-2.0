@@ -239,6 +239,8 @@
     if(!isset($_SESSION["nameOnUser"])){
         $_SESSION["nameOnUser"] = "Guest".rand(1,1000);
     }
-    if($_SESSION["nameOnUser"] == true && !isset($_SESSION["memberIsLoggedIn"])){
+    if(isset($_SESSION["nameOnUser"]) && ($_SESSION["memberIsLoggedIn"]) == 1){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
+        echo "hej";
+        print_r($_SESSION["memberIsLoggedIn"]);
     }
