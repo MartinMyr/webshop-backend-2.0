@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include_once './functions/connection.php';
     include_once './include/classEshop.php';
     include_once './functions/insert.php';
     include_once './functions/update.php';
@@ -8,7 +7,23 @@
 ?>
 
 <?php
-
+    function connection()
+    {
+        $servername = "localhost";
+        $username = "joakimedwardh";
+        $password = "x@ZeIbKiSPIr";
+        $dbname = "joakimedwardh";
+    
+        $conn = new mysqli($servername,$username,$password,$dbname);
+    
+        if($conn->connect_error)
+        {
+            die("FEL: " . $conn->connect_error);
+        }
+        
+        // GÖR TILL GLOBAL
+        return $conn;
+    }
 
     function shipping(){
         $conn = connection();
