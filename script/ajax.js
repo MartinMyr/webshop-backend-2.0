@@ -8,6 +8,15 @@ function changeCategory(prodID) {
     });
 }
 
+function changeAmount(prodID) {
+    var amount = $('#amount'+prodID).val();
+    if(amount == '') return;
+
+    $.post("./admin/products.php", {amountId: prodID, unitsInStock: unitsInStock}, function(results){
+        if(results) viewProducts();
+    });
+}
+
 
 function Delete(prodID) {
     
@@ -17,9 +26,9 @@ function Delete(prodID) {
     });
 }
 
-function createProduct(pic) {
+function createProduct() {
     
-    game = new Game(pic);
+    
     
 
     $.post("./admin/products.php", {addID: prodID}, function(results){
