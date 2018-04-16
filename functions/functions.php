@@ -237,10 +237,12 @@
         }
     }
     if(!isset($_SESSION["nameOnUser"])){
-        $_SESSION["nameOnUser"] = "Guest".rand(1,1000);
+        $userGuest = "Guest".rand(1,1000);
+        $_SESSION["nameOnUser"] = $userGuest;
     }
     if(!isset($_SESSION["randomPassword"])){
-        $_SESSION["randomPassword"] = "Pass".rand(1,1000);
+        $userPass = "Pass".rand(1,1000);
+        $_SESSION["randomPassword"] = $userPass;
     }
 
     if($_SESSION["memberIsLoggedIn"] == 1){
