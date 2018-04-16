@@ -30,10 +30,26 @@ function insertOrder()
     $id = $conn->query($selectId)->fetch_assoc();
 
     
-    foreach ($_SESSION['cartByproduct'] as $key => $value){
+    foreach ($_SESSION['cartByproduct'] as $key => $value)
+    {
         $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
         $result = $conn->query($sql);
         
+        if($result->num_rows > 0)
+        {
+            if($row = $result->fetch_assoc())
+            {
+                $price = $row['price'];
+                    // $key." productId
+                    // $row['price'] price
+                    // $value quantity
+                    
+                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                VALUES ('1','$key','$price','$value')";
+                mysqli_query(connection(), $sqlinsert);
+              
+            }
+        }
         
         if($result->num_rows > 0){
             if($row = $result->fetch_assoc()){
@@ -50,9 +66,7 @@ function insertOrder()
         (mysqli_query(connection(), $sqlinsert));
 
     }
-    
-    //K SKA SKICKAS TILL EN TACKSIDA DÄR HAN FÅR ETT LÖSENORD TILL SIDAN + MÖJLIGHET ATT SKRIVA UPP SIG FÖR NYHETSBREV
-    // header("location:thanks.php");
+
 }
 
     function shipping(){
@@ -290,7 +304,18 @@ function insertOrder()
     {
         updateAdmin($_GET["makeAdmin"]);
     }
-    //
+    
+    function updateOrderSkickad($orderId)
+    {
+        $sql = "UPDATE Orders
+        SET shipped = 0
+        WHERE orderId = '$orderId'";
+        mysqli_query(connection(), $sql);
+    }
+
+    if(isset($_GET["orderSkickad"])){
+        updateOrderSkickad($_GET["orderSkickad"]);
+    }
 
    
     
@@ -372,3 +397,5 @@ function insertOrder()
     if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
+
+    
