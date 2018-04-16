@@ -26,3 +26,5 @@
     if(isset($_GET["orderSkickad"])){
         updateOrderSkickad($_GET["orderSkickad"]);
     }
+
+?>

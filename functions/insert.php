@@ -122,3 +122,6 @@
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
             ?><script>alert('Newsletter created')</script><?php
     }
+
+
+    ?>

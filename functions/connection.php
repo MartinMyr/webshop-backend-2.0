@@ -17,3 +17,5 @@ function connection()
     // GÖR TILL GLOBAL
     return $conn;
 }
+
+?>
