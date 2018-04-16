@@ -14,11 +14,13 @@ function insertOrder()
 
     //FÖR ATT SKICKA ORDERN TILL ORDERS
     $date = date('Y-m-d');
-    echo $date;
-    
+
+    $nameOnuser= $_SESSION["nameOnUser"];
+    $shipper = $_SESSION["shipping"];
+    echo $shipper;
 
     $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
+    VALUES ('$nameOnuser','$date','2018-05-01',".$_SESSION["shipping_id"].",'1','0')";
     (mysqli_query(connection(), $sqlInsertIntoOrders));
 
     
@@ -28,10 +30,26 @@ function insertOrder()
     $id = $conn->query($selectId)->fetch_assoc();
 
     
-    foreach ($_SESSION['cartByproduct'] as $key => $value){
+    foreach ($_SESSION['cartByproduct'] as $key => $value)
+    {
         $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
         $result = $conn->query($sql);
         
+        if($result->num_rows > 0)
+        {
+            if($row = $result->fetch_assoc())
+            {
+                $price = $row['price'];
+                    // $key." productId
+                    // $row['price'] price
+                    // $value quantity
+                    
+                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                VALUES ('1','$key','$price','$value')";
+                mysqli_query(connection(), $sqlinsert);
+              
+            }
+        }
         
         if($result->num_rows > 0){
             if($row = $result->fetch_assoc()){
@@ -48,29 +66,30 @@ function insertOrder()
         (mysqli_query(connection(), $sqlinsert));
 
     }
-    
-    //K SKA SKICKAS TILL EN TACKSIDA DÄR HAN FÅR ETT LÖSENORD TILL SIDAN + MÖJLIGHET ATT SKRIVA UPP SIG FÖR NYHETSBREV
-    // header("location:thanks.php");
+
 }
 
     function shipping(){
         $conn = connection();
-        $_SESSION["shipping"] = $_POST["shipping"];
-
-
-        $sql = "SELECT companyName, price FROM Shippers";
+        
+        $sql = "SELECT companyName, price, shipperId FROM Shippers";
         $result = $conn->query($sql);
         
         if($result->num_rows > 0)
         {
             while($row = $result->fetch_assoc())
             {
+                if ($row['shipperId'] == $_POST['shipping_id']) {
+                    $_POST['shipping_cost'] = $row['price'];
+                    $_SESSION["shipping_id"] = $_POST['shipping_id'];
+                }
                 echo "
                 
-                <td>".$row['companyName']. " (".$row['price']." kr)   <input type='radio' name='shipping' value='".$row['price']."'></td>
+                <td>".$row['companyName']. " (".$row['price']." kr)<input type='radio' name='shipping_id' value='".$row['shipperId']."'></td>
                 
                 ";
             }
+            print_r($_POST);
         }
         else
         {
@@ -285,7 +304,18 @@ function insertOrder()
     {
         updateAdmin($_GET["makeAdmin"]);
     }
-    //
+    
+    function updateOrderSkickad($orderId)
+    {
+        $sql = "UPDATE Orders
+        SET shipped = 0
+        WHERE orderId = '$orderId'";
+        mysqli_query(connection(), $sql);
+    }
+
+    if(isset($_GET["orderSkickad"])){
+        updateOrderSkickad($_GET["orderSkickad"]);
+    }
 
    
     
@@ -367,3 +397,5 @@ function insertOrder()
     if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
+
+    
