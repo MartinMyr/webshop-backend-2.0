@@ -26,11 +26,11 @@ function insertOrder()
                     
             }
         }
-            print_r($orderTillDatabas);
+        print_r($orderTillDatabas);
+        $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+        VALUES (1,'$orderTillDatabas['id']','$orderTillDatabas['price']','$orderTillDatabas['quantity']')";
+        mysqli_query(connection(), $sqlinsert);
     }
-    $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-    VALUES ('1','$key','$price','$value')";
-    mysqli_query(connection(), $sqlinsert);
     //K SKA SKICKAS TILL EN TACKSIDA DÄR HAN FÅR ETT LÖSENORD TILL SIDAN + MÖJLIGHET ATT SKRIVA UPP SIG FÖR NYHETSBREV
     // header("location:thanks.php");
 }
