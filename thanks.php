@@ -5,7 +5,7 @@
 <div id='startDiv'>
     <?php 
     $id = getLatesOrder();
-        if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
+        if(isset($_SESSION["memberIsLoggedIn"])){
             echo " <h1>Tack för din beställning ".$_SESSION["nameOnUser"].".</h1>
             <p>Din beställning med ordernr: ".$id["id"]." kommer skickas så fort som möjligt!</p>";
         }

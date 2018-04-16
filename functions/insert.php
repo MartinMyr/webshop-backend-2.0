@@ -12,57 +12,63 @@
     
     function insertOrder()
     {
-        $conn = connection();
-
-        //FÖR ATT SKICKA ORDERN TILL ORDERS
-        $date = date('Y-m-d');
-
-        $nameOnuser= $_SESSION["nameOnUser"];
-        
-
-        $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-        VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
-        (mysqli_query(connection(), $sqlInsertIntoOrders));
-
-        $id = getLatesOrder();
-        
-        foreach ($_SESSION['cartByproduct'] as $key => $value)
-        {
-            $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
-            $result = $conn->query($sql);
-            
-            if($result->num_rows > 0)
-            {
-                if($row = $result->fetch_assoc())
-                {
-                    $price = $row['price'];
-
-                        
-                    $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                    VALUES (' ".$id["id"]." ','$key','$price','$value')";
-                    mysqli_query(connection(), $sqlinsert);
-                
-                }
-            }
-            
-            if($result->num_rows > 0){
-                if($row = $result->fetch_assoc()){
-                    $price = $row['price'];
-                    
-                    $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
-                    
-                }
-            }
-            
-            
-            $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-            VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
-            (mysqli_query(connection(), $sqlinsert));
-
+        if(empty($_SESSION["shipping_id"])){
+        echo "<script>alert('Du måste välja fraktalternativ :)')</script>";
         }
-        session_unset($_SESSION['CART']);
-        header("location:thanks.php");
+        else{
 
+            
+            $conn = connection();
+
+            //FÖR ATT SKICKA ORDERN TILL ORDERS
+            $date = date('Y-m-d');
+
+            $nameOnuser= $_SESSION["nameOnUser"];
+            
+
+            $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
+            VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
+            (mysqli_query(connection(), $sqlInsertIntoOrders));
+
+            $id = getLatesOrder();
+            
+            foreach ($_SESSION['cartByproduct'] as $key => $value)
+            {
+                $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
+                $result = $conn->query($sql);
+                
+                if($result->num_rows > 0)
+                {
+                    if($row = $result->fetch_assoc())
+                    {
+                        $price = $row['price'];
+
+                            
+                        $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                        VALUES (' ".$id["id"]." ','$key','$price','$value')";
+                        mysqli_query(connection(), $sqlinsert);
+                    
+                    }
+                }
+                
+                if($result->num_rows > 0){
+                    if($row = $result->fetch_assoc()){
+                        $price = $row['price'];
+                        
+                        $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
+                        
+                    }
+                }
+                
+                
+                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
+                (mysqli_query(connection(), $sqlinsert));
+
+            }
+            session_unset($_SESSION['CART']);
+            header("location:thanks.php");
+        }
     }
 
     //Functions for insert to DB
