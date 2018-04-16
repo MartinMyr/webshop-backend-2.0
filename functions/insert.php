@@ -19,7 +19,7 @@
         
         $selectId = "SELECT MAX(orderId) as id FROM Orders ";
         $id = $conn->query($selectId)->fetch_assoc();
-
+        $_SESSION = $id;
         
         foreach ($_SESSION['cartByproduct'] as $key => $value)
         {
