@@ -5,11 +5,9 @@
 <div id='startDiv'>
 
     <?php 
-
-    // showOrder();
         if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
             echo " <h1>Tack för din beställning ".$_SESSION["nameOnUser"].".</h1>
-            <p>Din beställning kommer skickas så fort som möjligt!</p>";
+            <p>Din beställning med ordernr: ".$_SESSION["id"]." kommer skickas så fort som möjligt!</p>";
         }
         else{
             echo "<h1>Tack för din beställning.</h1>
