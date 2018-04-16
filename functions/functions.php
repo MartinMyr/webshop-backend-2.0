@@ -2,7 +2,6 @@
     session_start();
     include './include/classEshop.php';
     include './functions/krypt.php';
-    include './functions/insert.php';
 ?>
 
 <?php
@@ -290,7 +289,30 @@
         }
     }
     
+    //Functions for insert to DB
+    function insert($namn, $email)
+    {
+        $sql = "INSERT INTO Subscribers (namn, email)
+        VALUES ('$namn', '$email')";
+        mysqli_query(connection(), $sql);
+    }
+
+    function insertNewsletter($title, $message)
+    {
+        $sql = "INSERT INTO Newsletter (title, message)
+        VALUES ('$title', '$message')";
+        mysqli_query(connection(),$sql);
+    }
+
     
+    //Lägger till ny user i SQL
+    function insertUser($userName, $email, $password, $subs, $name)
+    {
+        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
+        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
+        mysqli_query(connection(), $sql);
+
+    }
 
     //Make admin
     function updateAdmin($username)
@@ -324,7 +346,41 @@
 
     
   
+    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]) && isset($_POST["signUpName"]))
+    {  
+        $sql = "SELECT username FROM User";
+        $result = connection()->query($sql);
+  
+        foreach($result as $name)
+        {
+            
+            if($_POST["signUpUsername"] == $name['username']){
+                ?><script>alert("Username is not available!");</script><?php
+                break;
+            }
+            else
+            {
+                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
+                ?><script>alert('User created')</script><?php
+                break;
+            }
+        }
+    }
     
+
+    //Newsletter check
+    if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
+    {
+        insert($_POST["newsletterName"],$_POST["email"]);
+        setcookie("newsletter", "true", time()+3600*48);
+    }
+
+    //Send newsletter from admin check
+    if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]))
+    {
+        insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
+            ?><script>alert('Newsletter created')</script><?php
+    }
 
     function getOrders()
     {
@@ -360,8 +416,7 @@
         }
     }
     if(!isset($_SESSION["nameOnUser"])){
-        $username = "Guest".rand(1,1000);
-        $_SESSION["nameOnUser"] = $username;
+        $_SESSION["nameOnUser"] = "Guest";
     }
     if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
