@@ -207,7 +207,7 @@
     {
         $conn = connection();
 
-        $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
+        $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders WHERE (customerId = ".$_SESSION['nameOnUser'].") ";
         $result = $conn->query($sql);
         
         if($result->num_rows > 0)
@@ -239,8 +239,6 @@
     if(!isset($_SESSION["nameOnUser"])){
         $_SESSION["nameOnUser"] = "Guest".rand(1,1000);
     }
-    if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
+    if($_SESSION["nameOnUser"] == true && !isset($_SESSION["memberIsLoggedIn"])){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
-
-    
