@@ -3,7 +3,7 @@ include "include/header.php";
 include "../functions/functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
+
 
 $conn = connection();
 
@@ -19,6 +19,7 @@ echo "<div id='memberDiv'>
     <th>shipped Date</th>
     <th>Shipped By</th>
     <th>Shipped</th>
+    <th>Confirm shipped</th>
     <th>Recieved</th>
 </tr>";
 
@@ -34,14 +35,16 @@ if($result->num_rows > 0)
                 <td>".$row['shippedDate']."</td>
                 <td>".$row['shippedBy']."</td>
                 <td>".$row['shipped']."</td>
-                <td>
-                    <form action='member.php?id=' action='POST'>
-                        <input type='submit' value='recieved'>
+                <td><form action='admin.php' method='GET'>
+                    <input type='checkbox' name='orderSkickad' value='".$row['orderId']."'>
+                    <button type='submit'>Bekräfta</button>
                     </form>
                 </td>
+                <td>".$row['recived']."</td>
+                
             </tr>
         ";
-    }
+    }   
 }
 
 echo "</table></div>";
