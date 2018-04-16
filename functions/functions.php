@@ -364,6 +364,6 @@ function insertOrder()
     if(!isset($_SESSION["nameOnUser"])){
         $_SESSION["nameOnUser"] = "Guest";
     }
-    if($_SESSION["nameOnUser"] == true){
+    if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
