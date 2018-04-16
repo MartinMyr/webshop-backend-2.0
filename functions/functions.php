@@ -18,7 +18,7 @@ function insertOrder()
     
 
     $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01',".$_SESSION["shipping"].",'1','0')";
+    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
     (mysqli_query(connection(), $sqlInsertIntoOrders));
 
     
