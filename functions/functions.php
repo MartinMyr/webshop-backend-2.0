@@ -14,11 +14,13 @@ function insertOrder()
 
     //FÖR ATT SKICKA ORDERN TILL ORDERS
     $date = date('Y-m-d');
-    echo $date;
-    
+
+    $nameOnuser= $_SESSION["nameOnUser"];
+    $shipper = $_SESSION["shipping"];
+    echo $shipper;
 
     $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
+    VALUES ('$nameOnuser','$date','2018-05-01',".$_SESSION["shipping_id"].",'1','0')";
     (mysqli_query(connection(), $sqlInsertIntoOrders));
 
     
@@ -55,22 +57,25 @@ function insertOrder()
 
     function shipping(){
         $conn = connection();
-        $_SESSION["shipping"] = $_POST["shipping"];
-
-
-        $sql = "SELECT companyName, price FROM Shippers";
+        
+        $sql = "SELECT companyName, price, shipperId FROM Shippers";
         $result = $conn->query($sql);
         
         if($result->num_rows > 0)
         {
             while($row = $result->fetch_assoc())
             {
+                if ($row['shipperId'] == $_POST['shipping_id']) {
+                    $_POST['shipping_cost'] = $row['price'];
+                    $_SESSION["shipping_id"] = $_POST['shipping_id'];
+                }
                 echo "
                 
-                <td>".$row['companyName']. " (".$row['price']." kr)   <input type='radio' name='shipping' value='".$row['price']."'></td>
+                <td>".$row['companyName']. " (".$row['price']." kr)<input type='radio' name='shipping_id' value='".$row['shipperId']."'></td>
                 
                 ";
             }
+            print_r($_POST);
         }
         else
         {

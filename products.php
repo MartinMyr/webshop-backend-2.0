@@ -15,11 +15,11 @@
 </div>
 <div class="cards">
     <?php
-        // print_r($_SESSION["CART"]);
+        
     if(isset($_POST["id"])){
         pushToCart($_POST["id"], $_POST["quantity"]);
     }
-    // print_r($_POST);
+ 
         if (empty($_GET["category"])){
             allProducts();
         }
