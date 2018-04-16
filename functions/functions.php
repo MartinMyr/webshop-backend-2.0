@@ -33,7 +33,6 @@ function insertOrder()
         $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
         $result = $conn->query($sql);
         
-<<<<<<< HEAD
         if($result->num_rows > 0)
         {
             if($row = $result->fetch_assoc())
@@ -49,7 +48,6 @@ function insertOrder()
               
             }
         }
-=======
         
         if($result->num_rows > 0){
             if($row = $result->fetch_assoc()){
@@ -65,7 +63,6 @@ function insertOrder()
         VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
         (mysqli_query(connection(), $sqlinsert));
 
->>>>>>> 027401298f119ca462723eaccbbf2ff2c0585be1
     }
 
 }
