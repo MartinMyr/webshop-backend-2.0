@@ -18,7 +18,7 @@
                     Användarnamn: <strong>".$_SESSION["nameOnUser"]."</strong>  
                 </p>        
                 <p>
-                    Lösenord:
+                    Lösenord: <strong> ".$_SESSION["randomPassword"]."</strong>
                 </p> 
             ";
         }

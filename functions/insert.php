@@ -1,4 +1,14 @@
 <?php
+    //Lägger till ny user i SQL
+    function insertUser($userName, $email, $password, $subs, $name)
+    {
+        $conn = connection();
+
+        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
+        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
+        mysqli_query(connection(), $sql);
+
+    }
 
     //FÖR ATT HÄMTA SENASTE ORDER ID
     function getLatesOrder(){
@@ -66,6 +76,8 @@
                 (mysqli_query(connection(), $sqlinsert));
 
             }
+            
+            insertUser($_SESSION["nameOnUser"],"guest@guest.com",$_SESSION["randomPassword"],0,"guest");
             session_unset($_SESSION['CART']);
             header("location:thanks.php");
         }
@@ -84,16 +96,6 @@
         $sql = "INSERT INTO Newsletter (title, message)
         VALUES ('$title', '$message')";
         mysqli_query(connection(),$sql);
-    }
-
-    
-    //Lägger till ny user i SQL
-    function insertUser($userName, $email, $password, $subs, $name)
-    {
-        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
-        mysqli_query(connection(), $sql);
-
     }
 
     if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]) && isset($_POST["signUpName"]))
