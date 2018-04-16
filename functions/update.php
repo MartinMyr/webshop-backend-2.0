@@ -18,7 +18,7 @@
     function updateOrderSkickad($orderId)
     {
         $sql = "UPDATE Orders
-        SET shipped = 0
+        SET shipped = 1
         WHERE orderId = '$orderId'";
         mysqli_query(connection(), $sql);
     }
