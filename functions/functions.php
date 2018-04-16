@@ -4,6 +4,8 @@
     include './functions/krypt.php';
     include './functions/insert.php';
     include './functions/update.php';
+    include './functions/connection.php';
+
 ?>
 
 <?php
