@@ -14,9 +14,12 @@ include "functions/functions.php";
         <th>Recieved</th>
     </tr>
         <?php
-
             getOrders();
-
         ?>    
     </table>
 </div>
+
+
+<?php
+    include "include/footer.php";
+?>
