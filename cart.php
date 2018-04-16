@@ -12,8 +12,10 @@
 		insertOrder();
 		
 	}
-	if(isset($_POST["newsLetter"])){
-		echo "<script>$('#newsletter').slideDown(400);</script>";
+	if(isset($_POST["cartNewsLetter"])){
+		echo "<script>sessionStorage.removeItem(`newsletter`);</script>";
+		unset($_COOKIE['newsletter']);
+		
 	}
 	
 ?>
@@ -118,7 +120,7 @@
 		<tr>
 		<td colspan="3">
 			<form action="cart.php" method="POST">
-				Önskar du vårat nyhetsbrev <input type="radio" name="newsLetter">
+				Önskar du vårat nyhetsbrev <input type="radio" name="cartNewsLetter">
 			</td>
 		</tr>
 		<tr>
