@@ -15,15 +15,22 @@
        echo $conn->affected_rows;
 
 
+    } else if(isset($_POST['amountID'])) {
+        include_once '../functions/functions.php';
+        $conn = connection();
+        $sql = "UPDATE Products SET  unitsInStock = '".$_POST['unitsInStock']."' WHERE (productId = ".$_POST['amountId'].")";
+        $conn->query($sql);
+        echo $conn->affected_rows;
+
    } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
        include_once '../functions/functions.php';
        echo "Hej och välkommen till Produktsidan";
-       $sql = "SELECT productName, category, productId FROM Products ORDER BY category ASC";
+       $sql = "SELECT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
        $totProd = connection()->query($sql);
        echo "<h1>Befintliga produkter</h1><br><div id='adminProds'><ul>";
        if($totProd->num_rows > 0) {
            while($row = $totProd->fetch_assoc()){
-               echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "
+               echo "<div class='prodList'><li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "</li><li><strong>Units in stock:</strong> " .$row['unitsInStock']. "
               <br> <button type='button' id='delete' onclick='Delete(".$row['productId'].")' class=''>Delete</button>
                <select id='category".$row['productId']."'>
                    <option value=''>Select Category</option>
@@ -31,7 +38,8 @@
                    <option value='games'>Game</option>
                    <option value='console'>Console</option>
                </select>
-               <button type='button' onclick='changeCategory(".$row['productId'].")' class=''>Submit</button>
+               <input id='amount' type='number' name='units' placeholder='Amount'>
+               <button type='button' onclick='changeCategory(".$row['productId'].");changeAmount(".$row['productId'].");' class=''>Submit</button>
                </li></div>";
            }
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
