@@ -64,9 +64,10 @@
                </form>
            </div>';
        
-
+           if(isset($_GET["name"]) && isset($_GET["price"])){
            $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
            $create = connection()->query($sqlNew);
+           }
        }
    
 
