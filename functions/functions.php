@@ -18,7 +18,7 @@ function insertOrder()
     
 
     $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
+    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01',".$_SESSION["shipping"].",'1','0')";
     (mysqli_query(connection(), $sqlInsertIntoOrders));
 
     
@@ -56,7 +56,7 @@ function insertOrder()
     function shipping(){
         $conn = connection();
         $_SESSION["shipping"] = $_POST["shipping"];
-        echo $_SESSION["shipping"];
+
 
         $sql = "SELECT companyName, price FROM Shippers";
         $result = $conn->query($sql);
