@@ -393,7 +393,8 @@
         }
     }
     if(!isset($_SESSION["nameOnUser"])){
-        $_SESSION["nameOnUser"] = "Guest";
+        $username = "Guest".rand(1,1000);
+        $_SESSION["nameOnUser"] = $username;
     }
     if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
