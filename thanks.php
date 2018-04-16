@@ -17,7 +17,7 @@
                     Här får ser du dina inloggningsuppgifter för att se din beställning:
                 </p>
                 <p>
-                    Användarnamn:  
+                    Användarnamn: ".$_SESSION["nameOnUser"]."  
                 </p>        
                 <p>
                     Lösenord:
