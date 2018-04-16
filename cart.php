@@ -12,6 +12,10 @@
 		insertOrder();
 		
 	}
+	if(isset($_POST["newsLetter"])){
+		echo "<script>$('#newsletter').slideDown(400);</script>";
+	}
+	
 ?>
 <div id="cartProducts">
 	<table id='cartTable'>
@@ -112,8 +116,13 @@
 			</td> 
 		</tr>
 		<tr>
+		<td colspan="3">
+			<form action="cart.php" method="POST">
+				Önskar du vårat nyhetsbrev <input type="radio" name="newsLetter">
+			</td>
+		</tr>
+		<tr>
 			<td colspan="3">
-				<form action="cart.php" method="POST">
 					<input type="hidden" name="checkOut">
 					<input type="submit" value="Slutför din beställning" class="cartSubmit">
 				</form>
