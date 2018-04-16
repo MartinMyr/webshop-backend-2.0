@@ -3,6 +3,7 @@
     include './include/classEshop.php';
     include './functions/krypt.php';
     include './functions/insert.php';
+    include './functions/update.php';
 ?>
 
 <?php
