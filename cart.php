@@ -1,6 +1,7 @@
 <?php
 	include 'include/header.php';
 	include 'functions/functions.php';
+	;
 
 	if(isset($_POST['delProdID'])) {
 		unset($_SESSION['cartByproduct'][$_POST['delProdID']]);

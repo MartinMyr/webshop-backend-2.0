@@ -3,7 +3,6 @@
     include 'functions/functions.php';
 ?>
 <div id='startDiv'>
-
     <?php 
         if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
             echo " <h1>Tack för din beställning ".$_SESSION["nameOnUser"].".</h1>
@@ -12,7 +11,7 @@
         else{
             echo "<h1>Tack för din beställning.</h1>
                 <p> 
-                    Här får ser du dina inloggningsuppgifter för att se din beställning:
+                    Här får ser du dina inloggningsuppgifter för att se din beställning med ordernummer:".$_SESSION["id"].".
                 </p>
                 <p>
                     Användarnamn: ".$_SESSION["nameOnUser"]."  

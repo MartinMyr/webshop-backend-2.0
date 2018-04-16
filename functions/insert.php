@@ -20,6 +20,7 @@
         $selectId = "SELECT MAX(orderId) as id FROM Orders ";
         $id = $conn->query($selectId)->fetch_assoc();
         $_SESSION = $id;
+        echo $_SESSION["id"];
         
         foreach ($_SESSION['cartByproduct'] as $key => $value)
         {
@@ -31,9 +32,7 @@
                 if($row = $result->fetch_assoc())
                 {
                     $price = $row['price'];
-                        // $key." productId
-                        // $row['price'] price
-                        // $value quantity
+
                         
                     $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
                     VALUES (' ".$id["id"]." ','$key','$price','$value')";
@@ -57,8 +56,8 @@
             (mysqli_query(connection(), $sqlinsert));
 
         }
-        session_unset($_SESSION['CART']);
-        header("location:thanks.php");
+        // session_unset($_SESSION['CART']);
+        // header("location:thanks.php");
 
     }
 
