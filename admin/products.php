@@ -48,24 +48,24 @@
 
 
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
-           
+           <form method="get">
            <input id="pic" type="text" name="picture" placeholder="Picture">
-           <input id="id" type="text" name="id" placeholder="Id">
            <input id="name" type="text" name="name" placeholder="Name">
            <input id=info"" type="text" name="info" placeholder="Info">
            <input id="price" type="text" name="price" placeholder="Price">
-           <input id="units" type="text" name="units" placeholder="Units">
+           <input id="units" type="number" name="units" placeholder="Units">
            <select id="category"'.$row['productId'].'">
                    <option value="">Select Category2</option>
                    <option value="accessories">accesorie</option>
                    <option value="games">Game</option>
                    <option value="console">Console</option>
                </select>
-               <button type="button" onclick="createProduct()" class="">Submit</button>
+               <button type="submit" class="">Submit</button>
+               </form>
            </div>';
        
 
-           $sqlNew = "INSERT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
+           $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
            $create = connection()->query($sqlNew);
        }
    

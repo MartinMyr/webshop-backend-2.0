@@ -9,7 +9,7 @@ function changeCategory(prodID) {
 }
 
 function changeAmount(prodID) {
-    var amount = $('#amount'+prodID).val();
+    var amount = $('#amount'+prodID+'').val();
     if(amount == '') return;
 
     $.post("./admin/products.php", {amountId: prodID, unitsInStock: unitsInStock}, function(results){
@@ -27,11 +27,15 @@ function Delete(prodID) {
 }
 
 function createProduct() {
-    
+    $('#pic'+prodID+' ').val();
+    $('#name'+prodID+' ').val();
+    $('#info'+prodID+' ').val();
+    $('#price'+prodID+' ').val();
+    $('#category'+prodID+' ').val();
     
     
 
-    $.post("./admin/products.php", {addID: prodID}, function(results){
-        if(results) viewProducts();
-    });
+    //$.post("./admin/products.php", {addID: prodID}, function(results){
+      //  if(results) viewProducts();
+    //});
 }
