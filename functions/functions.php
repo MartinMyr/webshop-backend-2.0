@@ -11,12 +11,29 @@
 function insertOrder()
 {
     $conn = connection();
+
+    //FÖR ATT SKICKA ORDERN TILL ORDERS
+    $date = date('Y-m-d');
+    echo $date;
+    
+
+    $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
+    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
+    (mysqli_query(connection(), $sqlInsertIntoOrders));
+
+    
+    //FÖR ATT HÄMTA ID
+    
+    $selectId = "SELECT MAX(orderId) as id FROM Orders ";
+    $id = $conn->query($selectId)->fetch_assoc();
+
     
     foreach ($_SESSION['cartByproduct'] as $key => $value)
     {
         $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
         $result = $conn->query($sql);
         
+<<<<<<< HEAD
         if($result->num_rows > 0)
         {
             if($row = $result->fetch_assoc())
@@ -32,12 +49,31 @@ function insertOrder()
               
             }
         }
+=======
+        
+        if($result->num_rows > 0){
+            if($row = $result->fetch_assoc()){
+                $price = $row['price'];
+                
+                $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
+                
+            }
+        }
+        
+        
+        $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+        VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
+        (mysqli_query(connection(), $sqlinsert));
+
+>>>>>>> 027401298f119ca462723eaccbbf2ff2c0585be1
     }
 
 }
 
     function shipping(){
         $conn = connection();
+        $_SESSION["shipping"] = $_POST["shipping"];
+
 
         $sql = "SELECT companyName, price FROM Shippers";
         $result = $conn->query($sql);
@@ -299,6 +335,7 @@ function insertOrder()
             else
             {
                 insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
+                ?><script>alert('User created')</script><?php
                 break;
             }
         }
@@ -316,7 +353,7 @@ function insertOrder()
     if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]))
     {
         insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
-        echo "Sent";
+            ?><script>alert('Newsletter created')</script><?php
     }
 
     function getOrders()
@@ -352,9 +389,10 @@ function insertOrder()
             echo "error";
         }
     }
-
-
-    if($_SESSION["nameOnUser"] == true){
+    if(!isset($_SESSION["nameOnUser"])){
+        $_SESSION["nameOnUser"] = "Guest";
+    }
+    if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
 
