@@ -11,25 +11,42 @@
 function insertOrder()
 {
     $conn = connection();
+
+    //FÖR ATT SKICKA ORDERN TILL ORDERS
+    $date = date('Y-m-d');
+    echo $date;
+    
+
+    $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
+    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
+    (mysqli_query(connection(), $sqlInsertIntoOrders));
+
+    
+    //FÖR ATT HÄMTA ID
+    
+    $selectId = "SELECT MAX(orderId) as id FROM Orders ";
+    $id = $conn->query($selectId)->fetch_assoc();
+
     
     foreach ($_SESSION['cartByproduct'] as $key => $value){
         $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
         $result = $conn->query($sql);
         
+        
         if($result->num_rows > 0){
             if($row = $result->fetch_assoc()){
                 $price = $row['price'];
-                    // $key." productId
-                    // $row['price'] price
-                    // $value quantity
-            $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
-                    
+                
+                $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
+                
             }
         }
-        print_r($orderTillDatabas);
+        
+        
         $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-        VALUES (1,'$orderTillDatabas['id']','$orderTillDatabas['price']','$orderTillDatabas['quantity']')";
-        mysqli_query(connection(), $sqlinsert);
+        VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
+        (mysqli_query(connection(), $sqlinsert));
+
     }
     
     //K SKA SKICKAS TILL EN TACKSIDA DÄR HAN FÅR ETT LÖSENORD TILL SIDAN + MÖJLIGHET ATT SKRIVA UPP SIG FÖR NYHETSBREV
@@ -38,6 +55,8 @@ function insertOrder()
 
     function shipping(){
         $conn = connection();
+        $_SESSION["shipping"] = $_POST["shipping"];
+
 
         $sql = "SELECT companyName, price FROM Shippers";
         $result = $conn->query($sql);
@@ -342,8 +361,9 @@ function insertOrder()
             echo "error";
         }
     }
-
-
-    if($_SESSION["nameOnUser"] == true){
+    if(!isset($_SESSION["nameOnUser"])){
+        $_SESSION["nameOnUser"] = "Guest";
+    }
+    if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }

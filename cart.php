@@ -17,6 +17,9 @@
 		unset($_COOKIE['newsletter']);
 		
 	}
+	print_r($_POST);
+	$_SESSION["shipping"] = $_POST["shipping"];
+	echo $_SESSION["shipping"];
 	
 ?>
 <div id="cartProducts">
@@ -61,9 +64,6 @@
 <div id="cartShipping">
 	<h2>Välj ditt fraktbolag</h2>
 	<table id='cartTable' style="width:400px; margin: auto;">
-		<!-- <tr>
-			<th colspan="2">Välj ditt fraktsätt:<th>
-		</tr> -->
 		<tr>
 			<form action="cart.php" method="POST">
 				<?php 

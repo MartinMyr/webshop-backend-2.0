@@ -1,7 +1,6 @@
 <?php
     include 'include/header.php';
     include 'functions/functions.php';
-    
 ?>
 <div id='startDiv'>
     <h1>Hej och välkommen <?php echo $_SESSION["nameOnUser"]?> till året 1992.</h1>
