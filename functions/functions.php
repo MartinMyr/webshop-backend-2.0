@@ -16,11 +16,10 @@ function insertOrder()
     $date = date('Y-m-d');
 
     $nameOnuser= $_SESSION["nameOnUser"];
-    $shipper = $_SESSION["shipping"];
-    echo $shipper;
+    
 
     $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES ('$nameOnuser','$date','2018-05-01',".$_SESSION["shipping_id"].",'1','0')";
+    VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','1','0')";
     (mysqli_query(connection(), $sqlInsertIntoOrders));
 
     
@@ -45,7 +44,7 @@ function insertOrder()
                     // $value quantity
                     
                 $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                VALUES ('1','$key','$price','$value')";
+                VALUES (' ".$id["id"]." ','$key','$price','$value')";
                 mysqli_query(connection(), $sqlinsert);
               
             }
@@ -81,7 +80,7 @@ function insertOrder()
             {
                 if ($row['shipperId'] == $_POST['shipping_id']) {
                     $_POST['shipping_cost'] = $row['price'];
-                    $_SESSION["shipping_id"] = $_POST['shipping_id'];
+                    $_SESSION["shipping_id"] = $row['companyName'];
                 }
                 echo "
                 
@@ -89,12 +88,12 @@ function insertOrder()
                 
                 ";
             }
-            print_r($_POST);
         }
         else
         {
             echo "error";
         }
+        echo $_SESSION["shipping_id"];
     }
 
     function printCart()

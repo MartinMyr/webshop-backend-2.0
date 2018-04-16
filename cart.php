@@ -18,7 +18,6 @@
 		
 	}
 
-	print_r($_POST);
 	
 ?>
 <div id="cartProducts">
