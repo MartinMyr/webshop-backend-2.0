@@ -42,6 +42,11 @@
                <button type='button' onclick='changeCategory(".$row['productId'].");changeAmount(".$row['productId'].");' class=''>Submit</button>
                </li></div>";
            }
+
+
+
+
+
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
            
            <input id="pic" type="text" name="picture" placeholder="Picture">
@@ -49,6 +54,7 @@
            <input id="name" type="text" name="name" placeholder="Name">
            <input id=info"" type="text" name="info" placeholder="Info">
            <input id="price" type="text" name="price" placeholder="Price">
+           <input id="units" type="text" name="units" placeholder="Units">
            <select id="category"'.$row['productId'].'">
                    <option value="">Select Category2</option>
                    <option value="accessories">accesorie</option>
@@ -58,6 +64,9 @@
                <button type="button" onclick="createProduct()" class="">Submit</button>
            </div>';
        
+
+           $sqlNew = "INSERT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
+           $create = connection()->query($sqlNew);
        }
    
 
