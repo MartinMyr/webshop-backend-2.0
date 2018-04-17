@@ -205,13 +205,13 @@ footer { grid-area: footer;
     width:1100px;
 }
 #subProductButtons{
-     margin-top:10px;
+     margin-top:6px;
 }
 
 #allt , #Nintendo, #Sega{
     width:240px;
     height:55px;
-    font-size: 17px;
+    font-size: 20px;
     font-family: 'Press Start 2P', cursive;
     border:3px solid black;
     margin-left:10px;
