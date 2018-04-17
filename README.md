@@ -68,6 +68,7 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 
 -Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)
 +    Lösning:
+        Genom att joina 3 tabeller från databasen så är produkterna kopplade till så många kategorier som behövs. Vi har använd max 2 nu, men i theori ska det inte vara något problem att ha flera.
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
 
