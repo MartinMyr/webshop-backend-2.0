@@ -31,11 +31,7 @@ function createProduct() {
     var price = $('#price').val();
     var units = $('#units').val();
     var category = $('#category option:selected').val();
-    console.log(name);
-    console.log(info);
-    console.log(category);
-    console.log(price);
-    console.log(units);
+   
 
     $.post("./admin/products.php",
         {
