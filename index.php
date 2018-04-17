@@ -6,9 +6,10 @@
     <h1>
         Hej och välkommen 
         <?php 
-            if (isset($_SESSION["memberIsLoggedIn"])){
+            if (!isset($_SESSION["memberIsLoggedIn"])){
                 echo $_SESSION["nameOnUser"];
             } 
+            print_r($_SESSION);
         ?> 
         till året 1992.</h1>
     <p> 

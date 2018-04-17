@@ -1,4 +1,5 @@
 <?php
+
     //Lägger till ny user i SQL
     function insertUser($userName, $email, $password, $subs, $name)
     {
@@ -19,21 +20,33 @@
 
         return $id;
     }
-    
-    function insertOrder()
-    {
+    function insertOrder(){
+        
+        $_SESSION["test"] = "TEST";
+        print_r($_SESSION);
+
+        //SKAPAR RANDOM USER OCH PASS INLOGG TILL GUEST
+        if(isset($_SESSION["memberIsLoggedIn"])){
+            $nameOnuser = $_SESSION["nameOnUser"];
+            
+        }
+        else{
+            $guestUser = createGuestUser();
+            $_SESSION["guestpass"] = createGuestPass();
+            $nameOnuser = $guestUser;
+        }
+
+        //KOLLAR OM KUND LAGT TILL FRAKT
         if(empty($_SESSION["shipping_id"])){
         echo "<script>alert('Du måste välja fraktalternativ :)')</script>";
         }
         else{
-
             
             $conn = connection();
 
             //FÖR ATT SKICKA ORDERN TILL ORDERS
             $date = date('Y-m-d');
-
-            $nameOnuser= $_SESSION["nameOnUser"];
+  
             
 
             $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
@@ -77,7 +90,8 @@
 
             }
             
-            insertUser($_SESSION["nameOnUser"],"guest@guest.com",$_SESSION["randomPassword"],0,"guest");
+            insertUser($guestUser,"guest@guest.com",$guestPass,0,"guest");
+            
             session_unset($_SESSION['CART']);
             header("location:thanks.php");
         }

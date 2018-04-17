@@ -6,7 +6,22 @@
 
 ?>
 
+
+
 <?php
+
+    function createGuestUser(){
+        $guestUser = "Guest".rand(1,1000);
+        
+        return $guestUser;
+    }
+
+    function createGuestPass(){
+        $guestPass = "Pass".rand(1,1000);
+
+        return $guestPass;
+    }
+
     function connection()
     {
         $servername = "localhost";
@@ -236,14 +251,14 @@
             echo "error";
         }
     }
-    if(!isset($_SESSION["nameOnUser"])){
-        $userGuest = "Guest".rand(1,1000);
-        $_SESSION["nameOnUser"] = $userGuest;
-    }
-    if(!isset($_SESSION["randomPassword"])){
-        $userPass = "Pass".rand(1,1000);
-        $_SESSION["randomPassword"] = $userPass;
-    }
+    // if(!isset($_SESSION["nameOnUser"])){
+    //     $userGuest = "Guest".rand(1,1000);
+    //     $_SESSION["nameOnUser"] = $userGuest;
+    // }
+    // if(!isset($_SESSION["randomPassword"])){
+    //     $userPass = "Pass".rand(1,1000);
+    //     $_SESSION["randomPassword"] = $userPass;
+    // }
 
     if($_SESSION["memberIsLoggedIn"] == 1){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php

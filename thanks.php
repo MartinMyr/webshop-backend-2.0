@@ -4,6 +4,7 @@
 ?>
 <div id='startDiv'>
     <?php 
+var_dump($_SESSION);
     $id = getLatesOrder();
         if(isset($_SESSION["memberIsLoggedIn"])){
             echo " <h1>Tack för din beställning ".$_SESSION["nameOnUser"].".</h1>
