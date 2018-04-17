@@ -39,7 +39,10 @@
         }else
         {
             $_SESSION["nameOnUser"] = $results["username"];
+            echo  "<script>alert('FEL!!)</script>";
             header("location: index.php");
+            $_SESSION["memberIsLoggedIn"] =  1;
+            
             
         }
             

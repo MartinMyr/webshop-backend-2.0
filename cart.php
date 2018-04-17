@@ -1,6 +1,7 @@
 <?php
 	include 'include/header.php';
 	include 'functions/functions.php';
+	;
 
 	if(isset($_POST['delProdID'])) {
 		unset($_SESSION['cartByproduct'][$_POST['delProdID']]);
@@ -17,9 +18,7 @@
 		unset($_COOKIE['newsletter']);
 		
 	}
-	print_r($_POST);
-	$_SESSION["shipping"] = $_POST["shipping"];
-	echo $_SESSION["shipping"];
+
 	
 ?>
 <div id="cartProducts">
@@ -98,9 +97,9 @@
 			</td>
 			<td>
 				<?php
-					if(isset($_POST["shipping"])){
+					if(isset($_POST["shipping_cost"])){
 						if ($total[0] <= 1000) {
-							echo $_POST["shipping"] ."kr";
+							echo $_POST["shipping_cost"] ."kr";
 						} 
 						else{ 
 							echo "Free!";
@@ -111,7 +110,7 @@
 			<td> 
 				<?php 
 					if ($total[0] <= 1000) {
-						echo $total[0] + $_POST["shipping"];
+						echo $total[0] + $_POST["shipping_cost"];
 					} else{ echo $total[0];
 					}
 				?>

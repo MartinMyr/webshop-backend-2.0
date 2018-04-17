@@ -1,87 +1,47 @@
 <?php
     session_start();
-    include './include/classEshop.php';
-    include './functions/krypt.php';
+    include_once './include/classEshop.php';
+    include_once './functions/insert.php';
+    include_once './functions/update.php';
+
 ?>
 
 <?php
-
-
-
-function insertOrder()
-{
-    $conn = connection();
-
-    //FÖR ATT SKICKA ORDERN TILL ORDERS
-    $date = date('Y-m-d');
-    echo $date;
-    
-
-    $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
-    VALUES (".$_SESSION["nameOnUser"].",'$date','2018-05-01','1','1','0')";
-    (mysqli_query(connection(), $sqlInsertIntoOrders));
-
-    
-    //FÖR ATT HÄMTA ID
-    
-    $selectId = "SELECT MAX(orderId) as id FROM Orders ";
-    $id = $conn->query($selectId)->fetch_assoc();
-
-    
-    foreach ($_SESSION['cartByproduct'] as $key => $value)
+    function connection()
     {
-        $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
-        $result = $conn->query($sql);
-        
-        if($result->num_rows > 0)
+        $servername = "localhost";
+        $username = "joakimedwardh";
+        $password = "x@ZeIbKiSPIr";
+        $dbname = "joakimedwardh";
+    
+        $conn = new mysqli($servername,$username,$password,$dbname);
+    
+        if($conn->connect_error)
         {
-            if($row = $result->fetch_assoc())
-            {
-                $price = $row['price'];
-                    // $key." productId
-                    // $row['price'] price
-                    // $value quantity
-                    
-                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                VALUES ('1','$key','$price','$value')";
-                mysqli_query(connection(), $sqlinsert);
-              
-            }
+            die("FEL: " . $conn->connect_error);
         }
         
-        if($result->num_rows > 0){
-            if($row = $result->fetch_assoc()){
-                $price = $row['price'];
-                
-                $orderTillDatabas = array('id'=>$key, 'price'=>$price,'quantity'=> $value);
-                
-            }
-        }
-        
-        
-        $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-        VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
-        (mysqli_query(connection(), $sqlinsert));
-
+        // GÖR TILL GLOBAL
+        return $conn;
     }
-
-}
 
     function shipping(){
         $conn = connection();
-        $_SESSION["shipping"] = $_POST["shipping"];
-
-
-        $sql = "SELECT companyName, price FROM Shippers";
+        
+        $sql = "SELECT companyName, price, shipperId FROM Shippers";
         $result = $conn->query($sql);
         
         if($result->num_rows > 0)
         {
             while($row = $result->fetch_assoc())
             {
+                if ($row['shipperId'] == $_POST['shipping_id']) {
+                    $_POST['shipping_cost'] = $row['price'];
+                    $_SESSION["shipping_id"] = $row['companyName'];
+                }
                 echo "
                 
-                <td>".$row['companyName']. " (".$row['price']." kr)   <input type='radio' name='shipping' value='".$row['price']."'></td>
+                <td>".$row['companyName']. " (".$row['price']." kr)<input type='radio' name='shipping_id' value='".$row['shipperId']."'></td>
                 
                 ";
             }
@@ -90,6 +50,7 @@ function insertOrder()
         {
             echo "error";
         }
+        echo $_SESSION["shipping_id"];
     }
 
     function printCart()
@@ -169,24 +130,6 @@ function insertOrder()
 
     }
 
-    function connection()
-    {
-        $servername = "localhost";
-        $username = "joakimedwardh";
-        $password = "x@ZeIbKiSPIr";
-        $dbname = "joakimedwardh";
-
-        $conn = new mysqli($servername,$username,$password,$dbname);
-
-        if($conn->connect_error)
-        {
-            die("FEL: " . $conn->connect_error);
-        }
-        
-        // GÖR TILL GLOBAL
-        return $conn;
-    }
-
     function selectedProduct()
     {
         $conn = connection();
@@ -227,7 +170,7 @@ function insertOrder()
     {
         $conn = connection();
         $class = "products";
-        $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products";
+        $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products ORDER BY ( CASE WHEN category = 'console' THEN 0 ELSE 1 END ), category";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0)
@@ -260,104 +203,11 @@ function insertOrder()
         }
     }
     
-    //Functions for insert to DB
-    function insert($namn, $email)
-    {
-        $sql = "INSERT INTO Subscribers (namn, email)
-        VALUES ('$namn', '$email')";
-        mysqli_query(connection(), $sql);
-    }
-
-    function insertNewsletter($title, $message)
-    {
-        $sql = "INSERT INTO Newsletter (title, message)
-        VALUES ('$title', '$message')";
-        mysqli_query(connection(),$sql);
-    }
-
-    
-    //Lägger till ny user i SQL
-    function insertUser($userName, $email, $password, $subs, $name)
-    {
-        $sql = "INSERT INTO User (username, email, password, admin, subscribe, name)
-        VALUES ('$userName', '$email', '$password', 0, '$subs', '$name')";
-        mysqli_query(connection(), $sql);
-
-    }
-
-    //Make admin
-    function updateAdmin($username)
-    {
-        $sql = "UPDATE User
-        SET admin = 1
-        WHERE username = '$username'";
-        mysqli_query(connection(), $sql);
-    }
-    
-    //makeAdmin check
-    if(isset($_GET["makeAdmin"]))
-    {
-        updateAdmin($_GET["makeAdmin"]);
-    }
-    
-    function updateOrderSkickad($orderId)
-    {
-        $sql = "UPDATE Orders
-        SET shipped = 0
-        WHERE orderId = '$orderId'";
-        mysqli_query(connection(), $sql);
-    }
-
-    if(isset($_GET["orderSkickad"])){
-        updateOrderSkickad($_GET["orderSkickad"]);
-    }
-
-   
-    
-
-    
-  
-    if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"]) && isset($_POST["signUpName"]))
-    {  
-        $sql = "SELECT username FROM User";
-        $result = connection()->query($sql);
-  
-        foreach($result as $name)
-        {
-            
-            if($_POST["signUpUsername"] == $name['username']){
-                ?><script>alert("Username is not available!");</script><?php
-                break;
-            }
-            else
-            {
-                insertUser($_POST["signUpUsername"], $_POST["signUpEmail"], md5($_POST["signUpPassword"]), true, $_POST["signUpName"]);
-                ?><script>alert('User created')</script><?php
-                break;
-            }
-        }
-    }
-    
-
-    //Newsletter check
-    if(isset($_POST["newsletterName"]) && isset($_POST["email"]) && $_COOKIE["newsletter"] !== "true")
-    {
-        insert($_POST["newsletterName"],$_POST["email"]);
-        setcookie("newsletter", "true", time()+3600*48);
-    }
-
-    //Send newsletter from admin check
-    if(isset($_POST["newsletterTitle"]) && isset($_POST["comment"]))
-    {
-        insertNewsletter($_POST["newsletterTitle"], $_POST["comment"]);
-            ?><script>alert('Newsletter created')</script><?php
-    }
-
     function getOrders()
     {
         $conn = connection();
 
-        $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
+        $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders WHERE (customerId = '".$_SESSION['nameOnUser']."') ";
         $result = $conn->query($sql);
         
         if($result->num_rows > 0)
@@ -387,10 +237,14 @@ function insertOrder()
         }
     }
     if(!isset($_SESSION["nameOnUser"])){
-        $_SESSION["nameOnUser"] = "Guest";
+        $userGuest = "Guest".rand(1,1000);
+        $_SESSION["nameOnUser"] = $userGuest;
     }
-    if($_SESSION["nameOnUser"] == true && $_SESSION["nameOnUser"] !== "Guest"){
-        ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
+    if(!isset($_SESSION["randomPassword"])){
+        $userPass = "Pass".rand(1,1000);
+        $_SESSION["randomPassword"] = $userPass;
     }
 
-    
+    if($_SESSION["memberIsLoggedIn"] == 1){
+        ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
+    }

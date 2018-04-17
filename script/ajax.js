@@ -1,31 +1,4 @@
 
-function changeCategory(prodID) {
-    var category = $('#category'+prodID+' option:selected').val();
-    if(category == '') return;
-
-    $.post("./admin/products.php", {productId: prodID, category: category}, function(results){
-        if(results) viewProducts();
-    });
-}
-
-
-function Delete(prodID) {
-    
-
-    $.post("./admin/products.php", {deleteID: prodID}, function(results){
-        if(results) viewProducts();
-    });
-}
-
-function createProduct(pic) {
-    
-    game = new Game(pic);
-    
-
-    $.post("./admin/products.php", {addID: prodID}, function(results){
-        if(results) viewProducts();
-    });
-}
 
 function viewOrders(){
     $.ajax({
