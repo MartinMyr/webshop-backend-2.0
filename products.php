@@ -1,14 +1,12 @@
 <?php
     include 'include/header.php';
     include 'functions/functions.php';
-
-
 ?>
 
 <div id="allProductButtons">
     <div id="productButtons">
         <form method="GET">
-            <button type="submit" name="category" value="" id="Allt">Allt</button>
+            <button type="submit" name="" value="" id="Allt">Allt</button>
             <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
             <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
         </form>
