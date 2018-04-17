@@ -57,9 +57,7 @@
             <div class="linkDiv" id="loginDiv">
                 <a href="login.php">Login</a>
             </div>  
-            <div class='linkDiv'>
-                    <a href='member.php'>Medlem</a>
-            </div>
+            <div class='linkDiv' id='member'></div>
 
             <?php
                 if(isset($_SESSION["inloggad"])){

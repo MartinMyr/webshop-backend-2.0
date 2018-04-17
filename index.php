@@ -6,7 +6,7 @@
     <h1>
         Hej och välkommen 
         <?php 
-            if (!isset($_SESSION["memberIsLoggedIn"])){
+            if (isset($_SESSION["memberIsLoggedIn"])){
                 echo $_SESSION["nameOnUser"];
             } 
         ?> 

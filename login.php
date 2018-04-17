@@ -40,8 +40,9 @@
         {
             $_SESSION["nameOnUser"] = $results["username"];
             echo  "<script>alert('FEL!!)</script>";
+            $_SESSION["memberIsLoggedIn"] =  'true';
             header("location: index.php");
-            $_SESSION["memberIsLoggedIn"] =  1;
+           
             
             
         }
