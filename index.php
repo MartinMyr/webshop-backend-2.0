@@ -6,13 +6,9 @@
     <h1>
         Hej och välkommen 
         <?php 
-        echo $_SESSION["guestUser"];
-        echo "<br>";
-        echo $_SESSION["guestPass"];
             if (!isset($_SESSION["memberIsLoggedIn"])){
                 echo $_SESSION["nameOnUser"];
             } 
-            print_r($_SESSION);
         ?> 
         till året 1992.</h1>
     <p> 

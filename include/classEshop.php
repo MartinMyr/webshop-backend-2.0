@@ -1,45 +1,6 @@
 <?php
 include "./functions.php";
 
-
-
-
-// abstract class Draw {
-
-//     protected $image;
-
-//     public function draw(){
-    
-//     echo "<img src='./" . $this->image . "'></img>" . "<br>" 
-//     . $this->id . "<br>"
-//      . $this->name . "<br>"
-//       . $this->desc. "<br>"
-//        . $this->price;
-    
-//     }
-    
-
-// }
-
-// abstract class Cart{
-
-//     public function printCart(){
-//         echo"
-//             <div id='cartDiv'>
-//                 <div id='amountDiv'>
-//                     ".$id->."
-//                 </div>
-//                 <div id='productNameDiv'>
-//                     ".$variabel."
-//                 </div>
-//                 <div id='priceDiv'>
-//                     ".$variabel."
-//                 </div>
-//             </div>
-//         ";
-//     }
-// }
-
 abstract class Product {
 
 
@@ -72,7 +33,7 @@ abstract class Product {
                     <form action='products.php' method='post'>
                         <input value='1' name='quantity' type='number' class='amount'>
                         <input type='hidden' value='". $this->productId ."' name='id'><br/>
-                        <input style='width:150px; height:100px;' type='submit' value='Lägg i varukorgen' class='cartSubmit'>
+                        <input type='submit' value='Lägg i varukorgen' class='cartSubmit'>
                     </form>
                 </div>
             </div>";
