@@ -1,6 +1,9 @@
 <?php
-    session_start();
+    if (!isset($_SESSION))
+    {
+        session_start();
+    }
+
     unset($_SESSION["nameOnUser"]);
     unset($_SESSION["memberIsLoggedIn"]);
-   
 ?>
