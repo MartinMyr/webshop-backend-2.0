@@ -241,9 +241,11 @@
                         <td>".$row['shippedDate']."</td>
                         <td>".$row['shippedBy']."</td>
                         <td>".$row['shipped']."</td>
+                        <td>".$row['recived']."</td>
                         <td>
-                            <form action='member.php?id=' action='POST'>
-                                <input type='submit' value='recieved'>
+                            <form action='./member.php' method='POST'>
+                                <input type='checkbox'  name='recivedProd' value='".$row['orderId']."'>
+                                <button type='submit'>Recived</button>
                             </form>
                         </td>
                     </tr>

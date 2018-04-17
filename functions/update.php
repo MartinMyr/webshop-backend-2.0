@@ -27,4 +27,14 @@
         updateOrderSkickad($_GET["orderSkickad"]);
     }
 
+    function updateRecivedProd($recived){
+        $sql = "UPDATE Orders
+        SET recived = 1
+        WHERE orderId = '$recived'";
+        mysqli_query(connection(), $sql);
+    }
+    if(isset($_POST['recivedProd'])){
+        updateRecivedProd($_POST['recivedProd']);
+    }
+
 ?>
