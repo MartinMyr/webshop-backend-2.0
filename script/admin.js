@@ -23,19 +23,34 @@ function Delete(prodID) {
     });
 }
 
-$("#createProduct").on("submit", function(e) {
-    e.preventDefault();
-    createProduct();
-});
 
 function createProduct() {
-    var pic = $('#pic').val();
+    
     var name = $('#name').val();
     var info = $('#info').val();
     var price = $('#price').val();
-    var caty = $('#category option:selected').val();
-    
-    //$.post("./admin/products.php", {addID: prodID}, function(results){
-      //  if(results) viewProducts();
-    //});
+    var units = $('#units').val();
+    var category = $('#category option:selected').val();
+    console.log(name);
+    console.log(info);
+    console.log(category);
+    console.log(price);
+    console.log(units);
+
+    $.post("./admin/products.php",
+        {
+            name: name,
+            info: info,
+            price: price,
+            category: category,
+            units: units
+        },
+        function(results)
+        {
+            if(results)
+            {
+                viewProducts();
+            }
+        }
+    );
 }
