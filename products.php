@@ -15,15 +15,9 @@
     </div>
     <?php
         if(isset($_GET["category"])){
-            echo'
-                <div id="subProductButtons">
-                <form method="GET">
-                <button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button>
-                <button type="submit" name="subCategory" value="games" id="games">Spel</button>
-                <button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> 
-                </form>
-                </div>
-            ';
+            echo'<div id="subProductButtons"><form method="GET">';
+            if(isset($_GET["category"]) && !empty($_GET["category"])) { echo '<input type="hidden" name="category" value="' . $_GET["category"] . '">'; }
+            echo '<button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button><button type="submit" name="subCategory" value="games" id="games">Spel</button><button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> </form></div>';
         }
     ?>
 </div>
