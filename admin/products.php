@@ -41,7 +41,7 @@
                </li></div>";
            }
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
-           <form method="get">
+           <form id="createProduct">
            <input id="pic" type="text" name="picture" placeholder="Picture">
            <input id="name" type="text" name="name" placeholder="Name">
            <input id=info"" type="text" name="info" placeholder="Info">
