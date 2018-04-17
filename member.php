@@ -11,7 +11,8 @@ include "functions/functions.php";
         <th>shipped Date</th>
         <th>Shipped By</th>
         <th>Shipped</th>
-        <th>Recieved</th>
+        <th>Received</th>
+        <th>Package delivered</th>
     </tr>
         <?php
             getOrders();

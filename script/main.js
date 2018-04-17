@@ -26,7 +26,6 @@ $(".hideNewsletter").click(function(){
   sessionStorage.setItem('newsletter', 'true');
 });
 //Slide in newsletter ends
-
 function signUp(){
   $("#loginText").remove();
   $("#loginform").empty();
