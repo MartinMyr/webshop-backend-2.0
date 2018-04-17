@@ -50,3 +50,18 @@ function createProduct() {
         }
     );
 }
+
+function setSendStatus(ordID)
+{
+    var send = $("#order" + ordID).is(":checked");
+
+    $.post("./admin/orders.php",
+    {
+        orderID: ordID,
+        sendStatus: send
+    },
+    function(results)
+    {
+        if(results) viewOrders();
+    });
+}
