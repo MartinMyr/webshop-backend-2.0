@@ -202,13 +202,13 @@ footer { grid-area: footer;
 }
 
 #console, #games ,#accessories, #Nintendo, #Sega{
-    width:145px;
+    width:130px;
     height:55px;
-    font-size: 14px;
+    font-size: 13px;
     font-family: 'Press Start 2P', cursive;
     border:3px solid black;
-    margin-left:10px;
-    margin-right:10px;
+    margin-left:5px;
+    margin-right:5px;
     background-color: lightgrey;
 } 
 

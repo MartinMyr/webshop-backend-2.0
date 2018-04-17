@@ -8,6 +8,7 @@
 
 <div id="productButtons">
     <form method="GET">
+        <button type="submit" name="category" value="" id="Nintendo">Allt</button>
         <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
         <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
         <button type="submit" name="category" value="console" id="console">Konsoll</button>
