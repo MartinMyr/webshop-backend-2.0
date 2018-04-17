@@ -7,6 +7,7 @@
 
 -Arbetet ska implementeras med objektorienterade principer. (G)
 +    Lösning:
+vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återavnända kod och nyttja klasser för våra produkter.
 
 -Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
@@ -21,7 +22,8 @@
 
 -All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 +    Lösning:
-        Det gör vi!
+        Vi loopar ut och hämtar alla indormation ifrån databasen. Vi uppdaterar och pushar upp allt aktuellt live också.
+        
 -Det ska finnas ett normaliserat diagram över databasen i gitrepot (G)
 +    Lösning:
 
@@ -48,13 +50,17 @@
 
 -En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 +    Lösning:
-När man slutför beställningen så görs i slutet på funktionen en uppdatering av ordersInStock i databasen med en query.
+genom att pusha våra databashämtade produkter till en array i session så loopar vi ut dem i kundkorgen och därefter om en order genomförs uppdaterar vi saldot med en query direkt till databasen.
 
 -Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 +    Lösning:
 
+genom att hämta produkter och info ifrån databasen och loopa ut dessa har vi nu lagt till en funktion som uppdaterar aktuellt saldo och skickar upp till databsen.
+
 -Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
 +    Lösning:
+
+vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan uppdatera.
 
 -Administratörer ska kunna markera beställningar som skickade (VG)
 +    Lösning:
@@ -64,6 +70,7 @@ När man slutför beställningen så görs i slutet på funktionen en uppdaterin
 +    Lösning:
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
+
 +    Lösning:
 Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
 
@@ -92,10 +99,13 @@ Vi skapade två funktioner som använder rand funktionen för att generera ett r
 -När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
 +    Lösning:
 
+när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
+
 -Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 +    Lösning:
-
+när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
 -Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
+
 +    Lösning:
         På admin sidan så kan man välja "subscribers" som meny alt. 
         En ajax körs och sidan skriver ut en table med info från DB.
