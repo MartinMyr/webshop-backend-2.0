@@ -1,8 +1,9 @@
 <?php
     
   include_once '../functions/functions.php';
-  
-   if(isset($_POST['deleteID'])) {      
+
+
+    if(isset($_POST['deleteID'])) {      
        $conn = connection();
        $sql = "DELETE FROM Products WHERE  (productId = ".$_POST['deleteID'].") LIMIT 1";
        $conn->query($sql);
@@ -21,7 +22,13 @@
         $conn->query($sql);
         echo $conn->affected_rows;
 
-  } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    } else if(isset($_POST["name"]) && isset($_POST["price"]) && isset($_POST["units"]) && isset($_POST["category"]) && isset($_POST["info"])){
+            $conn = connection();
+            $sql = "INSERT INTO Products (productName, price, unitsInStock, category, info) VALUES ('".$_POST['name']."', ".$_POST['price'].", ".$_POST['units'].", '".$_POST['category']."', '".$_POST['info']."');";
+            $conn->query($sql);
+            echo $conn->affected_rows;
+
+    } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
        echo "Hej och välkommen till Produktsidan";
        $sql = "SELECT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
        $totProd = connection()->query($sql);
@@ -41,26 +48,23 @@
                </li></div>";
            }
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
-           <form id="createProduct">
-           <input id="pic" type="text" name="picture" placeholder="Picture">
+           
+           
            <input id="name" type="text" name="name" placeholder="Name">
-           <input id=info"" type="text" name="info" placeholder="Info">
-           <input id="price" type="text" name="price" placeholder="Price">
+           <input id="info" type="text" name="info" placeholder="Info">
+           <input id="price" type="number" name="price" placeholder="Price">
            <input id="units" type="number" name="units" placeholder="Units">
            <select id="category"'.$row['productId'].'">
-                   <option value="">Select Category2</option>
+                   <option value="">Select Category</option>
                    <option value="accessories">accesorie</option>
                    <option value="games">Game</option>
                    <option value="console">Console</option>
                </select>
-               <button type="submit" class="">Submit</button>
-               </form>
+               <button  id="createButton"  onclick="createProduct();" class="">Submit</button>
+               
            </div>';
        
-           if(isset($_GET["name"]) && isset($_GET["price"])){
-           $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
-           $create = connection()->query($sqlNew);
-        }
+           
       
        }  
    }

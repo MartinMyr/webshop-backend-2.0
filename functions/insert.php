@@ -48,8 +48,10 @@
             VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
             (mysqli_query(connection(), $sqlInsertIntoOrders));
 
+            //FUNKTION SOM GER SISTA ORDER NUMMERET
             $id = getLatesOrder();
             
+
             foreach ($_SESSION['cartByproduct'] as $key => $value){
                 $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
                 $result = $conn->query($sql);
@@ -62,10 +64,15 @@
                         
                     }
                 }
-                
+                //FUNKTION FÖR ATT SKICKA ORDERN TILL ORDER DETAILS
                 $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
                 VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
                 (mysqli_query(connection(), $sqlinsert));
+
+                //FUNKTION FÖR ATT MINSKA LAGERSALDO
+                $sqlupdate = "UPDATE Products SET unitsInStock = unitsInStock - ".$orderTillDatabas['quantity']."  
+                WHERE productId = ".$orderTillDatabas['id']." ";
+                (mysqli_query(connection(), $sqlupdate));
 
             }
 
@@ -134,4 +141,4 @@
     }
 
 
-    ?>
+?>
