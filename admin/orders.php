@@ -9,6 +9,7 @@ $conn = connection();
 
 $sql = "SELECT orderId, customerId, orderDate, shippedDate, shippedBy, shipped, recived FROM Orders";
 $result = $conn->query($sql);
+
     
 echo "<div id='memberDiv'>
 <table id='ordersTable'>
