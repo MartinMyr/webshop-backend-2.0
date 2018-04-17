@@ -227,6 +227,7 @@ footer { grid-area: footer;
     margin-left:15px;
     margin-right:15px;
     background-color: lightgrey;
+    color:red;
 } 
 
 /* PRODUKTKNAPPAR SLUT */
