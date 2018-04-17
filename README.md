@@ -57,6 +57,7 @@
 
 -Administratörer ska kunna markera beställningar som skickade (VG)
 +    Lösning:
+        Vi har satt en checkbox i beställningar på adminsidan som sätter en GET variabel, sen kollar functions om den är satt och ändrar sql shipped till true.
 
 -Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)
 +    Lösning:
