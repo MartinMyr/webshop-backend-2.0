@@ -7,7 +7,7 @@
 
 -Arbetet ska implementeras med objektorienterade principer. (G)
 +    Lösning:
-vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återavnända kod och nyttja klasser för våra produkter.
+        vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återavnända kod och nyttja klasser för våra produkter.
 
 -Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
@@ -57,10 +57,10 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 
         genom att hämta produkter och info ifrån databasen och loopa ut dessa har vi nu lagt till en funktion som uppdaterar aktuellt saldo och skickar upp till databsen.
 
--Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
+-Administratörer ska kunna se en lista på alla gjorda beställningar (G)
 +    Lösning:
 
-        vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan uppdatera.
+        vi loopar ut databasens ordrar direkt på sidan i en tabell. Där vi även kan uppdatera.
 
 -Administratörer ska kunna markera beställningar som skickade (VG)
 +    Lösning:
@@ -70,8 +70,6 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 +    Lösning:
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
-
-
 
 +    Lösning:
         Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
@@ -121,7 +119,7 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 -Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:
 
-genom att först hämta alla produkter och loopa ut infon i en tabell. och sedan lägga in möjligheten att ändra kategori som vi läser in ifrån en selectform som vi skickar till en JS funktion som i sin tur behandlar och skickar tillbaka infon till sidan med hjälp av ajax i form utav POST som i sintur kollar om det är gjort i postanropet och därefter kör updatequeryn direkt till databasen och då liveuppdaterar sidan PGA AJAX <<<<<<<<<<<<<3
+        genom att först hämta alla produkter och loopa ut infon i en tabell. och sedan lägga in möjligheten att ändra kategori som vi läser in ifrån en selectform som vi skickar till en JS funktion som i sin tur behandlar och skickar tillbaka infon till sidan med hjälp av ajax i form utav POST som i sintur kollar om det är gjort i postanropet och därefter kör updatequeryn direkt till databasen och då liveuppdaterar sidan PGA AJAX <<<<<<<<<<<<<3
 
 -Administratörer ska kunna skicka nyhetsbrev från sitt gränssnitt, nyhetsbrevet ska sparas i databasen samt innehålla en -titel och en brödtext (VG)
 +    Lösning:
