@@ -11,15 +11,14 @@ function changeAmount(prodID) {
     var amount = $('#amount'+prodID).val();
     if(amount == '') return;
 
-   $.post("./admin/products.php", {amountId: prodID, unitsInStock: unitsInStock}, function(results){
+   $.post("./admin/products.php", {prodID: prodID, amount: amount}, function(results){
         if(results) viewProducts();
     });
 }
 
 
 function Delete(prodID) {
-    //deleteID => deleteId
-    $.post("./admin/products.php", {deleteId: prodID}, function(results){
+    $.post("./admin/products.php", {deleteID: prodID}, function(results){
         if(results) viewProducts();
     });
 }
