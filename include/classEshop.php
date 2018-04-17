@@ -3,7 +3,6 @@ include "./functions.php";
 
 abstract class Product {
 
-
     protected $pic;
     protected $productId;
     protected $productName;
@@ -12,7 +11,6 @@ abstract class Product {
     protected $unitsInStock;
 
     public function __construct($sql){
-
         
         $this->pic = $sql["pic"];
         $this->productId = $sql["productId"];
@@ -44,8 +42,6 @@ abstract class Product {
 
 class Game extends Product{
 
-    
-   
 }
 
 class Console extends Product{

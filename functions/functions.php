@@ -1,16 +1,12 @@
 <?php
-    if (!isset($_SESSION))
-    {
+    if (!isset($_SESSION)){
         session_start();
     }
 
     include_once './include/classEshop.php';
     include_once './functions/insert.php';
     include_once './functions/update.php';
-
 ?>
-
-
 
 <?php
 
@@ -40,7 +36,6 @@
             die("FEL: " . $conn->connect_error);
         }
         
-        // GÖR TILL GLOBAL
         return $conn;
     }
 
@@ -60,7 +55,7 @@
                 }
                 echo "
                 
-                <td>".$row['companyName']. " (".$row['price']." kr)<input type='radio' name='shipping_id' value='".$row['shipperId']."'></td>
+                    <td>".$row['companyName']. " (".$row['price']." kr)<input type='radio' name='shipping_id' value='".$row['shipperId']."'></td>
                 
                 ";
             }
@@ -85,11 +80,8 @@
                 if($row = $result->fetch_assoc())
                 {
                     $price = $row['price'];
-
-                    // The subtotal is the cost of each item multiplied by how many you're ordering
                     $subtotal = $price * $value;
                 
-                    // Add this subtotal to the running total
                     $totalPrice += $subtotal;
                     $totalAmount += $value;
                     echo "
@@ -113,7 +105,6 @@
                         </td>
                     </tr>"
                     ;
-                  
                 }
             }
         }
@@ -152,7 +143,6 @@
     {
         $conn = connection();
 
-        // $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '" . $_GET['category'] . "'";
         $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
         FROM Prod_cat_belonging AS pcb
         INNER JOIN Products as p ON pcb.productId = p.productId
