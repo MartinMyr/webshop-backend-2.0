@@ -47,7 +47,9 @@
                <button type='button' onclick='changeCategory(".$row['productId']."); changeAmount(".$row['productId'].");' class=''>Submit</button>
                </li></div>";
            }
-           echo '<div id="newProd"><h4>Lägg till produkt</h4>
+        
+       }  
+       echo '<div id="newProd"><h4>Lägg till produkt</h4>
            
            
            <input id="name" type="text" name="name" placeholder="Name">
@@ -63,10 +65,6 @@
                <button  id="createButton"  onclick="createProduct();" class="">Submit</button>
                
            </div>';
-       
-           
-      
-       }  
    }
 ?>
 
