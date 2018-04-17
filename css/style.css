@@ -193,6 +193,7 @@ footer { grid-area: footer;
 #allProductButtons{
     position: absolute;
     top:0;
+    left:200px;
     margin-left:30px;
     display: flex;
     flex-direction: column;
