@@ -302,7 +302,7 @@ tr{
     
     padding: 1%;
     height: 450px;
-    width: 450px;
+    width: 650px;
     Background-color: white;
     overflow: auto;
 
@@ -312,7 +312,6 @@ tr{
     text-align: center;
     padding: 1%;
   
-    Background-color: white;
     
 
 }
@@ -321,7 +320,6 @@ tr{
     text-align: center;
     padding: 1%;
     
-    Background-color: white;
     
 
 }
@@ -330,7 +328,6 @@ tr{
     text-align: center;
     padding: 1%;
     
-    Background-color: white;
     
 
 }
@@ -339,12 +336,16 @@ tr{
     text-align: center;
     padding: 1%;
     height: 200px;
-    width: 200px;
+    width: 400px;
     Background-color: white;
+    margin: auto;
+    margin-top:10px;
+    margin-bottom:30px;
 }
 .prodList{
     margin:1%;
     border: solid 1px black;
+    margin:auto;
 
 
 }

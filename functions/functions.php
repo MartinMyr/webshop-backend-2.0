@@ -176,6 +176,11 @@
                     $console = new Console($row);
                     echo $console->printProductDiv($sql);
                 }
+                if ($row['category'] == 'Nintendo')
+                {
+                    $nintendo = new Nintendo($row);
+                    echo $nintendo->printProductDiv($sql);
+                }
             }
         }
         else
