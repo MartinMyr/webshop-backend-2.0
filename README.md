@@ -11,7 +11,7 @@
 
 -Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
-        https://drive.google.com/file/d/1WvHlt9pxFj-lLXUGShCv6sjtKrGWQ9rc/view?usp=sharing
+        Se powerpoint
 
 -Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 +    Lösning:
@@ -26,7 +26,7 @@
         
 -Det ska finnas ett normaliserat diagram över databasen i gitrepot (G)
 +    Lösning:
-
+        Se powerpoint
 -Man ska kunna logga in som administratör i systemet (G)
 +    Lösning:
         Vi har samma inloggning för vanliga users som för admins.
@@ -130,5 +130,5 @@
         Klickar man sedan på skicka så skickas det med Post och en INSERT startar med texten man fyllt in.
 -Administratörer ska kunna lägga till och ta bort produkter (VG)
 +    Lösning:
-
+        
 ```
