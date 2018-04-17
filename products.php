@@ -6,9 +6,9 @@
 <div id="allProductButtons">
     <div id="productButtons">
         <form method="GET">
-            <button type="submit" name="" value="" id="Allt">Allt</button>
-            <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
-            <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
+            <button type="submit" name="" value="" id="Allt">ALLT</button>
+            <button type="submit" name="category" value="Nintendo" id="Nintendo">NINTENDO</button>
+            <button type="submit" name="category" value="Sega" id="Sega">SEGA</button>
         </form>
     </div>
     <?php
