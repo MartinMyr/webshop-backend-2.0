@@ -21,6 +21,7 @@ function logOutUser(){
         location.reload();
         $("#loginDiv").show();
         $("#member").empty();
+        window.location.replace(index.php);
     },
     error: function(err){
         alert("PROBLEM");
