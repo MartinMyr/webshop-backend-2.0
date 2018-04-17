@@ -25,8 +25,7 @@
 
         //SKAPAR RANDOM USER OCH PASS INLOGG TILL GUEST
         if(isset($_SESSION["memberIsLoggedIn"])){
-            $nameOnuser = $_SESSION["nameOnUser"];
-            
+            $nameOnuser = $_SESSION["nameOnUser"];    
         }
         else{
             $_SESSION["guestUser"] = createGuestUser();
@@ -86,9 +85,11 @@
                 (mysqli_query(connection(), $sqlinsert));
 
             }
+
+            $kryptPass = md5($_SESSION["guestPass"]);
             //SKICKAR GÄSTANVÄNDARE TILL DATABASEN
             if(empty($_SESSION["memberIsLoggedIn"])){
-                insertUser($_SESSION["guestUser"],"guest@guest.com",$_SESSION["guestPass"],0,"guest");
+                insertUser($_SESSION["guestUser"],"guest@guest.com",$kryptPass,0,"guest");
             }
                 
             unset($_SESSION['CART']);
