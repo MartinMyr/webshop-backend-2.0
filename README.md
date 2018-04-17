@@ -50,17 +50,17 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 
 -En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 +    Lösning:
-genom att pusha våra databashämtade produkter till en array i session så loopar vi ut dem i kundkorgen och därefter om en order genomförs uppdaterar vi saldot med en query direkt till databasen.
+        genom att pusha våra databashämtade produkter till en array i session så loopar vi ut dem i kundkorgen och därefter om en order genomförs uppdaterar vi saldot med en query direkt till databasen.
 
 -Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 +    Lösning:
 
-genom att hämta produkter och info ifrån databasen och loopa ut dessa har vi nu lagt till en funktion som uppdaterar aktuellt saldo och skickar upp till databsen.
+        genom att hämta produkter och info ifrån databasen och loopa ut dessa har vi nu lagt till en funktion som uppdaterar aktuellt saldo och skickar upp till databsen.
 
 -Administratörer ska kunna se alla en lista på alla gjorda beställningar (G)
 +    Lösning:
 
-vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan uppdatera.
+        vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan uppdatera.
 
 -Administratörer ska kunna markera beställningar som skickade (VG)
 +    Lösning:
@@ -72,11 +72,11 @@ vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan up
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
 
 +    Lösning:
-Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
+        Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
 
 -Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
 +    Lösning:
-Produkten kunden väljer pushas till en array med antal och id till session.
+        Produkten kunden väljer pushas till en array med antal och id till session.
 
 -Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
 +    Lösning:
@@ -94,16 +94,16 @@ Produkten kunden väljer pushas till en array med antal och id till session.
         Blir den satt så unsettas session och cookie för att visa samma nyhetsbrev som vi har på startsidan.
 -När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
 +    Lösning:
-Vi skapade två funktioner som använder rand funktionen för att generera ett random username och random password som sedan läggs i session, skickas genom kryptering till databasen och skrivs ut på tacksidan. Beställningen är sedan kopplad till det usernamet.
+        Vi skapade två funktioner som använder rand funktionen för att generera ett random username och random password som sedan läggs i session, skickas genom kryptering till databasen och skrivs ut på tacksidan. Beställningen är sedan kopplad till det usernamet.
 
 -När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
 +    Lösning:
 
-när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
+        när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
 
 -Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 +    Lösning:
-när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
+        När man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
 -Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 
 +    Lösning:
@@ -111,11 +111,11 @@ när man loggar in som registrerar kund och har en aktuellt order, hämtas den i
         En ajax körs och sidan skriver ut en table med info från DB.
 -Besökare ska kunna välja ett av flera fraktalternativ (G)
 +    Lösning:
-Vi har ett form i vilket man kan välja ett av fraktalternativen som sedan skickas med post och läggs i session.
+        Vi har ett form i vilket man kan välja ett av fraktalternativen som sedan skickas med post och läggs i session.
 
 -Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
 +    Lösning:
-Vi har skapat en funktion som hämtar frakten som sedan läggs i session när kunden väljer önskat fraktalternativ.
+        Vi har skapat en funktion som hämtar frakten som sedan läggs i session när kunden väljer önskat fraktalternativ.
 
 -Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:
