@@ -71,8 +71,6 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
 
-
-
 +    Lösning:
         Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
 

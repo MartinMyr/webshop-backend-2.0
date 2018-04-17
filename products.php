@@ -2,17 +2,23 @@
     include 'include/header.php';
     include 'functions/functions.php';
 ?>
-
-<div id="productButtons">
-    <form method="GET">
-        <button type="submit" name="category" value="" id="Nintendo">Allt</button>
-        <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
-        <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
-        <button type="submit" name="category" value="consoles" id="console">Konsoll</button>
-        <button type="submit" name="category" value="games" id="games">Spel</button>
-        <button type="submit" name="category" value="accessories" id="accessories">Tillbehör</button> 
-    </form>
+<div id="allProductButtons">
+    <div id="productButtons">
+        <form method="GET">
+            <button type="submit" name="category" value="" id="Nintendo">Allt</button>
+            <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
+            <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
+        </form>
+    </div>
+    <div id="subProductButtons">
+        <form method="GET">
+            <button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button>
+            <button type="submit" name="subCategory" value="games" id="games">Spel</button>
+            <button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> 
+        </form>
+    </div>
 </div>
+
 <div class="cards">
     <?php
         if(isset($_POST["id"])){

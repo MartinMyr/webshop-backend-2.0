@@ -143,7 +143,7 @@
     {
         $conn = connection();
 
-        if(isset($_GET['subcategory']))
+        if(isset($_GET['subCategory']))
         {
             $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
             FROM Prod_cat_belonging AS pcb
