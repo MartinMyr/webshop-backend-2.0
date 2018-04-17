@@ -264,7 +264,6 @@
     //     $userPass = "Pass".rand(1,1000);
     //     $_SESSION["randomPassword"] = $userPass;
     // }
-
-    if($_SESSION["memberIsLoggedIn"] == 1){
+    if($_SESSION["memberIsLoggedIn"] == 'true'){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }
