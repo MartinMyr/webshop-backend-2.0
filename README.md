@@ -104,12 +104,7 @@ vi har försökt att använda så mycket OOP vi kan. Genom att skapa och återav
 
 -Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 +    Lösning:
-<<<<<<< HEAD
         När man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
-=======
-när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
-
->>>>>>> 0cffd44877c909051c506dc2d853841ccfade878
 -Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 
 +    Lösning:
