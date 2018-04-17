@@ -48,6 +48,7 @@
 
 -En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)
 +    Lösning:
+När man slutför beställningen så görs i slutet på funktionen en uppdatering av ordersInStock i databasen med en query.
 
 -Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 +    Lösning:
@@ -64,9 +65,11 @@
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
 +    Lösning:
+Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
 
 -Besökare ska kunna lägga produkterna i en kundkorg, som är sparad i session på servern (G)
 +    Lösning:
+Produkten kunden väljer pushas till en array med antal och id till session.
 
 -Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
 +    Lösning:
@@ -84,6 +87,7 @@
         Blir den satt så unsettas session och cookie för att visa samma nyhetsbrev som vi har på startsidan.
 -När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
 +    Lösning:
+Vi skapade två funktioner som använder rand funktionen för att generera ett random username och random password som sedan läggs i session, skickas genom kryptering till databasen och skrivs ut på tacksidan. Beställningen är sedan kopplad till det usernamet.
 
 -När man är inloggad som kund ska man kunna se sina gjorda beställning och om det är skickade eller inte (VG)
 +    Lösning:
@@ -97,9 +101,11 @@
         En ajax körs och sidan skriver ut en table med info från DB.
 -Besökare ska kunna välja ett av flera fraktalternativ (G)
 +    Lösning:
+Vi har ett form i vilket man kan välja ett av fraktalternativen som sedan skickas med post och läggs i session.
 
 -Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
 +    Lösning:
+Vi har skapat en funktion som hämtar frakten som sedan läggs i session när kunden väljer önskat fraktalternativ.
 
 -Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:

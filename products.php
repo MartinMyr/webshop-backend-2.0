@@ -11,7 +11,7 @@
         <button type="submit" name="category" value="" id="Nintendo">Allt</button>
         <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
         <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
-        <button type="submit" name="category" value="console" id="console">Konsoll</button>
+        <button type="submit" name="category" value="consoles" id="console">Konsoll</button>
         <button type="submit" name="category" value="games" id="games">Spel</button>
         <button type="submit" name="category" value="accessories" id="accessories">Tillbehör</button> 
     </form>
