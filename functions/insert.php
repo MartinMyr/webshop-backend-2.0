@@ -50,24 +50,9 @@
 
             $id = getLatesOrder();
             
-            foreach ($_SESSION['cartByproduct'] as $key => $value)
-            {
+            foreach ($_SESSION['cartByproduct'] as $key => $value){
                 $sql = "SELECT productId, pic, productName, price FROM Products WHERE productId = $key";
                 $result = $conn->query($sql);
-                
-                if($result->num_rows > 0)
-                {
-                    if($row = $result->fetch_assoc())
-                    {
-                        $price = $row['price'];
-
-                            
-                        $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                        VALUES (' ".$id["id"]." ','$key','$price','$value')";
-                        mysqli_query(connection(), $sqlinsert);
-                    
-                    }
-                }
                 
                 if($result->num_rows > 0){
                     if($row = $result->fetch_assoc()){
@@ -78,9 +63,9 @@
                     }
                 }
                 
-            $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-            VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
-            (mysqli_query(connection(), $sqlinsert));
+                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+                VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
+                (mysqli_query(connection(), $sqlinsert));
 
             }
 
