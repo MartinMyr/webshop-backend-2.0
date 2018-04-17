@@ -219,7 +219,7 @@ footer { grid-area: footer;
     background-color: lightgrey;
 } 
 #console, #games ,#accessories{
-    width:130px;
+    width:150px;
     height:55px;
     font-size: 13px;
     font-family: 'Press Start 2P', cursive;
