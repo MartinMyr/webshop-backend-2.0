@@ -143,11 +143,30 @@
     {
         $conn = connection();
 
-        $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
-        FROM Prod_cat_belonging AS pcb
-        INNER JOIN Products as p ON pcb.productId = p.productId
-        INNER JOIN Categorys as c ON pcb.categoryId = c.categoryId 
-        WHERE c.categoryName = '" . $_GET['category'] . "'";
+        if(isset($_GET['subcategory']))
+        {
+            $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
+            FROM Prod_cat_belonging AS pcb
+            INNER JOIN Products AS p ON pcb.productId = p.productId
+            INNER JOIN Categorys AS c ON pcb.categoryId = c.categoryId
+            WHERE c.categoryName = '" . $_GET["category"] . "'
+            AND p.productId IN
+            (
+                SELECT productId
+                FROM Prod_cat_belonging
+                INNER JOIN Categorys ON Categorys.categoryId = Prod_cat_belonging.categoryId
+                WHERE categoryName = '" . $_GET["subcategory"] . "'
+            )";
+        }
+        else
+        {
+            $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
+            FROM Prod_cat_belonging AS pcb
+            INNER JOIN Products as p ON pcb.productId = p.productId
+            INNER JOIN Categorys as c ON pcb.categoryId = c.categoryId 
+            WHERE c.categoryName = '" . $_GET['category'] . "'";
+        }
+
 
         $result = $conn->query($sql);
 
