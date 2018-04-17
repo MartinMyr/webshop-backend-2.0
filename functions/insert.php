@@ -20,8 +20,8 @@
 
         return $id;
     }
+
     function insertOrder(){
-        $_SESSION["test"] = "TEST";
 
         //SKAPAR RANDOM USER OCH PASS INLOGG TILL GUEST
         if(isset($_SESSION["memberIsLoggedIn"])){
@@ -33,7 +33,7 @@
             $nameOnuser = $_SESSION["guestUser"];
         }
 
-        //KOLLAR OM KUND LAGT TILL FRAKT
+        //KOLLAR OM KUNDEN HAR LAGT TILL FRAKT
         if(empty($_SESSION["shipping_id"])){
         echo "<script>alert('Du måste välja fraktalternativ :)')</script>";
         }
@@ -41,11 +41,9 @@
             
             $conn = connection();
 
-            //FÖR ATT SKICKA ORDERN TILL ORDERS
+            //SKICKAR ORDERN TILL DATABASEN
             $date = date('Y-m-d');
   
-            
-
             $sqlInsertIntoOrders = "INSERT INTO Orders (customerId, orderDate, ShippedDate, ShippedBy, Shipped, recived)
             VALUES ('$nameOnuser','$date','2018-05-01',' ".$_SESSION["shipping_id"]." ','0','0')";
             (mysqli_query(connection(), $sqlInsertIntoOrders));
@@ -80,18 +78,20 @@
                     }
                 }
                 
-                $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
-                VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
-                (mysqli_query(connection(), $sqlinsert));
+            $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
+            VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
+            (mysqli_query(connection(), $sqlinsert));
 
             }
 
+            //SKICKAR GÄSTANVÄNDARE TILL DATABASEN MED KRYPTERAT LÖSEN
             $kryptPass = md5($_SESSION["guestPass"]);
-            //SKICKAR GÄSTANVÄNDARE TILL DATABASEN
+
             if(empty($_SESSION["memberIsLoggedIn"])){
                 insertUser($_SESSION["guestUser"],"guest@guest.com",$kryptPass,0,"guest");
             }
-                
+            
+            //TÖMMER VARUKORGEN OCH SKICKAR ANVÄNDARE TILL TACKSIDAN
             unset($_SESSION['CART']);
             header("location:thanks.php");
         }

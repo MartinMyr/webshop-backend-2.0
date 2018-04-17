@@ -69,7 +69,6 @@
         {
             echo "error";
         }
-        echo $_SESSION["shipping_id"];
     }
 
     function printCart()
