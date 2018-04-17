@@ -48,7 +48,7 @@ if($result->num_rows > 0)
 }
 
 echo "</table></div>";
-
+connection()->close;
 }
 else{
 echo "error";

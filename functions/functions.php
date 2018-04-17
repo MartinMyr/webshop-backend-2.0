@@ -1,5 +1,9 @@
 <?php
-    session_start();
+    if (!isset($_SESSION))
+    {
+        session_start();
+    }
+
     include_once './include/classEshop.php';
     include_once './functions/insert.php';
     include_once './functions/update.php';

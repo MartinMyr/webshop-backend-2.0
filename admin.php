@@ -1,8 +1,13 @@
 <?php
-    session_start();
+    if (!isset($_SESSION))
+    {
+        session_start();
+    }
+
     if($_SESSION["adminCheck"] == 'false'){
         header("location: index.php");
     }
+    
     include 'include/header.php';
     include 'functions/functions.php';
 ?>
