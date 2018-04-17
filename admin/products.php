@@ -1,29 +1,27 @@
 <?php
-
-   if(isset($_POST['deleteId'])) {
-       include_once '../functions/functions.php';
+    
+  include_once '../functions/functions.php';
+  
+   if(isset($_POST['deleteId'])) {      
        $conn = connection();
        $sql = "DELETE Products WHERE  (productId = ".$_POST['deleteId'].")";
        $conn->query($sql);
        echo $conn->affected_rows;
-   
+  
    } else if(isset($_POST['category']) && isset($_POST['productId'])) {
-       include_once '../functions/functions.php';
        $conn = connection();
        $sql = "UPDATE Products SET  category = '".$_POST['category']."' WHERE (productId = ".$_POST['productId'].")";
        $conn->query($sql);
        echo $conn->affected_rows;
 
 
-    } else if(isset($_POST['amountID'])) {
-        include_once '../functions/functions.php';
+   } else if(isset($_POST['amountId']) && isset($_POST['unitsInStock'])) {
         $conn = connection();
         $sql = "UPDATE Products SET  unitsInStock = '".$_POST['unitsInStock']."' WHERE (productId = ".$_POST['amountId'].")";
         $conn->query($sql);
         echo $conn->affected_rows;
 
-   } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-       include_once '../functions/functions.php';
+  } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
        echo "Hej och välkommen till Produktsidan";
        $sql = "SELECT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
        $totProd = connection()->query($sql);
@@ -42,11 +40,6 @@
                <button type='button' onclick='changeCategory(".$row['productId'].");changeAmount(".$row['productId'].");' class=''>Submit</button>
                </li></div>";
            }
-
-
-
-
-
            echo '<div id="newProd"><h4>Lägg till produkt</h4>
            <form method="get">
            <input id="pic" type="text" name="picture" placeholder="Picture">
@@ -67,10 +60,11 @@
            if(isset($_GET["name"]) && isset($_GET["price"])){
            $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
            $create = connection()->query($sqlNew);
-           }
-       }
-   
-
-}
-
+        }
+      
+       }  
+   }
 ?>
+
+
+

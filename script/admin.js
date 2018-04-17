@@ -1,30 +1,29 @@
-
 function changeCategory(prodID) {
     var category = $('#category'+prodID+' option:selected').val();
     if(category == '') return;
 
-    $.post("./admin/products.php", {productId: prodID, category: category}, function(results){
+   $.post("./admin/products.php", {productId: prodID, category: category}, function(results){
         if(results) viewProducts();
     });
 }
 
 function changeAmount(prodID) {
-    var amount = $('#amount'+prodID+'').val();
+    var amount = $('#amount'+prodID).val();
     if(amount == '') return;
 
-    $.post("./admin/products.php", {amountId: prodID, unitsInStock: unitsInStock}, function(results){
+   $.post("./admin/products.php", {amountId: prodID, unitsInStock: unitsInStock}, function(results){
         if(results) viewProducts();
     });
 }
 
 
 function Delete(prodID) {
-    
-
-    $.post("./admin/products.php", {deleteID: prodID}, function(results){
+    //deleteID => deleteId
+    $.post("./admin/products.php", {deleteId: prodID}, function(results){
         if(results) viewProducts();
     });
 }
+
 
 function createProduct() {
     $('#pic'+prodID+' ').val();
