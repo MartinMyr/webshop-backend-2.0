@@ -119,7 +119,6 @@
 
 -Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:
-
         genom att först hämta alla produkter och loopa ut infon i en tabell. och sedan lägga in möjligheten att ändra kategori som vi läser in ifrån en selectform som vi skickar till en JS funktion som i sin tur behandlar och skickar tillbaka infon till sidan med hjälp av ajax i form utav POST som i sintur kollar om det är gjort i postanropet och därefter kör updatequeryn direkt till databasen och då liveuppdaterar sidan PGA AJAX <<<<<<<<<<<<<3
 
 -Administratörer ska kunna skicka nyhetsbrev från sitt gränssnitt, nyhetsbrevet ska sparas i databasen samt innehålla en -titel och en brödtext (VG)
@@ -130,5 +129,5 @@
         Klickar man sedan på skicka så skickas det med Post och en INSERT startar med texten man fyllt in.
 -Administratörer ska kunna lägga till och ta bort produkter (VG)
 +    Lösning:
-        
-```
+        Vi kör en js funktion som hämtar ut id:t.
+        Med hjälp av value så tar vi det i värdena vi skickar in, behandlar om och skickar tillbaka med post för att sedan slänga upp en query.

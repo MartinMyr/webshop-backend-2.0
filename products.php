@@ -1,23 +1,31 @@
 <?php
     include 'include/header.php';
     include 'functions/functions.php';
+
+
 ?>
+
 <div id="allProductButtons">
     <div id="productButtons">
         <form method="GET">
-            <button type="submit" name="category" value="" id="Nintendo">Allt</button>
+            <button type="submit" name="category" value="" id="Allt">Allt</button>
             <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
             <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
         </form>
     </div>
-    <div id="subProductButtons">
-        <form method="GET">
-            <?php if(isset($_GET["category"]) && !empty($_GET["category"])) { echo '<input type="hidden" name="category" value="' . $_GET["category"] . '">'; } ?>
-            <button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button>
-            <button type="submit" name="subCategory" value="games" id="games">Spel</button>
-            <button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> 
-        </form>
-    </div>
+    <?php
+        if(isset($_GET["category"])){
+            echo'
+                <div id="subProductButtons">
+                <form method="GET">
+                <button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button>
+                <button type="submit" name="subCategory" value="games" id="games">Spel</button>
+                <button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> 
+                </form>
+                </div>
+            ';
+        }
+    ?>
 </div>
 
 <div class="cards">
