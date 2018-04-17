@@ -71,6 +71,8 @@ vi loopar ut databsens ordrar direkt på sidan i en tabell. där vi även kan up
 
 -Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en -kategori (G)
 
+
+
 +    Lösning:
 Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs en query med alla produkter, annars en query baserad på det man skickar i GET.
 
@@ -78,8 +80,7 @@ Vi har knappar som skickar värde i GET, Om det inte finns ett värde så körs 
 +    Lösning:
 Produkten kunden väljer pushas till en array med antal och id till session.
 
--Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)
-+    Lösning:
+-Man ska från hemsidan kunna skriva upp sig för att få butikens nyhetsbrev genom att ange sitt namn och epostadress (G)+    Lösning:
         Detta har vi löst med en slidedown i JS som lägger sig över allt content på sidan.
         När man fyller i fälten och klickar "yes" så skickas det med ett form.
         Försvinner och sparas i session för att man inte ska få upp den igen.
@@ -104,6 +105,7 @@ när man loggar in som registrerar kund och har en aktuellt order, hämtas den i
 -Som inloggad kund ska man kunna markera sin beställning som mottagen (VG)
 +    Lösning:
 när man loggar in som registrerar kund och har en aktuellt order, hämtas den ifrån databsen och loopas ut i en tabell där admin kan påverka skicka ja eller nej, och kunden själv kan påverka mottagen ja eller nej, med en updatequery.
+
 -Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)
 
 +    Lösning:
@@ -119,6 +121,8 @@ Vi har skapat en funktion som hämtar frakten som sedan läggs i session när ku
 
 -Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 +    Lösning:
+
+genom att först hämta alla produkter och loopa ut infon i en tabell. och sedan lägga in möjligheten att ändra kategori som vi läser in ifrån en selectform som vi skickar till en JS funktion som i sin tur behandlar och skickar tillbaka infon till sidan med hjälp av ajax i form utav POST som i sintur kollar om det är gjort i postanropet och därefter kör updatequeryn direkt till databasen och då liveuppdaterar sidan PGA AJAX <<<<<<<<<<<<<3
 
 -Administratörer ska kunna skicka nyhetsbrev från sitt gränssnitt, nyhetsbrevet ska sparas i databasen samt innehålla en -titel och en brödtext (VG)
 +    Lösning:
