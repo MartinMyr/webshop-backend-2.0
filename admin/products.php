@@ -1,32 +1,34 @@
 <?php
-    
-  include_once '../functions/functions.php';
+    include_once '../functions/functions.php';
 
-
-    if(isset($_POST['deleteID'])) {      
-       $conn = connection();
-       $sql = "DELETE FROM Products WHERE  (productId = ".$_POST['deleteID'].") LIMIT 1";
-       $conn->query($sql);
-       echo $conn->affected_rows;
-  
-   } else if(isset($_POST['category']) && isset($_POST['productId'])) {
-       $conn = connection();
-       $sql = "UPDATE Products SET  category = '".$_POST['category']."' WHERE (productId = ".$_POST['productId'].")";
-       $conn->query($sql);
-       echo $conn->affected_rows;
-
-
-   } else if(isset($_POST['prodID']) && isset($_POST['amount'])) {
+    if(isset($_POST['deleteID']))
+    {      
+        $conn = connection();
+        $sql = "DELETE FROM Products WHERE  (productId = ".$_POST['deleteID'].") LIMIT 1";
+        $conn->query($sql);
+        echo $conn->affected_rows;
+    }
+    else if(isset($_POST['category']) && isset($_POST['productId']))
+    {
+        $conn = connection();
+        $sql = "UPDATE Products SET  category = '".$_POST['category']."' WHERE (productId = ".$_POST['productId'].")";
+        $conn->query($sql);
+        echo $conn->affected_rows;
+    }
+    else if(isset($_POST['prodID']) && isset($_POST['amount']))
+    {
         $conn = connection();
         $sql = "UPDATE Products SET  unitsInStock = '".$_POST['amount']."' WHERE (productId = ".$_POST['prodID'].")";
         $conn->query($sql);
         echo $conn->affected_rows;
+    }
+    else if ($_SERVER['REQUEST_METHOD'] == 'GET')
+    {
+        $sql = "SELECT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
+        $totProd = connection()->query($sql);
 
-  } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-       $sql = "SELECT productName, category, productId, unitsInStock FROM Products ORDER BY category ASC";
-       $totProd = connection()->query($sql);
-
-       echo ' <h1>Här kan du se befintliga och lägga till nya produkter</h1><br>
+        echo '
+            <h1>Här kan du se befintliga och lägga till nya produkter</h1><br>
             <div id="newProd">
                 <h4>Lägg till produkt</h4>
                 <form id="createProduct">
@@ -43,17 +45,20 @@
                     </select>
                     <button type="submit">
                         Submit
-                        </button>
+                    </button>
                 </form>
-            </div>';
+            </div>'
+        ;
 
-       echo "
-        <div id='adminProds'><ul>";
-            if($totProd->num_rows > 0) {
-                while($row = $totProd->fetch_assoc()){
-                    echo "
-                        <div class='prodList'>
-                            <li><strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "</li><li><strong>Units in stock:</strong> " .$row['unitsInStock']. "
+        echo "<div id='adminProds'><ul>";
+        if($totProd->num_rows > 0)
+        {
+            while($row = $totProd->fetch_assoc())
+            {
+                echo "
+                    <div class='prodList'>
+                        <li>
+                            <strong>Product name:</strong> " .$row['productName']. "</li><li><strong>Product cat:</strong> " .$row['category']. "</li><li><strong>Units in stock:</strong> " .$row['unitsInStock']. "
                             <br> 
                             <button type='button' onclick='Delete(".$row['productId'].")' class=''>Delete</button>
                             <select id='category".$row['productId']."'>
@@ -64,21 +69,16 @@
                             </select>
                             <input id='amount".$row['productId']."' type='number' name='units' placeholder='Amount'>
                             <button type='button' onclick='changeCategory(".$row['productId']."); changeAmount(".$row['productId'].");' class=''>Submit</button>
-                            </li>
-                        
-        </div>";
-                }
-                
-                
-       
-           if(isset($_GET["name"]) && isset($_GET["price"])){
-           $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
-           $create = connection()->query($sqlNew);
-        }
-      
-       }  
-   }
+                        </li>                        
+                    </div>"
+                ;
+            }
+            
+            if(isset($_GET["name"]) && isset($_GET["price"]))
+            {
+                $sqlNew = "INSERT productName, price, unitsInStock INTO Products WHERE productName = ".$_GET['name'].", price = ".$_GET['price']." ";
+                $create = connection()->query($sqlNew);
+            }
+        }  
+    }
 ?>
-
-
-

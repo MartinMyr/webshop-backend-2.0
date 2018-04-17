@@ -54,6 +54,14 @@ function createProduct() {
 function setSendStatus(ordID)
 {
     var send = $("#order" + ordID).is(":checked");
+    if(send === true)
+    {
+        send = 1;
+    }
+    else
+    {
+        send = 0;
+    }
 
     $.post("./admin/orders.php",
     {
