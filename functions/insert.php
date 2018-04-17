@@ -21,9 +21,7 @@
         return $id;
     }
     function insertOrder(){
-        
         $_SESSION["test"] = "TEST";
-        print_r($_SESSION);
 
         //SKAPAR RANDOM USER OCH PASS INLOGG TILL GUEST
         if(isset($_SESSION["memberIsLoggedIn"])){
@@ -31,9 +29,9 @@
             
         }
         else{
-            $guestUser = createGuestUser();
-            $_SESSION["guestpass"] = createGuestPass();
-            $nameOnuser = $guestUser;
+            $_SESSION["guestUser"] = createGuestUser();
+            $_SESSION["guestPass"] = createGuestPass();
+            $nameOnuser = $_SESSION["guestUser"];
         }
 
         //KOLLAR OM KUND LAGT TILL FRAKT
@@ -83,16 +81,17 @@
                     }
                 }
                 
-                
                 $sqlinsert = "INSERT INTO Order_details (orderId, productId, price, quantity)
                 VALUES (".$id["id"].", ".$orderTillDatabas["id"].",".$orderTillDatabas["price"].",".$orderTillDatabas['quantity'].")";
                 (mysqli_query(connection(), $sqlinsert));
 
             }
-            
-            insertUser($guestUser,"guest@guest.com",$guestPass,0,"guest");
-            
-            session_unset($_SESSION['CART']);
+            //SKICKAR GÄSTANVÄNDARE TILL DATABASEN
+            if(empty($_SESSION["memberIsLoggedIn"])){
+                insertUser($_SESSION["guestUser"],"guest@guest.com",$_SESSION["guestPass"],0,"guest");
+            }
+                
+            unset($_SESSION['CART']);
             header("location:thanks.php");
         }
     }

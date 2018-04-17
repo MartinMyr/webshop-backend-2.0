@@ -4,7 +4,11 @@
 ?>
 <div id='startDiv'>
     <?php 
-var_dump($_SESSION);
+
+        echo $_SESSION["guestUser"];
+        echo "<br>";
+        echo $_SESSION["guestPass"];
+
     $id = getLatesOrder();
         if(isset($_SESSION["memberIsLoggedIn"])){
             echo " <h1>Tack för din beställning ".$_SESSION["nameOnUser"].".</h1>
@@ -16,10 +20,10 @@ var_dump($_SESSION);
                     Här är dina inloggningsuppgifter för att se din beställning med ordernummer: <strong>".$id["id"]."</strong>.
                 </p>
                 <p>
-                    Användarnamn: <strong>".$_SESSION["nameOnUser"]."</strong>  
+                    Användarnamn: <strong>".$_SESSION["guestUser"]."</strong>  
                 </p>        
                 <p>
-                    Lösenord: <strong> ".$_SESSION["randomPassword"]."</strong>
+                    Lösenord: <strong> ".$_SESSION["guestPass"]."</strong>
                 </p> 
             ";
         }
