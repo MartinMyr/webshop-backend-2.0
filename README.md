@@ -1,5 +1,5 @@
 # webshop-backend-2.0
-<strong>Testa sidan live:</strong> "Site under construction"
+<strong>Testa sidan live:</strong> [Här](http://danielstena.wieg17.se/games/)
 
 <strong>Lösningar på problemen:</strong>
 
