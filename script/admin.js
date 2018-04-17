@@ -23,16 +23,18 @@ function Delete(prodID) {
     });
 }
 
+$("#createProduct").on("submit", function(e) {
+    e.preventDefault();
+    createProduct();
+});
 
 function createProduct() {
-    $('#pic'+prodID+' ').val();
-    $('#name'+prodID+' ').val();
-    $('#info'+prodID+' ').val();
-    $('#price'+prodID+' ').val();
-    $('#category'+prodID+' ').val();
+    var pic = $('#pic').val();
+    var name = $('#name').val();
+    var info = $('#info').val();
+    var price = $('#price').val();
+    var caty = $('#category option:selected').val();
     
-    
-
     //$.post("./admin/products.php", {addID: prodID}, function(results){
       //  if(results) viewProducts();
     //});
