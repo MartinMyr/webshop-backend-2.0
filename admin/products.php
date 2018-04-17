@@ -1,8 +1,9 @@
 <?php
     
   include_once '../functions/functions.php';
-  
-   if(isset($_POST['deleteID'])) {      
+
+
+    if(isset($_POST['deleteID'])) {      
        $conn = connection();
        $sql = "DELETE FROM Products WHERE  (productId = ".$_POST['deleteID'].") LIMIT 1";
        $conn->query($sql);

@@ -21,7 +21,7 @@
 
 -All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 +    Lösning:
-
+        Det gör vi!
 -Det ska finnas ett normaliserat diagram över databasen i gitrepot (G)
 +    Lösning:
 
@@ -78,7 +78,9 @@
 
 -När man gör en beställning ska man också få chansen att skriva upp sig för nyhetsbrevet (VG)
 +    Lösning:
-
+        Detta har vi löst med en "checkbox" i kundkorgen som man kan kryssa i om man vill ha nyhetsbrev.
+        En "isset" kollar då om post['cartNewsLetter] blir satt. 
+        Blir den satt så unsettas session och cookie för att visa samma nyhetsbrev som vi har på startsidan.
 -När besökare gör en beställning ska hen få ett lösenord till sidan där man kan logga in som kund (VG)
 +    Lösning:
 

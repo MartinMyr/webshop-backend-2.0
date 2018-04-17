@@ -8,10 +8,12 @@
 
 <div id="productButtons">
     <form method="GET">
-    <button type="submit" name="category" value="console" id="console">Konsoll</button>
-    <button type="submit" name="category" value="games" id="games">Spel</button>
-    <button type="submit" name="category" value="accessories" id="games">Tillbehör</button>
-</form>
+        <button type="submit" name="category" value="Nintendo" id="Nintendo">Nintendo</button>
+        <button type="submit" name="category" value="Sega" id="Sega">Sega</button>
+        <button type="submit" name="category" value="console" id="console">Konsoll</button>
+        <button type="submit" name="category" value="games" id="games">Spel</button>
+        <button type="submit" name="category" value="accessories" id="accessories">Tillbehör</button> 
+    </form>
 </div>
 <div class="cards">
     <?php
@@ -29,11 +31,6 @@
 
         if(!empty($_POST["quantity"])) {
             $conn = connection();
-    
-            // $itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"]));
-		
-            // mysqli_result Object ( [current_field] => 0 [field_count] => 5 [lengths] => [num_rows] => 0 [type] => 0 )
-
             $productByCode = $conn->query("SELECT productId, productName, info, price, unitsInStock FROM Products")->fetch_assoc();
          
             $itemArray = array($productByCode["productId"]=>array('name'=>$productByCode["productName"], 'code'=>$productByCode["productId"], 'quantity'=>$_POST["unitsInStock"], 'price'=>$productByCode["price"]));

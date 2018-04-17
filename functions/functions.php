@@ -152,7 +152,13 @@
     {
         $conn = connection();
 
-        $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '" . $_GET['category'] . "'";
+        // $sql = "SELECT category, productId, pic, productName, info, price, unitsInStock FROM Products WHERE category = '" . $_GET['category'] . "'";
+        $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
+        FROM Prod_cat_belonging AS pcb
+        INNER JOIN Products as p ON pcb.productId = p.productId
+        INNER JOIN Categorys as c ON pcb.categoryId = c.categoryId 
+        WHERE c.categoryName = '" . $_GET['category'] . "'";
+
         $result = $conn->query($sql);
 
         if($result->num_rows > 0)
@@ -269,7 +275,6 @@
     //     $userPass = "Pass".rand(1,1000);
     //     $_SESSION["randomPassword"] = $userPass;
     // }
-
-    if($_SESSION["memberIsLoggedIn"] == 1){
+    if($_SESSION["memberIsLoggedIn"] == 'true'){
         ?><script>sessionStorage.setItem("userLoggedIn","true");</script><?php
     }

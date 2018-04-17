@@ -57,6 +57,14 @@ class Accessorie extends Product{
 
    
 }
+class Nintendo extends Product{
+
+   
+}
+class Sega extends Product{
+
+   
+}
 
 
 ?>

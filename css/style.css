@@ -57,7 +57,9 @@ footer { grid-area: footer;
 
 /* MENY START */
 
-.menu { grid-area: meny; 
+.menu {
+    grid-area: meny; 
+    position: absolute;
     display: flex;
     flex-direction: column;
     font-family: 'Press Start 2P', cursive;
@@ -65,16 +67,17 @@ footer { grid-area: footer;
     font-size: 18px;
     font-weight: 900;
     height:480px;
+    width: 200px;
     border-bottom-right-radius: 10%;
     border-right:3px solid black;
     border-bottom:3px solid black;
+    left: 0px;
 }
 .menu a{
     color:black;
 }
 
 .sticky {
-    width:200px;
     position: fixed;
     top: 0;
 }
@@ -194,17 +197,18 @@ footer { grid-area: footer;
     justify-content: space-evenly;
     margin-top:25px;
     top:0px;
-    left:34vw;
+    left:28vw;
+    width:900px;
 }
 
-#console, #games ,#accessories{
-    width:190px;
+#console, #games ,#accessories, #Nintendo, #Sega{
+    width:145px;
     height:55px;
-    font-size: 15px;
+    font-size: 14px;
     font-family: 'Press Start 2P', cursive;
     border:3px solid black;
-    margin-left:20px;
-    margin-right:20px;
+    margin-left:10px;
+    margin-right:10px;
     background-color: lightgrey;
 } 
 
