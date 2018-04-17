@@ -143,7 +143,7 @@
     {
         $conn = connection();
 
-        if(isset($_GET['subCategory']))
+        if(isset($_GET['category']) && isset($_GET['subCategory']))
         {
             $sql = "SELECT p.category, p.productId, p.pic, p.productName, p.info, p.price, p.unitsInStock
             FROM Prod_cat_belonging AS pcb
@@ -155,7 +155,7 @@
                 SELECT productId
                 FROM Prod_cat_belonging
                 INNER JOIN Categorys ON Categorys.categoryId = Prod_cat_belonging.categoryId
-                WHERE categoryName = '" . $_GET["subcategory"] . "'
+                WHERE categoryName = '" . $_GET["subCategory"] . "'
             )";
         }
         else

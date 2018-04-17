@@ -12,6 +12,7 @@
     </div>
     <div id="subProductButtons">
         <form method="GET">
+            <?php if(isset($_GET["category"]) && !empty($_GET["category"])) { echo '<input type="hidden" name="category" value="' . $_GET["category"] . '">'; } ?>
             <button type="submit" name="subCategory" value="consoles" id="console">Konsoll</button>
             <button type="submit" name="subCategory" value="games" id="games">Spel</button>
             <button type="submit" name="subCategory" value="accessories" id="accessories">Tillbehör</button> 
