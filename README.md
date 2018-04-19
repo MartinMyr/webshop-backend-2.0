@@ -1,5 +1,6 @@
 # webshop-backend-2.0
 <strong>Testa sidan live:</strong> [Här](http://martinmyrmarker.wieg17.se/hejhopp/)
+Inlogg till adminsidan: Anv: guest  Pass: guest
 
 <strong>Lösningar på problemen:</strong>
 
