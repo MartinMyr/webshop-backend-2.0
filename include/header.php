@@ -1,8 +1,5 @@
 <?php 
-    if (!isset($_SESSION))
-    {
-        session_start();
-    }
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,8 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <script src="./script/ajax.js"></script>
-    <script src="./script/login.js"></script>
-    <script src="./script/admin.js"></script>
 </head>
 <body>
     
@@ -57,7 +52,9 @@
             <div class="linkDiv" id="loginDiv">
                 <a href="login.php">Login</a>
             </div>  
-            <div class='linkDiv' id='member'></div>
+            <div class='linkDiv'>
+                    <a href='member.php'>Medlem</a>
+            </div>
 
             <?php
                 if(isset($_SESSION["inloggad"])){

@@ -116,10 +116,11 @@
 				?>
 			</td> 
 		</tr>
+		<button id='newsletterUnsett'onclick='newsletterUnsett();'>Newsletter?</button>
 		<tr>
 		<td colspan="3">
 			<form action="cart.php" method="POST">
-				Önskar du vårat nyhetsbrev <input type="radio" name="cartNewsLetter">
+				
 			</td>
 		</tr>
 		<tr>

@@ -17,7 +17,7 @@ if(sessionStorage.getItem('newsletter') !== 'true'){
 }
 else
 {
-  $("#newsletter").remove();
+  $("#newsletter").hide();
 }
 
 $(".hideNewsletter").click(function(){
@@ -57,6 +57,7 @@ function signUp(){
 
 
 
-
-
-
+function newsletterUnsett(){
+  sessionStorage.removeItem('newsletter');
+  location.reload();
+};
